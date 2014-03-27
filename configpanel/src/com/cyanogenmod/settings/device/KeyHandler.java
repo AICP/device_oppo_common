@@ -17,8 +17,6 @@ import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 
 import com.android.internal.os.DeviceKeyHandler;
-import com.android.internal.util.cm.NavigationRingHelpers;
-import com.android.internal.util.cm.TorchConstants;
 
 public class KeyHandler implements DeviceKeyHandler {
 
@@ -34,8 +32,6 @@ public class KeyHandler implements DeviceKeyHandler {
 
     private final Context mContext;
     private final PowerManager mPowerManager;
-    private static final IntentFilter TORCH_STATE_FILTER =
-            new IntentFilter(TorchConstants.ACTION_STATE_CHANGED);
 
     public KeyHandler(Context context) {
         mContext = context;
@@ -65,16 +61,7 @@ public class KeyHandler implements DeviceKeyHandler {
             consumed = true;
             break;
         case GESTURE_V_SCANCODE:
-            if (NavigationRingHelpers.isTorchAvailable(mContext)) {
-                Intent torchIntent = new Intent(TorchConstants.ACTION_TOGGLE_STATE);
-                mContext.sendBroadcast(torchIntent);
-                if (!isTorchActive()) {
-                    wakeUpDismissKeyguard();
-                    Intent i = TorchConstants.INTENT_LAUNCH_APP;
-                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    mContext.startActivity(i);
-                }
-            }
+            // TODO add torch
             consumed = true;
             break;
         case GESTURE_LTR_SCANCODE:
@@ -109,13 +96,6 @@ public class KeyHandler implements DeviceKeyHandler {
         } catch (RemoteException e) {
         }
 
-    }
-
-    private boolean isTorchActive() {
-        Intent stateIntent = mContext.registerReceiver(null, TORCH_STATE_FILTER);
-        boolean active = stateIntent != null
-                && stateIntent.getIntExtra(TorchConstants.EXTRA_CURRENT_STATE, 0) != 0;
-        return active;
     }
 
     private IAudioService getAudioService() {
