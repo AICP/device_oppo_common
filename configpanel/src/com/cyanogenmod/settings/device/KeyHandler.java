@@ -1,22 +1,23 @@
 package com.cyanogenmod.settings.device;
 
 import android.app.ActivityManagerNative;
+import android.content.ActivityNotFoundException;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.hardware.input.InputManager;
 import android.media.IAudioService;
 import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemClock;
-import android.os.UserHandle;
+import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Log;
-import android.view.InputDevice;
-import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 
 import com.android.internal.os.DeviceKeyHandler;
+import com.android.internal.widget.LockPatternUtils;
 
 public class KeyHandler implements DeviceKeyHandler {
 
@@ -30,13 +31,43 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int GESTURE_LTR_SCANCODE = 253;
     private static final int GESTURE_GTR_SCANCODE = 254;
 
+    private Intent mPendingIntent;
+    private LockPatternUtils mLockPatternUtils;
     private final Context mContext;
     private final PowerManager mPowerManager;
 
     public KeyHandler(Context context) {
         mContext = context;
         mPowerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+        mLockPatternUtils = new LockPatternUtils(context);
+
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_USER_PRESENT);
+        filter.addAction(Intent.ACTION_SCREEN_OFF);
+        context.registerReceiver(mReceiver, filter);
     }
+
+    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent == null) {
+                return;
+            }
+            String action = intent.getAction();
+            if (TextUtils.equals(action, Intent.ACTION_USER_PRESENT)) {
+                if (mPendingIntent != null) {
+                    try {
+                        mContext.startActivity(mPendingIntent);
+                    } catch (ActivityNotFoundException e) {
+                    }
+                    mPendingIntent = null;
+                }
+            } else if (TextUtils.equals(action, Intent.ACTION_SCREEN_OFF)) {
+                mPendingIntent = null;
+            }
+        }
+    };
+
 
     public boolean handleKeyEvent(KeyEvent event) {
         if (event.getAction() != KeyEvent.ACTION_UP && event.getScanCode() != FLIP_CAMERA_SCANCODE) {
@@ -49,11 +80,8 @@ public class KeyHandler implements DeviceKeyHandler {
                 break;
             }
         case GESTURE_CIRCLE_SCANCODE:
-            wakeUpDismissKeyguard();
-            Intent intent = new Intent(Intent.ACTION_CAMERA_BUTTON, null);
-            intent.putExtra(Intent.EXTRA_KEY_EVENT, event);
-            mContext.sendOrderedBroadcastAsUser(intent, UserHandle.CURRENT_OR_SELF,
-                    null, null, null, 0, null, null);
+            Intent intent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA, null);
+            startActivitySafely(intent);
             consumed = true;
             break;
         case GESTURE_SWIPE_DOWN_SCANCODE:
@@ -74,28 +102,6 @@ public class KeyHandler implements DeviceKeyHandler {
             break;
         }
         return consumed;
-    }
-
-    private void triggerVirtualKeypress(final int keyCode) {
-        InputManager im = InputManager.getInstance();
-        long now = SystemClock.uptimeMillis();
-
-        final KeyEvent downEvent = new KeyEvent(now, now, KeyEvent.ACTION_DOWN,
-                keyCode, 0, 0, KeyCharacterMap.VIRTUAL_KEYBOARD, 0,
-                KeyEvent.FLAG_FROM_SYSTEM, InputDevice.SOURCE_KEYBOARD);
-        final KeyEvent upEvent = KeyEvent.changeAction(downEvent, KeyEvent.ACTION_UP);
-
-        im.injectInputEvent(downEvent, InputManager.INJECT_INPUT_EVENT_MODE_WAIT_FOR_FINISH);
-        im.injectInputEvent(upEvent, InputManager.INJECT_INPUT_EVENT_MODE_WAIT_FOR_FINISH);
-    }
-
-    private void wakeUpDismissKeyguard() {
-        try {
-            ActivityManagerNative.getDefault().dismissKeyguardOnNextActivity();
-            mPowerManager.wakeUp(SystemClock.uptimeMillis());
-        } catch (RemoteException e) {
-        }
-
     }
 
     private IAudioService getAudioService() {
@@ -120,6 +126,24 @@ public class KeyHandler implements DeviceKeyHandler {
                 } catch (RemoteException e) {
                     Log.e(TAG, "dispatchMediaKeyEvent threw exception " + e);
                 }
+            }
+        }
+    }
+
+    private void startActivitySafely(Intent intent) {
+        intent.addFlags(
+                Intent.FLAG_ACTIVITY_NEW_TASK
+                | Intent.FLAG_ACTIVITY_SINGLE_TOP
+                | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        mPowerManager.wakeUp(SystemClock.uptimeMillis());
+        if (mLockPatternUtils.isSecure()) {
+            mPendingIntent = intent;
+        } else {
+            try {
+                ActivityManagerNative.getDefault().dismissKeyguardOnNextActivity();
+                mContext.startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+            } catch (RemoteException e) {
             }
         }
     }
