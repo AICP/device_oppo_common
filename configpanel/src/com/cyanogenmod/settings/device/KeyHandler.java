@@ -1,6 +1,7 @@
 package com.cyanogenmod.settings.device;
 
 import android.app.ActivityManagerNative;
+import android.app.KeyguardManager;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -17,7 +18,6 @@ import android.util.Log;
 import android.view.KeyEvent;
 
 import com.android.internal.os.DeviceKeyHandler;
-import com.android.internal.widget.LockPatternUtils;
 
 public class KeyHandler implements DeviceKeyHandler {
 
@@ -33,19 +33,24 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int KEY_DOUBLE_TAP = 255;
 
     private Intent mPendingIntent;
-    private LockPatternUtils mLockPatternUtils;
     private final Context mContext;
     private final PowerManager mPowerManager;
+    private KeyguardManager mKeyguardManager;
 
     public KeyHandler(Context context) {
         mContext = context;
         mPowerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-        mLockPatternUtils = new LockPatternUtils(context);
 
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_USER_PRESENT);
         filter.addAction(Intent.ACTION_SCREEN_OFF);
         context.registerReceiver(mReceiver, filter);
+    }
+
+    private void ensureKeyguardManager() {
+        if (mKeyguardManager == null) {
+            mKeyguardManager = (KeyguardManager) mContext.getSystemService(Context.KEYGUARD_SERVICE);
+        }
     }
 
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
@@ -63,7 +68,7 @@ public class KeyHandler implements DeviceKeyHandler {
                     }
                     mPendingIntent = null;
                 }
-            } else if (TextUtils.equals(action, Intent.ACTION_SCREEN_OFF)) {
+            } else if (TextUtils.equals(action, Intent.ACTION_SCREEN_OFF) && !mPowerManager.isScreenOn()) {
                 mPendingIntent = null;
             }
         }
@@ -143,7 +148,8 @@ public class KeyHandler implements DeviceKeyHandler {
                 | Intent.FLAG_ACTIVITY_SINGLE_TOP
                 | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         mPowerManager.wakeUp(SystemClock.uptimeMillis());
-        if (mLockPatternUtils.isSecure()) {
+        ensureKeyguardManager();
+        if (mKeyguardManager.isKeyguardSecure() && mKeyguardManager.isKeyguardLocked()) {
             mPendingIntent = intent;
         } else {
             try {
