@@ -3,17 +3,15 @@ package com.cyanogenmod.settings.device;
 import android.app.ActivityManagerNative;
 import android.app.KeyguardManager;
 import android.content.ActivityNotFoundException;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.media.IAudioService;
 import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemClock;
+import android.os.UserHandle;
 import android.provider.MediaStore;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 
@@ -32,7 +30,6 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int GESTURE_GTR_SCANCODE = 254;
     private static final int KEY_DOUBLE_TAP = 255;
 
-    private Intent mPendingIntent;
     private final Context mContext;
     private final PowerManager mPowerManager;
     private KeyguardManager mKeyguardManager;
@@ -40,11 +37,6 @@ public class KeyHandler implements DeviceKeyHandler {
     public KeyHandler(Context context) {
         mContext = context;
         mPowerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(Intent.ACTION_USER_PRESENT);
-        filter.addAction(Intent.ACTION_SCREEN_OFF);
-        context.registerReceiver(mReceiver, filter);
     }
 
     private void ensureKeyguardManager() {
@@ -52,28 +44,6 @@ public class KeyHandler implements DeviceKeyHandler {
             mKeyguardManager = (KeyguardManager) mContext.getSystemService(Context.KEYGUARD_SERVICE);
         }
     }
-
-    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (intent == null) {
-                return;
-            }
-            String action = intent.getAction();
-            if (TextUtils.equals(action, Intent.ACTION_USER_PRESENT)) {
-                if (mPendingIntent != null) {
-                    try {
-                        mContext.startActivity(mPendingIntent);
-                    } catch (ActivityNotFoundException e) {
-                    }
-                    mPendingIntent = null;
-                }
-            } else if (TextUtils.equals(action, Intent.ACTION_SCREEN_OFF) && !mPowerManager.isScreenOn()) {
-                mPendingIntent = null;
-            }
-        }
-    };
-
 
     public boolean handleKeyEvent(KeyEvent event) {
         if (event.getAction() != KeyEvent.ACTION_UP && event.getScanCode() != FLIP_CAMERA_SCANCODE) {
@@ -86,7 +56,14 @@ public class KeyHandler implements DeviceKeyHandler {
                 break;
             }
         case GESTURE_CIRCLE_SCANCODE:
-            Intent intent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA, null);
+            ensureKeyguardManager();
+            String action = null;
+            if (mKeyguardManager.isKeyguardSecure() && mKeyguardManager.isKeyguardLocked()) {
+                action = MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA_SECURE;
+            } else {
+                action = MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA;
+            }
+            Intent intent = new Intent(action, null);
             startActivitySafely(intent);
             consumed = true;
             break;
@@ -148,16 +125,17 @@ public class KeyHandler implements DeviceKeyHandler {
                 | Intent.FLAG_ACTIVITY_SINGLE_TOP
                 | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         mPowerManager.wakeUp(SystemClock.uptimeMillis());
-        ensureKeyguardManager();
-        if (mKeyguardManager.isKeyguardSecure() && mKeyguardManager.isKeyguardLocked()) {
-            mPendingIntent = intent;
-        } else {
+        if (!mKeyguardManager.isKeyguardSecure() || !mKeyguardManager.isKeyguardLocked()) {
             try {
                 ActivityManagerNative.getDefault().dismissKeyguardOnNextActivity();
-                mContext.startActivity(intent);
-            } catch (ActivityNotFoundException e) {
             } catch (RemoteException e) {
+                Log.w(TAG, "can't dismiss keyguard on launch");
             }
+        }
+        try {
+            UserHandle user = new UserHandle(UserHandle.USER_CURRENT);
+            mContext.startActivityAsUser(intent, null, user);
+        } catch (ActivityNotFoundException e) {
         }
     }
 }
