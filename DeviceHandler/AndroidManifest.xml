@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          android:sharedUserId="android.uid.system"
+          package="com.slim.device"
+          android:versionCode="1"
+          android:versionName="1" >
+
+    <uses-permission android:name="android.permission.INJECT_EVENTS"/>
+
+    <uses-sdk
+            android:minSdkVersion="18"
+            android:targetSdkVersion="19" />
+
+    <application
+            android:icon="@android:drawable/sym_def_app_icon"
+            android:label="DeviceHandler"
+            >
+
+        <!-- stub to ensure its loaded - DO NOT REMOVE -->
+        <activity android:name=".KeyHandler" />
+
+    </application>
+
+</manifest>
