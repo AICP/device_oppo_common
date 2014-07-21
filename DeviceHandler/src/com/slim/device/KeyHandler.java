@@ -1,7 +1,6 @@
 package com.slim.device;
 
 import android.app.ActivityManagerNative;
-import android.app.KeyguardManager;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -19,6 +18,7 @@ import android.os.SystemClock;
 import android.os.UserHandle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.IWindowManager;
 import android.view.KeyEvent;
 
 import com.android.internal.os.DeviceKeyHandler;
@@ -52,7 +52,7 @@ public class KeyHandler implements DeviceKeyHandler {
 
     private final Context mContext;
     private final PowerManager mPowerManager;
-    private KeyguardManager mKeyguardManager;
+    private IWindowManager mWindowManagerService;
     private EventHandler mEventHandler;
     private SensorManager mSensorManager;
     private Sensor mProximitySensor;
@@ -65,10 +65,10 @@ public class KeyHandler implements DeviceKeyHandler {
         mProximitySensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
     }
 
-    private void ensureKeyguardManager() {
-        if (mKeyguardManager == null) {
-            mKeyguardManager =
-                    (KeyguardManager) mContext.getSystemService(Context.KEYGUARD_SERVICE);
+    private void ensureWindowManagerService() {
+        if (mWindowManagerService == null) {
+            mWindowManagerService = IWindowManager.Stub.asInterface(
+                    ServiceManager.getService(Context.WINDOW_SERVICE));
         }
     }
 
@@ -82,14 +82,7 @@ public class KeyHandler implements DeviceKeyHandler {
                     break;
                 }
             case GESTURE_CIRCLE_SCANCODE:
-                ensureKeyguardManager();
-                String action = null;
-                if (mKeyguardManager.isKeyguardSecure() && mKeyguardManager.isKeyguardLocked()) {
-                    action = MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA_SECURE;
-                } else {
-                    action = MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA;
-                }
-                Intent intent = new Intent(action, null);
+                Intent intent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA, null);
                 startActivitySafely(intent);
                 break;
             case GESTURE_SWIPE_DOWN_SCANCODE:
@@ -187,22 +180,32 @@ public class KeyHandler implements DeviceKeyHandler {
     }
 
     private void startActivitySafely(Intent intent) {
+        ensureWindowManagerService();
+        mPowerManager.wakeUp(SystemClock.uptimeMillis());
+
         intent.addFlags(
                 Intent.FLAG_ACTIVITY_NEW_TASK
                 | Intent.FLAG_ACTIVITY_SINGLE_TOP
                 | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        mPowerManager.wakeUp(SystemClock.uptimeMillis());
-        if (!mKeyguardManager.isKeyguardSecure() || !mKeyguardManager.isKeyguardLocked()) {
-            try {
-                ActivityManagerNative.getDefault().dismissKeyguardOnNextActivity();
-            } catch (RemoteException e) {
-                Log.w(TAG, "can't dismiss keyguard on launch");
-            }
-        }
+
+        boolean isKeyguardShowing = false;
         try {
-            UserHandle user = new UserHandle(UserHandle.USER_CURRENT);
-            mContext.startActivityAsUser(intent, null, user);
-        } catch (ActivityNotFoundException e) {
+            isKeyguardShowing = mWindowManagerService.isKeyguardLocked();
+        } catch (RemoteException e) {
+        }
+
+        if (isKeyguardShowing) {
+            // Have keyguard show the bouncer and launch the activity if the user succeeds.
+            try {
+                mWindowManagerService.showCustomIntentOnKeyguard(intent);
+            } catch (RemoteException e) {
+            }
+        } else {
+            try {
+                mContext.startActivityAsUser(intent,
+                        new UserHandle(UserHandle.USER_CURRENT));
+            } catch (ActivityNotFoundException e) {
+            }
         }
     }
 }
