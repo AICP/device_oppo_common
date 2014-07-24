@@ -32,7 +32,7 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int GESTURE_REQUEST = 1;
 
     // Supported scancodes
-    private static final int FLIP_CAMERA_SCANCODE = 249;
+    private static final int GESTURE_V_UP_SCANCODE = 249;
     private static final int GESTURE_CIRCLE_SCANCODE = 250;
     private static final int GESTURE_SWIPE_DOWN_SCANCODE = 251;
     private static final int GESTURE_V_SCANCODE = 252;
@@ -41,10 +41,10 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int KEY_DOUBLE_TAP = 255;
 
     private static final int[] sSupportedGestures = new int[]{
-        FLIP_CAMERA_SCANCODE,
         GESTURE_CIRCLE_SCANCODE,
         GESTURE_SWIPE_DOWN_SCANCODE,
         GESTURE_V_SCANCODE,
+        GESTURE_V_UP_SCANCODE,
         GESTURE_LTR_SCANCODE,
         GESTURE_GTR_SCANCODE,
         KEY_DOUBLE_TAP
@@ -77,10 +77,6 @@ public class KeyHandler implements DeviceKeyHandler {
         public void handleMessage(Message msg) {
             KeyEvent event = (KeyEvent) msg.obj;
             switch(event.getScanCode()) {
-            case FLIP_CAMERA_SCANCODE:
-                if (event.getAction() == KeyEvent.ACTION_UP) {
-                    break;
-                }
             case GESTURE_CIRCLE_SCANCODE:
                 Intent intent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA, null);
                 startActivitySafely(intent);
@@ -90,6 +86,9 @@ public class KeyHandler implements DeviceKeyHandler {
                 break;
             case GESTURE_V_SCANCODE:
                 SlimActions.processAction(mContext, ButtonsConstants.ACTION_VIB_SILENT, false);
+                break;
+            case GESTURE_V_UP_SCANCODE:
+                SlimActions.processAction(mContext, ButtonsConstants.ACTION_TORCH, false);
                 break;
             case GESTURE_LTR_SCANCODE:
                 dispatchMediaKeyWithWakeLockToAudioService(KeyEvent.KEYCODE_MEDIA_PREVIOUS);
@@ -107,8 +106,7 @@ public class KeyHandler implements DeviceKeyHandler {
     }
 
     public boolean handleKeyEvent(KeyEvent event) {
-        if (event.getAction() != KeyEvent.ACTION_UP
-                && event.getScanCode() != FLIP_CAMERA_SCANCODE) {
+        if (event.getAction() != KeyEvent.ACTION_UP) {
             return false;
         }
         boolean isKeySupported = ArrayUtils.contains(sSupportedGestures, event.getScanCode());
