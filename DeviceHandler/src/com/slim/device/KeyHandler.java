@@ -1,25 +1,34 @@
+/*
+ * Copyright (C) 2014 Slimroms
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.slim.device;
 
-import android.app.ActivityManagerNative;
-import android.content.ActivityNotFoundException;
+import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.media.IAudioService;
 import android.os.Handler;
 import android.os.Message;
-import android.os.PowerManager;
-import android.os.RemoteException;
-import android.os.ServiceManager;
-import android.os.SystemClock;
-import android.os.UserHandle;
-import android.provider.MediaStore;
 import android.util.Log;
-import android.view.IWindowManager;
 import android.view.KeyEvent;
+
+import com.slim.device.settings.ScreenOffGesture;
 
 import com.android.internal.os.DeviceKeyHandler;
 import com.android.internal.util.ArrayUtils;
@@ -51,24 +60,21 @@ public class KeyHandler implements DeviceKeyHandler {
     };
 
     private final Context mContext;
-    private final PowerManager mPowerManager;
-    private IWindowManager mWindowManagerService;
+    private Context mGestureContext = null;
     private EventHandler mEventHandler;
     private SensorManager mSensorManager;
     private Sensor mProximitySensor;
 
     public KeyHandler(Context context) {
         mContext = context;
-        mPowerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
         mEventHandler = new EventHandler();
         mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
         mProximitySensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
-    }
 
-    private void ensureWindowManagerService() {
-        if (mWindowManagerService == null) {
-            mWindowManagerService = IWindowManager.Stub.asInterface(
-                    ServiceManager.getService(Context.WINDOW_SERVICE));
+        try {
+            mGestureContext = mContext.createPackageContext(
+                    "com.slim.device", Context.CONTEXT_IGNORE_SECURITY);
+        } catch (NameNotFoundException e) {
         }
     }
 
@@ -76,33 +82,59 @@ public class KeyHandler implements DeviceKeyHandler {
         @Override
         public void handleMessage(Message msg) {
             KeyEvent event = (KeyEvent) msg.obj;
+            String action = null;
             switch(event.getScanCode()) {
             case GESTURE_CIRCLE_SCANCODE:
-                Intent intent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA, null);
-                startActivitySafely(intent);
+                action = getGestureSharedPreferences()
+                        .getString(ScreenOffGesture.PREF_GESTURE_CIRCLE,
+                        ButtonsConstants.ACTION_CAMERA);
                 break;
             case GESTURE_SWIPE_DOWN_SCANCODE:
-                dispatchMediaKeyWithWakeLockToAudioService(KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE);
+                action = getGestureSharedPreferences()
+                        .getString(ScreenOffGesture.PREF_GESTURE_DOUBLE_SWIPE,
+                        ButtonsConstants.ACTION_MEDIA_PLAY_PAUSE);
                 break;
             case GESTURE_V_SCANCODE:
-                SlimActions.processAction(mContext, ButtonsConstants.ACTION_VIB_SILENT, false);
+                action = getGestureSharedPreferences()
+                        .getString(ScreenOffGesture.PREF_GESTURE_ARROW_DOWN,
+                        ButtonsConstants.ACTION_VIB_SILENT);
                 break;
             case GESTURE_V_UP_SCANCODE:
-                SlimActions.processAction(mContext, ButtonsConstants.ACTION_TORCH, false);
+                action = getGestureSharedPreferences()
+                        .getString(ScreenOffGesture.PREF_GESTURE_ARROW_UP,
+                        ButtonsConstants.ACTION_TORCH);
                 break;
             case GESTURE_LTR_SCANCODE:
-                dispatchMediaKeyWithWakeLockToAudioService(KeyEvent.KEYCODE_MEDIA_PREVIOUS);
+                action = getGestureSharedPreferences()
+                        .getString(ScreenOffGesture.PREF_GESTURE_ARROW_LEFT,
+                        ButtonsConstants.ACTION_MEDIA_PREVIOUS);
                 break;
             case GESTURE_GTR_SCANCODE:
-                dispatchMediaKeyWithWakeLockToAudioService(KeyEvent.KEYCODE_MEDIA_NEXT);
+                action = getGestureSharedPreferences()
+                        .getString(ScreenOffGesture.PREF_GESTURE_ARROW_RIGHT,
+                        ButtonsConstants.ACTION_MEDIA_NEXT);
                 break;
             case KEY_DOUBLE_TAP:
-                if (!mPowerManager.isScreenOn()) {
-                    mPowerManager.wakeUp(SystemClock.uptimeMillis());
-                }
+                action = getGestureSharedPreferences()
+                        .getString(ScreenOffGesture.PREF_GESTURE_DOUBLE_TAP,
+                        ButtonsConstants.ACTION_WAKE_DEVICE);
                 break;
             }
+            if (action == null || action != null && action.equals(ButtonsConstants.ACTION_NULL)) {
+                return;
+            }
+            if (action.equals(ButtonsConstants.ACTION_CAMERA)
+                    || !action.startsWith("**")) {
+                SlimActions.processAction(mContext, ButtonsConstants.ACTION_WAKE_DEVICE, false);
+            }
+            SlimActions.processAction(mContext, action, false);
         }
+    }
+
+    private SharedPreferences getGestureSharedPreferences() {
+        return mGestureContext.getSharedPreferences(
+                ScreenOffGesture.GESTURE_SETTINGS,
+                Context.MODE_PRIVATE | Context.MODE_MULTI_PROCESS);
     }
 
     public boolean handleKeyEvent(KeyEvent event) {
@@ -151,59 +183,4 @@ public class KeyHandler implements DeviceKeyHandler {
         }, mProximitySensor, SensorManager.SENSOR_DELAY_FASTEST);
     }
 
-    private IAudioService getAudioService() {
-        IAudioService audioService = IAudioService.Stub.asInterface(
-                ServiceManager.checkService(Context.AUDIO_SERVICE));
-        if (audioService == null) {
-            Log.w(TAG, "Unable to find IAudioService interface.");
-        }
-        return audioService;
-    }
-
-    private void dispatchMediaKeyWithWakeLockToAudioService(int keycode) {
-        if (ActivityManagerNative.isSystemReady()) {
-            IAudioService audioService = getAudioService();
-            if (audioService != null) {
-                try {
-                    KeyEvent event = new KeyEvent(SystemClock.uptimeMillis(),
-                            SystemClock.uptimeMillis(), KeyEvent.ACTION_DOWN, keycode, 0);
-                    audioService.dispatchMediaKeyEventUnderWakelock(event);
-                    event = KeyEvent.changeAction(event, KeyEvent.ACTION_UP);
-                    audioService.dispatchMediaKeyEventUnderWakelock(event);
-                } catch (RemoteException e) {
-                    Log.e(TAG, "dispatchMediaKeyEvent threw exception " + e);
-                }
-            }
-        }
-    }
-
-    private void startActivitySafely(Intent intent) {
-        ensureWindowManagerService();
-        mPowerManager.wakeUp(SystemClock.uptimeMillis());
-
-        intent.addFlags(
-                Intent.FLAG_ACTIVITY_NEW_TASK
-                | Intent.FLAG_ACTIVITY_SINGLE_TOP
-                | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-        boolean isKeyguardShowing = false;
-        try {
-            isKeyguardShowing = mWindowManagerService.isKeyguardLocked();
-        } catch (RemoteException e) {
-        }
-
-        if (isKeyguardShowing) {
-            // Have keyguard show the bouncer and launch the activity if the user succeeds.
-            try {
-                mWindowManagerService.showCustomIntentOnKeyguard(intent);
-            } catch (RemoteException e) {
-            }
-        } else {
-            try {
-                mContext.startActivityAsUser(intent,
-                        new UserHandle(UserHandle.USER_CURRENT));
-            } catch (ActivityNotFoundException e) {
-            }
-        }
-    }
 }
