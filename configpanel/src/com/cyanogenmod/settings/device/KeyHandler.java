@@ -22,7 +22,10 @@ import android.util.Log;
 import android.view.KeyEvent;
 
 import com.android.internal.os.DeviceKeyHandler;
+import com.android.internal.util.aokp.AwesomeAction;
 import com.android.internal.util.ArrayUtils;
+
+import static com.android.internal.util.aokp.AwesomeConstants.*;
 
 public class KeyHandler implements DeviceKeyHandler {
 
@@ -93,7 +96,7 @@ public class KeyHandler implements DeviceKeyHandler {
                 dispatchMediaKeyWithWakeLockToAudioService(KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE);
                 break;
             case GESTURE_V_SCANCODE:
-                // TODO add torch
+                AwesomeAction.launchAction(mContext, AwesomeConstant.ACTION_TORCH.value());
                 break;
             case GESTURE_LTR_SCANCODE:
                 dispatchMediaKeyWithWakeLockToAudioService(KeyEvent.KEYCODE_MEDIA_PREVIOUS);
