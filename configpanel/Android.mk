@@ -14,11 +14,11 @@
 # limitations under the License.
 #
 
-#LOCAL_PATH := $(call my-dir)
-#include $(CLEAR_VARS)
+LOCAL_PATH := $(call my-dir)
+include $(CLEAR_VARS)
 
-#LOCAL_SRC_FILES := $(call all-java-files-under, src)
-#LOCAL_CERTIFICATE := platform
-#LOCAL_PACKAGE_NAME := ConfigPanel
+LOCAL_SRC_FILES := $(call all-java-files-under, src)
+LOCAL_CERTIFICATE := platform
+LOCAL_PACKAGE_NAME := ConfigPanel
 
-#include $(BUILD_PACKAGE)
+include $(BUILD_PACKAGE)
