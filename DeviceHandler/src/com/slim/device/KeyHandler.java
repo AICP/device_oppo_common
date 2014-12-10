@@ -34,8 +34,8 @@ import com.slim.device.settings.ScreenOffGesture;
 
 import com.android.internal.os.DeviceKeyHandler;
 import com.android.internal.util.ArrayUtils;
-import com.android.internal.util.slim.ButtonsConstants;
-import com.android.internal.util.slim.SlimActions;
+import com.android.internal.util.slim.ActionConstants;
+import com.android.internal.util.slim.Action;
 
 public class KeyHandler implements DeviceKeyHandler {
 
@@ -94,47 +94,47 @@ public class KeyHandler implements DeviceKeyHandler {
             case GESTURE_CIRCLE_SCANCODE:
                 action = getGestureSharedPreferences()
                         .getString(ScreenOffGesture.PREF_GESTURE_CIRCLE,
-                        ButtonsConstants.ACTION_CAMERA);
+                        ActionConstants.ACTION_CAMERA);
                 break;
             case GESTURE_SWIPE_DOWN_SCANCODE:
                 action = getGestureSharedPreferences()
                         .getString(ScreenOffGesture.PREF_GESTURE_DOUBLE_SWIPE,
-                        ButtonsConstants.ACTION_MEDIA_PLAY_PAUSE);
+                        ActionConstants.ACTION_MEDIA_PLAY_PAUSE);
                 break;
             case GESTURE_V_SCANCODE:
                 action = getGestureSharedPreferences()
                         .getString(ScreenOffGesture.PREF_GESTURE_ARROW_DOWN,
-                        ButtonsConstants.ACTION_VIB_SILENT);
+                        ActionConstants.ACTION_VIB_SILENT);
                 break;
             case GESTURE_V_UP_SCANCODE:
                 action = getGestureSharedPreferences()
                         .getString(ScreenOffGesture.PREF_GESTURE_ARROW_UP,
-                        ButtonsConstants.ACTION_TORCH);
+                        ActionConstants.ACTION_TORCH);
                 break;
             case GESTURE_LTR_SCANCODE:
                 action = getGestureSharedPreferences()
                         .getString(ScreenOffGesture.PREF_GESTURE_ARROW_LEFT,
-                        ButtonsConstants.ACTION_MEDIA_PREVIOUS);
+                        ActionConstants.ACTION_MEDIA_PREVIOUS);
                 break;
             case GESTURE_GTR_SCANCODE:
                 action = getGestureSharedPreferences()
                         .getString(ScreenOffGesture.PREF_GESTURE_ARROW_RIGHT,
-                        ButtonsConstants.ACTION_MEDIA_NEXT);
+                        ActionConstants.ACTION_MEDIA_NEXT);
                 break;
             case KEY_DOUBLE_TAP:
                 action = getGestureSharedPreferences()
                         .getString(ScreenOffGesture.PREF_GESTURE_DOUBLE_TAP,
-                        ButtonsConstants.ACTION_WAKE_DEVICE);
+                        ActionConstants.ACTION_WAKE_DEVICE);
                 break;
             }
-            if (action == null || action != null && action.equals(ButtonsConstants.ACTION_NULL)) {
+            if (action == null || action != null && action.equals(ActionConstants.ACTION_NULL)) {
                 return;
             }
-            if (action.equals(ButtonsConstants.ACTION_CAMERA)
+            if (action.equals(ActionConstants.ACTION_CAMERA)
                     || !action.startsWith("**")) {
-                SlimActions.processAction(mContext, ButtonsConstants.ACTION_WAKE_DEVICE, false);
+                Action.processAction(mContext, ActionConstants.ACTION_WAKE_DEVICE, false);
             }
-            SlimActions.processAction(mContext, action, false);
+            Action.processAction(mContext, action, false);
         }
     }
 
