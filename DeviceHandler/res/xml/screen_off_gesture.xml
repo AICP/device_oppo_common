@@ -17,7 +17,7 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="enable_gestures"
             android:title="@string/enable_gestures_title"
             android:persistent="false"

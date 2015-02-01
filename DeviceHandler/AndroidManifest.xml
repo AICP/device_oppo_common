@@ -22,6 +22,7 @@
         <activity android:name=".settings.ScreenOffGestureSettings"
             android:icon="@drawable/app_icon"
             android:label="@string/screen_off_gesture_title"
+            android:theme="@style/DeviceHandlerTheme"
             android:configChanges="orientation|screenSize">
           <intent-filter>
                 <action android:name="com.slim.action.LAUNCH_SCREEN_OFF_GESTURE_SETTINGS" />

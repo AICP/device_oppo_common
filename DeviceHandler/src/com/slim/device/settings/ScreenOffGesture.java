@@ -27,12 +27,12 @@ import android.content.res.Resources;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -75,7 +75,7 @@ public class ScreenOffGesture extends PreferenceFragment implements
     private Preference mGestureArrowLeft;
     private Preference mGestureArrowRight;
     private Preference mGestureDoubleTap;
-    private CheckBoxPreference mEnableGestures;
+    private SwitchPreference mEnableGestures;
 
     private boolean mCheckPreferences;
     private SharedPreferences mScreenOffGestureSharedPreferences;
@@ -128,7 +128,7 @@ public class ScreenOffGesture extends PreferenceFragment implements
         addPreferencesFromResource(R.xml.screen_off_gesture);
         prefs = getPreferenceScreen();
 
-        mEnableGestures = (CheckBoxPreference) prefs.findPreference(PREF_GESTURE_ENABLE);
+        mEnableGestures = (SwitchPreference) prefs.findPreference(PREF_GESTURE_ENABLE);
 
         mGestureCircle = (Preference) prefs.findPreference(PREF_GESTURE_CIRCLE);
         mGestureDoubleSwipe = (Preference) prefs.findPreference(PREF_GESTURE_DOUBLE_SWIPE);
