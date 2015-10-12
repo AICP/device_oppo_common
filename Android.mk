@@ -15,9 +15,10 @@
 #
 
 LOCAL_PATH := $(call my-dir)
-
+ifneq ($(TARGET_DEVICE),oneplus2)
 ifneq ($(filter oppo oneplus,$(BOARD_VENDOR)),)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
+endif
 endif
