@@ -119,11 +119,20 @@ public class KeyHandler implements DeviceKeyHandler {
         }
     }
 
+    private boolean hasSetupCompleted() {
+        return CMSettings.Secure.getInt(mContext.getContentResolver(),
+            CMSettings.Secure.CM_SETUP_WIZARD_COMPLETED, 0) != 0;
+    }
+
     public boolean handleKeyEvent(KeyEvent event) {
         int scanCode = event.getScanCode();
         boolean isKeySupported = scanCode == FLIP_CAMERA_SCANCODE;
         boolean isSliderModeSupported = sSupportedSliderModes.indexOfKey(scanCode) >= 0;
         if (!isKeySupported && !isSliderModeSupported) {
+            return false;
+        }
+
+        if (!hasSetupCompleted()) {
             return false;
         }
 
