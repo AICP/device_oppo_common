@@ -37,4 +37,16 @@
     <string name="gesture_double_swipe_title">Double finger swipe down</string>
     <string name="gesture_double_tap_title">Double tap</string>
 
+     <!-- Notification slider -->
+    <string name="notification_slider">Notification slider</string>
+    <string name="action">Action</string>
+
+    <string name="top_position">Top position</string>
+    <string name="middle_position">Middle position</string>
+    <string name="bottom_position">Bottom position</string>
+    <string name="total_silence">Total silence</string>
+    <string name="alarms_only">Alarms only</string>
+    <string name="priority_only">Priority only</string>
+    <string name="none">None</string>
+
 </resources>

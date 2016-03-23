@@ -16,6 +16,7 @@
 package com.slim.device;
 
 import android.app.Activity;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.SharedPreferences;
@@ -27,6 +28,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
+import android.os.Vibrator;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.KeyEvent;
 
@@ -50,6 +53,10 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int GESTURE_LTR_SCANCODE = 253;
     private static final int GESTURE_GTR_SCANCODE = 254;
     private static final int KEY_DOUBLE_TAP = 255;
+    private static final int MODE_TOTAL_SILENCE = 600;
+    private static final int MODE_ALARMS_ONLY = 601;
+    private static final int MODE_PRIORITY_ONLY = 602;
+    private static final int MODE_NONE = 603;
 
     private static final int[] sSupportedGestures = new int[]{
         GESTURE_CIRCLE_SCANCODE,
@@ -58,25 +65,38 @@ public class KeyHandler implements DeviceKeyHandler {
         GESTURE_V_UP_SCANCODE,
         GESTURE_LTR_SCANCODE,
         GESTURE_GTR_SCANCODE,
-        KEY_DOUBLE_TAP
+        KEY_DOUBLE_TAP,
+        MODE_TOTAL_SILENCE,
+        MODE_ALARMS_ONLY,
+        MODE_PRIORITY_ONLY,
+        MODE_NONE
     };
 
     private final Context mContext;
     private final PowerManager mPowerManager;
+    private final NotificationManager mNotificationManager;
     private Context mGestureContext = null;
     private EventHandler mEventHandler;
     private SensorManager mSensorManager;
     private Sensor mProximitySensor;
+    private Vibrator mVibrator;
     WakeLock mProximityWakeLock;
 
     public KeyHandler(Context context) {
         mContext = context;
         mEventHandler = new EventHandler();
         mPowerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+        mNotificationManager
+                = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
         mProximitySensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
         mProximityWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
                 "ProximityWakeLock");
+
+        mVibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+        if (mVibrator == null || !mVibrator.hasVibrator()) {
+            mVibrator = null;
+        }
 
         try {
             mGestureContext = mContext.createPackageContext(
@@ -126,7 +146,20 @@ public class KeyHandler implements DeviceKeyHandler {
                         .getString(ScreenOffGesture.PREF_GESTURE_DOUBLE_TAP,
                         ActionConstants.ACTION_WAKE_DEVICE);
                 break;
+            case MODE_TOTAL_SILENCE:
+                setZenMode(Settings.Global.ZEN_MODE_NO_INTERRUPTIONS);
+                break;
+            case MODE_ALARMS_ONLY:
+                setZenMode(Settings.Global.ZEN_MODE_ALARMS);
+                break;
+            case MODE_PRIORITY_ONLY:
+                setZenMode(Settings.Global.ZEN_MODE_IMPORTANT_INTERRUPTIONS);
+                break;
+            case MODE_NONE:
+                setZenMode(Settings.Global.ZEN_MODE_OFF);
+                break;
             }
+            
             if (action == null || action != null && action.equals(ActionConstants.ACTION_NULL)) {
                 return;
             }
@@ -135,6 +168,13 @@ public class KeyHandler implements DeviceKeyHandler {
                 Action.processAction(mContext, ActionConstants.ACTION_WAKE_DEVICE, false);
             }
             Action.processAction(mContext, action, false);
+        }
+    }
+
+    private void setZenMode(int mode) {
+        mNotificationManager.setZenMode(mode, null, TAG);
+        if (mVibrator != null) {
+            mVibrator.vibrate(50);
         }
     }
 
@@ -152,7 +192,7 @@ public class KeyHandler implements DeviceKeyHandler {
         boolean isKeySupported = ArrayUtils.contains(sSupportedGestures, scanCode);
         if (isKeySupported && !mEventHandler.hasMessages(GESTURE_REQUEST)) {
             Message msg = getMessageForKeyEvent(event);
-            if (mProximitySensor != null) {
+            if (scanCode < MODE_TOTAL_SILENCE && mProximitySensor != null) {
                 mEventHandler.sendMessageDelayed(msg, scanCode == KEY_DOUBLE_TAP ? 400 : 200);
                 processEvent(event);
             } else {

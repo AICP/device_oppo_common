@@ -38,6 +38,11 @@ public final class KernelControl {
     private static String GESTURE_MUSIC            = GESTURE_PATH + "music_enable";
     private static String GESTURE_SILENT_VIB_SOUND = GESTURE_PATH + "silent_vib_sound_enable";
 
+    // Notification slider
+    public static final String KEYCODE_SLIDER_TOP = "/proc/tri-state-key/keyCode_top";
+    public static final String KEYCODE_SLIDER_MIDDLE = "/proc/tri-state-key/keyCode_middle";
+    public static final String KEYCODE_SLIDER_BOTTOM = "/proc/tri-state-key/keyCode_bottom";
+
     private static String[] GESTURE_CONTROL_NODES = {
             GESTURE_DOUBLE_TAP,
             GESTURE_CAMERA,
@@ -76,6 +81,12 @@ public final class KernelControl {
                 && new File(GESTURE_CAMERA).exists()
                 && new File(GESTURE_FLASHLIGHT).exists()
                 && new File(GESTURE_MUSIC).exists();
+    }
+
+    public static boolean hasSlider() {
+        return new File(KEYCODE_SLIDER_TOP).exists() &&
+            new File(KEYCODE_SLIDER_MIDDLE).exists() &&
+            new File(KEYCODE_SLIDER_BOTTOM).exists();
     }
 
 }
