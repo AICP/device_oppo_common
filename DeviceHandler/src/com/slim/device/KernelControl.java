@@ -39,6 +39,7 @@ public final class KernelControl {
     private static String GESTURE_SILENT_VIB_SOUND = GESTURE_PATH + "silent_vib_sound_enable";
 
     // Notification slider
+    public static final String SLIDER_SWAP_NODE = "/proc/s1302/key_rep";
     public static final String KEYCODE_SLIDER_TOP = "/proc/tri-state-key/keyCode_top";
     public static final String KEYCODE_SLIDER_MIDDLE = "/proc/tri-state-key/keyCode_middle";
     public static final String KEYCODE_SLIDER_BOTTOM = "/proc/tri-state-key/keyCode_bottom";
@@ -86,7 +87,8 @@ public final class KernelControl {
     public static boolean hasSlider() {
         return new File(KEYCODE_SLIDER_TOP).exists() &&
             new File(KEYCODE_SLIDER_MIDDLE).exists() &&
-            new File(KEYCODE_SLIDER_BOTTOM).exists();
+            new File(KEYCODE_SLIDER_BOTTOM).exists() &&
+            new File(SLIDER_SWAP_NODE).exists();
     }
 
 }

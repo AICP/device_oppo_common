@@ -58,10 +58,12 @@ public class BootReceiver extends BroadcastReceiver {
                 String sliderTop = getPreferenceString(context, "keycode_top_position", "601");
                 String sliderMiddle = getPreferenceString(context, "keycode_middle_position", "602");
                 String sliderBottom = getPreferenceString(context, "keycode_bottom_position", "603");
+                boolean sliderSwap = getPreferenceBoolean(context, "button_swap", false);
 
                 FileUtils.writeLine(KernelControl.KEYCODE_SLIDER_TOP, sliderTop);
                 FileUtils.writeLine(KernelControl.KEYCODE_SLIDER_MIDDLE, sliderMiddle);
                 FileUtils.writeLine(KernelControl.KEYCODE_SLIDER_BOTTOM, sliderBottom);
+                FileUtils.writeLine(KernelControl.SLIDER_SWAP_NODE, sliderSwap ? "1" : "0");
             }
         }
     }
@@ -69,6 +71,11 @@ public class BootReceiver extends BroadcastReceiver {
     private String getPreferenceString(Context context, String key, String defaultValue) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         return preferences.getString(key, defaultValue);
+    }
+
+    private boolean getPreferenceBoolean(Context context, String key, boolean defaultValue) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getBoolean(key, defaultValue);
     }
 
     private void disableComponent(Context context, String component) {
