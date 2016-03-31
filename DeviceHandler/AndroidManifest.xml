@@ -37,11 +37,14 @@
             android:theme="@style/DeviceHandlerTheme"
             android:label="@string/notification_slider">
             <intent-filter>
-                <action android:name="com.slim.action.LAUNCH_NOTIFICATION_SLIDER_SETTINGS" />
+                <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
             </intent-filter>
             <meta-data
-                android:name="com.android.settings.title"
-                android:resource="@string/notification_slider"/>
+                android:name="com.android.settings.icon"
+                android:resource="@drawable/ic_settings_additional_buttons" />
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.device" />
         </activity>
 
         <receiver android:name=".BootReceiver" >
