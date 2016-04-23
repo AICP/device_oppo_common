@@ -27,8 +27,6 @@ import com.slim.device.KernelControl;
 import com.slim.device.R;
 import com.slim.device.util.FileUtils;
 
-import com.android.internal.util.cm.ScreenType;
-
 public class SliderSettings extends PreferenceActivity
         implements OnPreferenceChangeListener {
 
@@ -90,10 +88,8 @@ public class SliderSettings extends PreferenceActivity
     protected void onResume() {
         super.onResume();
 
-        // If running on a phone, remove padding around the listview
-        if (!ScreenType.isTablet(this)) {
+        // Remove padding around the listview
             getListView().setPadding(0, 0, 0, 0);
-        }
 
         setSummary(mSliderTop, KernelControl.KEYCODE_SLIDER_TOP);
         setSummary(mSliderMiddle, KernelControl.KEYCODE_SLIDER_MIDDLE);
