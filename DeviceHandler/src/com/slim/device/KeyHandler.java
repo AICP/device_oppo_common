@@ -46,7 +46,6 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int GESTURE_REQUEST = 1;
 
     // Supported scancodes
-    private static final int GESTURE_V_UP_SCANCODE = 249;
     private static final int GESTURE_CIRCLE_SCANCODE = 250;
     private static final int GESTURE_SWIPE_DOWN_SCANCODE = 251;
     private static final int GESTURE_V_SCANCODE = 252;
@@ -62,7 +61,6 @@ public class KeyHandler implements DeviceKeyHandler {
         GESTURE_CIRCLE_SCANCODE,
         GESTURE_SWIPE_DOWN_SCANCODE,
         GESTURE_V_SCANCODE,
-        GESTURE_V_UP_SCANCODE,
         GESTURE_LTR_SCANCODE,
         GESTURE_GTR_SCANCODE,
         KEY_DOUBLE_TAP,
@@ -124,11 +122,6 @@ public class KeyHandler implements DeviceKeyHandler {
             case GESTURE_V_SCANCODE:
                 action = getGestureSharedPreferences()
                         .getString(ScreenOffGesture.PREF_GESTURE_ARROW_DOWN,
-                        ActionConstants.ACTION_VIB_SILENT);
-                break;
-            case GESTURE_V_UP_SCANCODE:
-                action = getGestureSharedPreferences()
-                        .getString(ScreenOffGesture.PREF_GESTURE_ARROW_UP,
                         ActionConstants.ACTION_TORCH);
                 break;
             case GESTURE_LTR_SCANCODE:
