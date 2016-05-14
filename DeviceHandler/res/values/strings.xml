@@ -47,7 +47,9 @@
     <string name="total_silence">Total silence</string>
     <string name="alarms_only">Alarms only</string>
     <string name="priority_only">Priority only</string>
-    <string name="none">None</string>
+    <string name="none">All notifications</string>
+    <string name="vibrate">Vibrate</string>
+    <string name="ring">Ring</string>
 
     <string name="button_swap_title">Swap buttons</string>
     <string name="button_swap_summary">Swap the order of recents and back buttons</string>

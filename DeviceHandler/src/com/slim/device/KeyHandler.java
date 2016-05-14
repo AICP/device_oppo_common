@@ -24,10 +24,12 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.media.AudioManager;
 import android.os.Handler;
 import android.os.Message;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
+import android.os.SystemProperties;
 import android.os.Vibrator;
 import android.provider.Settings;
 import android.util.Log;
@@ -56,6 +58,8 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int MODE_ALARMS_ONLY = 601;
     private static final int MODE_PRIORITY_ONLY = 602;
     private static final int MODE_NONE = 603;
+    private static final int MODE_VIBRATE = 604;
+    private static final int MODE_RING = 605;
 
     private static final int[] sSupportedGestures = new int[]{
         GESTURE_CIRCLE_SCANCODE,
@@ -67,10 +71,13 @@ public class KeyHandler implements DeviceKeyHandler {
         MODE_TOTAL_SILENCE,
         MODE_ALARMS_ONLY,
         MODE_PRIORITY_ONLY,
-        MODE_NONE
+        MODE_NONE,
+        MODE_VIBRATE,
+        MODE_RING
     };
 
     private final Context mContext;
+    private final AudioManager mAudioManager;
     private final PowerManager mPowerManager;
     private final NotificationManager mNotificationManager;
     private Context mGestureContext = null;
@@ -84,6 +91,7 @@ public class KeyHandler implements DeviceKeyHandler {
         mContext = context;
         mEventHandler = new EventHandler();
         mPowerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+        mAudioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
         mNotificationManager
                 = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
@@ -156,6 +164,12 @@ public class KeyHandler implements DeviceKeyHandler {
                 break;
             case MODE_NONE:
                 setZenMode(Settings.Global.ZEN_MODE_OFF);
+                break;
+            case MODE_VIBRATE:
+                setZenMode(AudioManager.RINGER_MODE_VIBRATE);
+                break;
+            case MODE_RING:
+                setZenMode(AudioManager.RINGER_MODE_NORMAL);
                 break;
             }
             
