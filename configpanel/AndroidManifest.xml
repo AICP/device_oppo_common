@@ -23,6 +23,10 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.INJECT_EVENTS"/>
+    <uses-permission android:name="android.permission.DEVICE_POWER" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS" />
     <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
 
@@ -100,6 +104,18 @@
                 <action android:name="cyanogenmod.intent.action.INITIALIZE_CM_HARDWARE" />
             </intent-filter>
         </receiver>
+
+        <receiver android:name="com.cyanogenmod.settings.device.BootCompletedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.cyanogenmod.settings.device.SensorsDozeService"
+                 android:permission="SensorsDozeService">
+        </service>
+
     </application>
 
 </manifest>
