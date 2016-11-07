@@ -166,10 +166,10 @@ public class KeyHandler implements DeviceKeyHandler {
                 setZenMode(Settings.Global.ZEN_MODE_OFF);
                 break;
             case MODE_VIBRATE:
-                setZenMode(AudioManager.RINGER_MODE_VIBRATE);
+                setRingerModeInternal(AudioManager.RINGER_MODE_VIBRATE);
                 break;
             case MODE_RING:
-                setZenMode(AudioManager.RINGER_MODE_NORMAL);
+                setRingerModeInternal(AudioManager.RINGER_MODE_NORMAL);
                 break;
             }
             
@@ -186,6 +186,13 @@ public class KeyHandler implements DeviceKeyHandler {
 
     private void setZenMode(int mode) {
         mNotificationManager.setZenMode(mode, null, TAG);
+        if (mVibrator != null) {
+            mVibrator.vibrate(50);
+        }
+    }
+
+    private void setRingerModeInternal(int mode) {
+        mAudioManager.setRingerModeInternal(mode);
         if (mVibrator != null) {
             mVibrator.vibrate(50);
         }
