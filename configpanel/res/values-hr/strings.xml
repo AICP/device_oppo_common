@@ -23,6 +23,16 @@
   <string name="touchpad_long_press_summary">Dugi pritisak touchpada pokrenut će fotoaparat</string>
   <string name="touchpad_double_tap_title">Dvostruki dodir za slikanje</string>
   <string name="touchpad_double_tap_summary">Dok ste u fotoaparatu, dvostruki dodir će slikati sliku</string>
+  <!-- Gesture shortcuts -->
+  <string name="touchscreen_camera_gesture_title">Fotoaparat</string>
+  <string name="touchscreen_camera_gesture_summary">Nacrtajte krug za pokretanje fotoaparata</string>
+  <string name="touchscreen_music_gesture_title">Glazba</string>
+  <string name="touchscreen_flashlight_gesture_title">Bljeskalica</string>
+  <string name="touchscreen_flashlight_gesture_summary">Nacrtajte \"V\" za upravljanje bljeskalicom</string>
+  <string name="touchscreen_music_gesture_summary">Koristite se gestama za upravljanje reprodukcijom glazbe \n
+    • Povucite dva prsta okomito za reprodukciju/pauzu\n
+    • Nacrtajte strelicu prema lijevo (\'&lt;\') za prethodnu pjesmu\n
+    • Nacrtajte strelicu prema desno (\'&gt;\') za sljedeću pjesmu</string>
   <!-- O-Click settings -->
   <string name="oclick_connect_string">Spoji</string>
   <string name="oclick_disconnect_string">Odspoji</string>
@@ -45,6 +55,10 @@
   <string name="oclick_notification_title_connected">O-Click je spojen</string>
   <string name="oclick_notification_title_disconnected">O-Click nije spojen</string>
   <string name="oclick_notification_content_disconnected">Pritisnite O-Click tipku za ponovno spajanje</string>
+  <!-- Button settings -->
+  <string name="button_panel_title">Dodatne tipke</string>
+  <string name="button_swap_title">Zamijeni tipke</string>
+  <string name="button_swap_summary">Zamijeni redoslijed tipki za prikaz nedavnih aplikacija i tipke za povratak natrag</string>
   <!-- Notification slider -->
   <string name="notification_slider_category_title">Klizač obavijesti</string>
   <string name="notification_slider_selection_dialog_title">Radnja</string>

@@ -23,6 +23,16 @@
   <string name="touchpad_long_press_summary">Nhấn giữ lên touchpad để khởi động ứng dụng máy ảnh</string>
   <string name="touchpad_double_tap_title">Nhấn đúp để chụp</string>
   <string name="touchpad_double_tap_summary">Trong máy ảnh, nhấn đúp để chụp ảnh</string>
+  <!-- Gesture shortcuts -->
+  <string name="touchscreen_camera_gesture_title">Máy ảnh</string>
+  <string name="touchscreen_camera_gesture_summary">Vẽ một vòng tròn để kích hoạt máy ảnh</string>
+  <string name="touchscreen_music_gesture_title">Nhạc</string>
+  <string name="touchscreen_flashlight_gesture_title">Đèn pin</string>
+  <string name="touchscreen_flashlight_gesture_summary">Vẽ một chữ \'V\' để bật/tắt đèn pin</string>
+  <string name="touchscreen_music_gesture_summary">Dùng cử chỉ để điều khiển quá trình phát nhạc \n
+    • Kéo 2 ngón tay theo chiều dọc để phát/tạm dừng\n
+    • Vẽ mũi tên về phía trái (\'&lt;\') để phát bài trước đó\n
+    • Vẽ mũi tên về phía phải (\'&gt;\') để phát bài kế tiếp</string>
   <!-- O-Click settings -->
   <string name="oclick_connect_string">Kết nối</string>
   <string name="oclick_disconnect_string">Ngắt kết nối</string>
@@ -45,6 +55,10 @@
   <string name="oclick_notification_title_connected">O-Click đã được kết nối</string>
   <string name="oclick_notification_title_disconnected">O-Click đã ngắt kết nối</string>
   <string name="oclick_notification_content_disconnected">Nhấn nút O-Click để kết nối lại</string>
+  <!-- Button settings -->
+  <string name="button_panel_title">Nút bổ sung</string>
+  <string name="button_swap_title">Nút đổi</string>
+  <string name="button_swap_summary">Đổi thứ tự của các nút gần đây và quay lại</string>
   <!-- Notification slider -->
   <string name="notification_slider_category_title">Thông báo trượt</string>
   <string name="notification_slider_selection_dialog_title">Tác vụ</string>
