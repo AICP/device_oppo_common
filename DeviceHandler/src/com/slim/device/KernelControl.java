@@ -33,9 +33,9 @@ public final class KernelControl {
 
     private static String GESTURE_PATH = "/proc/touchpanel/";
     private static String GESTURE_DOUBLE_TAP       = GESTURE_PATH + "double_tap_enable";
-    private static String GESTURE_CAMERA           = GESTURE_PATH + "camera_enable";
-    private static String GESTURE_FLASHLIGHT       = GESTURE_PATH + "flashlight_enable";
-    private static String GESTURE_MUSIC            = GESTURE_PATH + "music_enable";
+    private static String GESTURE_CAMERA           = GESTURE_PATH + "letter_o_enable";
+    private static String GESTURE_FLASHLIGHT       = GESTURE_PATH + "down_arrow_enable";
+    private static String GESTURE_MUSIC            = GESTURE_PATH + "double_swipe_enable";
     private static String GESTURE_SILENT_VIB_SOUND = GESTURE_PATH + "silent_vib_sound_enable";
 
     // Notification slider
