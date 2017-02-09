@@ -46,6 +46,12 @@
                 android:dependency="enable_gestures" />
 
             <Preference
+                android:key="gesture_arrow_up"
+                android:title="@string/gesture_arrow_up_title"
+                android:persistent="false"
+                android:dependency="enable_gestures" />
+
+            <Preference
                 android:key="gesture_circle"
                 android:title="@string/gesture_circle_title"
                 android:persistent="false"
@@ -54,6 +60,12 @@
             <Preference
                 android:key="gesture_double_swipe"
                 android:title="@string/gesture_double_swipe_title"
+                android:persistent="false"
+                android:dependency="enable_gestures" />
+
+            <Preference
+                android:key="gesture_double_tap"
+                android:title="@string/gesture_double_tap_title"
                 android:persistent="false"
                 android:dependency="enable_gestures" />
 

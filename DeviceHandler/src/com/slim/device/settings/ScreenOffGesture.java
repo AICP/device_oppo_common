@@ -57,6 +57,7 @@ public class ScreenOffGesture extends PreferenceFragment implements
     public static final String PREF_GESTURE_ENABLE = "enable_gestures";
     public static final String PREF_GESTURE_CIRCLE = "gesture_circle";
     public static final String PREF_GESTURE_DOUBLE_SWIPE = "gesture_double_swipe";
+    public static final String PREF_GESTURE_ARROW_UP = "gesture_arrow_up";
     public static final String PREF_GESTURE_ARROW_DOWN = "gesture_arrow_down";
     public static final String PREF_GESTURE_ARROW_LEFT = "gesture_arrow_left";
     public static final String PREF_GESTURE_ARROW_RIGHT = "gesture_arrow_right";
@@ -131,6 +132,7 @@ public class ScreenOffGesture extends PreferenceFragment implements
 
         mGestureCircle = (Preference) prefs.findPreference(PREF_GESTURE_CIRCLE);
         mGestureDoubleSwipe = (Preference) prefs.findPreference(PREF_GESTURE_DOUBLE_SWIPE);
+        mGestureArrowUp = (Preference) prefs.findPreference(PREF_GESTURE_ARROW_UP);
         mGestureArrowDown = (Preference) prefs.findPreference(PREF_GESTURE_ARROW_DOWN);
         mGestureArrowLeft = (Preference) prefs.findPreference(PREF_GESTURE_ARROW_LEFT);
         mGestureArrowRight = (Preference) prefs.findPreference(PREF_GESTURE_ARROW_RIGHT);
@@ -140,6 +142,13 @@ public class ScreenOffGesture extends PreferenceFragment implements
                 .getString(PREF_GESTURE_CIRCLE, ActionConstants.ACTION_CAMERA));
         setupOrUpdatePreference(mGestureDoubleSwipe, mScreenOffGestureSharedPreferences
                 .getString(PREF_GESTURE_DOUBLE_SWIPE, ActionConstants.ACTION_MEDIA_PLAY_PAUSE));
+
+        if (KernelControl.isArrowUpSupported()) {
+            setupOrUpdatePreference(mGestureArrowUp, mScreenOffGestureSharedPreferences
+                    .getString(PREF_GESTURE_ARROW_UP, ActionConstants.ACTION_TORCH));
+        } else {
+            prefs.removePreference(mGestureArrowUp);
+        }
 
         setupOrUpdatePreference(mGestureArrowDown, mScreenOffGestureSharedPreferences
                 .getString(PREF_GESTURE_ARROW_DOWN, ActionConstants.ACTION_VIB_SILENT));
@@ -197,6 +206,9 @@ public class ScreenOffGesture extends PreferenceFragment implements
         } else if (preference == mGestureDoubleSwipe) {
             settingsKey = PREF_GESTURE_DOUBLE_SWIPE;
             dialogTitle = R.string.gesture_double_swipe_title;
+        } else if (preference == mGestureArrowUp) {
+            settingsKey = PREF_GESTURE_ARROW_UP;
+            dialogTitle = R.string.gesture_arrow_up_title;
         } else if (preference == mGestureArrowDown) {
             settingsKey = PREF_GESTURE_ARROW_DOWN;
             dialogTitle = R.string.gesture_arrow_down_title;
@@ -240,8 +252,10 @@ public class ScreenOffGesture extends PreferenceFragment implements
                 ActionConstants.ACTION_CAMERA).commit();
         editor.putString(PREF_GESTURE_DOUBLE_SWIPE,
                 ActionConstants.ACTION_MEDIA_PLAY_PAUSE).commit();
-        editor.putString(PREF_GESTURE_ARROW_DOWN,
+        editor.putString(PREF_GESTURE_ARROW_UP,
                 ActionConstants.ACTION_TORCH).commit();
+        editor.putString(PREF_GESTURE_ARROW_DOWN,
+                ActionConstants.ACTION_VIB_SILENT).commit();
         editor.putString(PREF_GESTURE_ARROW_LEFT,
                 ActionConstants.ACTION_MEDIA_PREVIOUS).commit();
         editor.putString(PREF_GESTURE_ARROW_RIGHT,
