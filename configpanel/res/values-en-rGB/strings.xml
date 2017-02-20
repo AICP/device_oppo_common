@@ -23,6 +23,16 @@
   <string name="touchpad_long_press_summary">Long press on the touchpad will launch the camera application</string>
   <string name="touchpad_double_tap_title">Double tap to capture</string>
   <string name="touchpad_double_tap_summary">While in camera, double tap to capture image</string>
+  <!-- Gesture shortcuts -->
+  <string name="touchscreen_camera_gesture_title">Camera</string>
+  <string name="touchscreen_camera_gesture_summary">Draw a circle to activate camera</string>
+  <string name="touchscreen_music_gesture_title">Music</string>
+  <string name="touchscreen_flashlight_gesture_title">Torch</string>
+  <string name="touchscreen_flashlight_gesture_summary">Draw a \'V\' to toggle torch</string>
+  <string name="touchscreen_music_gesture_summary">Use gestures to control music playback \n
+    • Two fingers vertically to play/pause\n
+    • Draw left arrow (\'&lt;\') for previous track\n
+    • Draw right arrow (\'&gt;\') for next track</string>
   <!-- O-Click settings -->
   <string name="oclick_connect_string">Connect</string>
   <string name="oclick_disconnect_string">Disconnect</string>
@@ -45,6 +55,10 @@
   <string name="oclick_notification_title_connected">O-Click connected</string>
   <string name="oclick_notification_title_disconnected">O-Click disconnected</string>
   <string name="oclick_notification_content_disconnected">Press the O-Click button to reconnect</string>
+  <!-- Button settings -->
+  <string name="button_panel_title">Additional buttons</string>
+  <string name="button_swap_title">Swap buttons</string>
+  <string name="button_swap_summary">Swap the order of recents and back buttons</string>
   <!-- Notification slider -->
   <string name="notification_slider_category_title">Notification slider</string>
   <string name="notification_slider_selection_dialog_title">Action</string>

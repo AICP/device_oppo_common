@@ -23,6 +23,16 @@
   <string name="touchpad_long_press_summary">Довгий дотик на сенсорну панель запустить програму камери</string>
   <string name="touchpad_double_tap_title">Подвійне натискання для зйомки</string>
   <string name="touchpad_double_tap_summary">У програмі камери двічі натисніть на сенсорну панель, щоб зробити знімок</string>
+  <!-- Gesture shortcuts -->
+  <string name="touchscreen_camera_gesture_title">Камера</string>
+  <string name="touchscreen_camera_gesture_summary">Намалюйте коло щоб задіяти камеру</string>
+  <string name="touchscreen_music_gesture_title">Музика</string>
+  <string name="touchscreen_flashlight_gesture_title">Ліхтарик</string>
+  <string name="touchscreen_flashlight_gesture_summary">Намалюйте \'V\' аби перемкнути ліхтарик</string>
+  <string name="touchscreen_music_gesture_summary">Використовуйте жести для управління плеєром\n
+    • Проведіть двома пальцями вгору або вниз для відтворення або паузи\n
+    • Намалюйте стрілку вліво (\'&lt;\') для переходу до попереднього треку\n
+    • Намалюйте стрілку вправо (\'&gt;\') для переходу до наступного треку</string>
   <!-- O-Click settings -->
   <string name="oclick_connect_string">Підключитись</string>
   <string name="oclick_disconnect_string">Відключитись</string>
@@ -45,6 +55,10 @@
   <string name="oclick_notification_title_connected">З\'єднано з O-Click</string>
   <string name="oclick_notification_title_disconnected">Роз\'єднано з O-Click</string>
   <string name="oclick_notification_content_disconnected">Натисніть кнопку \"O-Click\", щоб перепід\'єднатися</string>
+  <!-- Button settings -->
+  <string name="button_panel_title">Додаткові кнопки</string>
+  <string name="button_swap_title">Поміняти кнопки місцями</string>
+  <string name="button_swap_summary">Поміняти місцями кнопку \"Останні додатки\" і кнопку «Назад»</string>
   <!-- Notification slider -->
   <string name="notification_slider_category_title">Повзунок сповіщень</string>
   <string name="notification_slider_selection_dialog_title">Дія</string>
