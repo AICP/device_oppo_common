@@ -67,14 +67,6 @@ public final class KernelControl {
     }
 
     /**
-     * Check if kernel supports arrow up gesture - slim specific.
-     * As well ugly but needed for now.
-     */
-    public static boolean isArrowUpSupported() {
-        return new File(GESTURE_SILENT_VIB_SOUND).exists();
-    }
-
-    /**
      * Do we have touch control at all?
      */
     public static boolean hasTouchscreenGestures() {
