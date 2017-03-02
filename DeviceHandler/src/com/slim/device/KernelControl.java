@@ -34,9 +34,9 @@ public final class KernelControl {
     private static String GESTURE_PATH = "/proc/touchpanel/";
     private static String GESTURE_CAMERA           = GESTURE_PATH + "letter_o_enable";
     private static String GESTURE_FLASHLIGHT       = GESTURE_PATH + "up_arrow_enable";
-    private static String GESTURE_MUSIC            = GESTURE_PATH + "double_swipe_enable";
-    private static String GESTURE_MUSIC_PREVIOUS	= GESTURE_PATH + "right_arrow_enable";
-    private static String GESTURE_MUSIC_NEXT		= GESTURE_PATH + "left_arrow_enable";
+    private static String GESTURE_MEDIA            = GESTURE_PATH + "double_swipe_enable";
+    private static String GESTURE_MEDIA_PREVIOUS	= GESTURE_PATH + "right_arrow_enable";
+    private static String GESTURE_MEDIA_NEXT		= GESTURE_PATH + "left_arrow_enable";
     private static String GESTURE_SILENT_VIB_SOUND = GESTURE_PATH + "down_arrow_enable";
 
     // Notification slider
@@ -48,9 +48,9 @@ public final class KernelControl {
     private static String[] GESTURE_CONTROL_NODES = {
             GESTURE_CAMERA,
             GESTURE_FLASHLIGHT ,
-            GESTURE_MUSIC,
-            GESTURE_MUSIC_PREVIOUS,
-            GESTURE_MUSIC_NEXT,
+            GESTURE_MEDIA,
+            GESTURE_MEDIA_PREVIOUS,
+            GESTURE_MEDIA_NEXT,
             GESTURE_SILENT_VIB_SOUND
     };
 
@@ -75,7 +75,7 @@ public final class KernelControl {
     public static boolean hasTouchscreenGestures() {
         return new File(GESTURE_CAMERA).exists()
                 && new File(GESTURE_FLASHLIGHT).exists()
-                && new File(GESTURE_MUSIC).exists();
+                && new File(GESTURE_MEDIA).exists();
     }
 
     public static boolean hasSlider() {
