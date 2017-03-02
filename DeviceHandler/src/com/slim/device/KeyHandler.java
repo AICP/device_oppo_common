@@ -134,6 +134,7 @@ public class KeyHandler implements DeviceKeyHandler {
                 action = getGestureSharedPreferences()
                         .getString(ScreenOffGesture.PREF_GESTURE_ARROW_DOWN,
                         ActionConstants.ACTION_VIB_SILENT);
+                        doHapticFeedback();
                 break;
             case GESTURE_V_UP_SCANCODE:
                 action = getGestureSharedPreferences()
