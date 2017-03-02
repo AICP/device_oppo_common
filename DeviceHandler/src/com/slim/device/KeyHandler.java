@@ -47,13 +47,13 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final String TAG = KeyHandler.class.getSimpleName();
     private static final int GESTURE_REQUEST = 1;
 
-    // Supported scancodes, make sure your kernel matches all key codes correctly
-    private static final int GESTURE_CIRCLE_SCANCODE = 250; // draw circle
-    private static final int GESTURE_SWIPE_DOWN_SCANCODE = 251; // two finger swipe
-    private static final int GESTURE_V_UP_SCANCODE = 252; // up arrow
-    private static final int GESTURE_V_SCANCODE = 253; // down arrow
-    private static final int GESTURE_LTR_SCANCODE = 254; // left arow
-    private static final int GESTURE_GTR_SCANCODE = 255; // right arrow
+    // Supported scancodes
+    private static final int GESTURE_CIRCLE_SCANCODE = 250;
+    private static final int GESTURE_SWIPE_DOWN_SCANCODE = 251;
+    private static final int GESTURE_V_SCANCODE = 252;
+    private static final int GESTURE_LTR_SCANCODE = 253;
+    private static final int GESTURE_GTR_SCANCODE = 254;
+    private static final int GESTURE_V_UP_SCANCODE = 255;
     // Slider
     private static final int MODE_TOTAL_SILENCE = 600;
     private static final int MODE_ALARMS_ONLY = 601;
