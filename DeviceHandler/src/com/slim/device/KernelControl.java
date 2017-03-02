@@ -32,11 +32,12 @@ import java.io.File;
 public final class KernelControl {
 
     private static String GESTURE_PATH = "/proc/touchpanel/";
-    private static String GESTURE_DOUBLE_TAP       = GESTURE_PATH + "double_tap_enable";
     private static String GESTURE_CAMERA           = GESTURE_PATH + "letter_o_enable";
-    private static String GESTURE_FLASHLIGHT       = GESTURE_PATH + "down_arrow_enable";
+    private static String GESTURE_FLASHLIGHT       = GESTURE_PATH + "up_arrow_enable";
     private static String GESTURE_MUSIC            = GESTURE_PATH + "double_swipe_enable";
-    private static String GESTURE_SILENT_VIB_SOUND = GESTURE_PATH + "silent_vib_sound_enable";
+    private static String GESTURE_MUSIC_PREVIOUS	= GESTURE_PATH + "right_arrow_enable";
+    private static String GESTURE_MUSIC_NEXT		= GESTURE_PATH + "left_arrow_enable";
+    private static String GESTURE_SILENT_VIB_SOUND = GESTURE_PATH + "down_arrow_enable";
 
     // Notification slider
     public static final String SLIDER_SWAP_NODE = "/proc/s1302/key_rep";
@@ -45,11 +46,13 @@ public final class KernelControl {
     public static final String KEYCODE_SLIDER_BOTTOM = "/proc/tri-state-key/keyCode_bottom";
 
     private static String[] GESTURE_CONTROL_NODES = {
-            GESTURE_DOUBLE_TAP,
             GESTURE_CAMERA,
             GESTURE_FLASHLIGHT ,
             GESTURE_MUSIC,
-            GESTURE_SILENT_VIB_SOUND};
+            GESTURE_MUSIC_PREVIOUS,
+            GESTURE_MUSIC_NEXT,
+            GESTURE_SILENT_VIB_SOUND
+    };
 
     private KernelControl() {
         // this class is not supposed to be instantiated
@@ -70,8 +73,7 @@ public final class KernelControl {
      * Do we have touch control at all?
      */
     public static boolean hasTouchscreenGestures() {
-        return new File(GESTURE_DOUBLE_TAP).exists()
-                && new File(GESTURE_CAMERA).exists()
+        return new File(GESTURE_CAMERA).exists()
                 && new File(GESTURE_FLASHLIGHT).exists()
                 && new File(GESTURE_MUSIC).exists();
     }
