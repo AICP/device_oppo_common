@@ -23,6 +23,16 @@
   <string name="touchpad_long_press_summary">Pulsación prolongada en el panel táctil para abrir la cámara</string>
   <string name="touchpad_double_tap_title">Pulsación doble para capturar</string>
   <string name="touchpad_double_tap_summary">Estando en la cámara, pulsa 2 veces para capturar una imagen</string>
+  <!-- Gesture shortcuts -->
+  <string name="touchscreen_camera_gesture_title">Cámara</string>
+  <string name="touchscreen_camera_gesture_summary">Dibujar un círculo para activar la cámara</string>
+  <string name="touchscreen_music_gesture_title">Música</string>
+  <string name="touchscreen_flashlight_gesture_title">Linterna</string>
+  <string name="touchscreen_flashlight_gesture_summary">Dibujar una \"V\" para alternar la linterna</string>
+  <string name="touchscreen_music_gesture_summary">Utilizar gestos para controlar la reproducción de música \n
+    • Deslizar 2 dedos verticalmente para iniciar/pausar\n
+    • Dibujar una fecha a la izquierda (\'&lt;\') para la pista anterior\n
+    • Dibujar una fecha a la derecha (\'&gt;\') para la pista siguiente</string>
   <!-- O-Click settings -->
   <string name="oclick_connect_string">Conectar</string>
   <string name="oclick_disconnect_string">Desconectar</string>
@@ -45,6 +55,10 @@
   <string name="oclick_notification_title_connected">O-Click conectado</string>
   <string name="oclick_notification_title_disconnected">O-Click desconectado</string>
   <string name="oclick_notification_content_disconnected">Pulsa el botón O-Click para reconectar</string>
+  <!-- Button settings -->
+  <string name="button_panel_title">Botones adicionales</string>
+  <string name="button_swap_title">Intercambiar botones</string>
+  <string name="button_swap_summary">Cambiar el orden de los botones \"recientes\" y \"atrás\"</string>
   <!-- Notification slider -->
   <string name="notification_slider_category_title">Control deslizante de notificaciones</string>
   <string name="notification_slider_selection_dialog_title">Acción</string>

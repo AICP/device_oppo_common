@@ -23,6 +23,13 @@
   <string name="touchpad_long_press_summary">Mbajtja shtypur e panelit taktil do të hapë aplikacionin e kamerës</string>
   <string name="touchpad_double_tap_title">Shtyp dy herë për të shkrepur</string>
   <string name="touchpad_double_tap_summary">Kur kamera është e hapur, shtyp dy herë për të shkrepur foton</string>
+  <!-- Gesture shortcuts -->
+  <string name="touchscreen_camera_gesture_title">Kamera</string>
+  <string name="touchscreen_camera_gesture_summary">Vizato një rreth për të aktivizuar kamerën</string>
+  <string name="touchscreen_music_gesture_title">Muzika</string>
+  <string name="touchscreen_flashlight_gesture_title">Elektriku i dorës</string>
+  <string name="touchscreen_flashlight_gesture_summary">Vizato një \"V\" për të ndezur elektrikun e dorës</string>
+  <string name="touchscreen_music_gesture_summary">Përdor gjestet për të kontrolluar muzikën\n    • Dy gishta vertikalisht për të nisur/ndaluar\n    • Vizato një shigjetë në drejtimin majtas (\'&lt;\') për këngën e shkuar\n    • Vizato një shigjetë në drejtimin djathtas (\'&gt;\') për këngën e radhës</string>
   <!-- O-Click settings -->
   <string name="oclick_connect_string">Lidhu</string>
   <string name="oclick_disconnect_string">Shkëputu</string>
@@ -45,6 +52,10 @@
   <string name="oclick_notification_title_connected">O-Click i lidhur</string>
   <string name="oclick_notification_title_disconnected">O-Click i shkëputur</string>
   <string name="oclick_notification_content_disconnected">Shtyp butonin O-Click për t\'u rilidhur</string>
+  <!-- Button settings -->
+  <string name="button_panel_title">Butona të tjerë</string>
+  <string name="button_swap_title">Shkëmbe butonat</string>
+  <string name="button_swap_summary">Shkëmbe rendin e butonave \"Të fundit\" dhe \"Prapa\"</string>
   <!-- Notification slider -->
   <string name="notification_slider_category_title">Kursori i njoftimeve</string>
   <string name="notification_slider_selection_dialog_title">Veprimi</string>
