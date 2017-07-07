@@ -21,9 +21,6 @@ BOARD_USES_CYANOGEN_HARDWARE := true
 BOARD_HARDWARE_CLASS += \
     hardware/cyanogen/cmhw
 
-# MSM Init
-TARGET_INIT_VENDOR_LIB := libinit_msm_oppo
-
 # QCOM Power
 TARGET_POWERHAL_VARIANT := qcom
 
