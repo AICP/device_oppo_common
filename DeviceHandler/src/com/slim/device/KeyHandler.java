@@ -35,6 +35,8 @@ import android.provider.Settings;
 import android.util.Log;
 import android.view.KeyEvent;
 
+import android.service.notification.ZenModeConfig;
+
 import com.slim.device.settings.ScreenOffGesture;
 
 import com.android.internal.os.DeviceKeyHandler;
@@ -165,6 +167,7 @@ public class KeyHandler implements DeviceKeyHandler {
                 break;
             case MODE_NONE:
                 setZenMode(Settings.Global.ZEN_MODE_OFF);
+                setRingerModeInternal(AudioManager.RINGER_MODE_NORMAL);
                 break;
             case MODE_VIBRATE:
                 setRingerModeInternal(AudioManager.RINGER_MODE_VIBRATE);
@@ -173,7 +176,7 @@ public class KeyHandler implements DeviceKeyHandler {
                 setRingerModeInternal(AudioManager.RINGER_MODE_NORMAL);
                 break;
             }
-            
+
             if (action == null || action != null && action.equals(ActionConstants.ACTION_NULL)) {
                 return;
             }
