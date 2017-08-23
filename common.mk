@@ -22,6 +22,6 @@ PRODUCT_PACKAGES += \
 	DeviceHandler
 
 # Recovery
-PRODUCT_PACKAGES += \
-    librecovery_updater_oppo
+#PRODUCT_PACKAGES += \
+#    librecovery_updater_oppo
 
