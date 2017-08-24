@@ -18,9 +18,11 @@ package com.cyanogenmod.settings.device;
 
 import android.Manifest;
 import android.app.NotificationManager;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.database.ContentObserver;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -36,9 +38,11 @@ import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import android.os.SystemClock;
 import android.os.SystemProperties;
+import android.os.UserHandle;
 import android.os.Vibrator;
 import android.provider.Settings;
 import android.service.notification.ZenModeConfig;
+import android.provider.Settings;
 import android.util.Log;
 import android.util.SparseIntArray;
 import android.view.KeyEvent;
@@ -48,6 +52,8 @@ import com.android.internal.util.ArrayUtils;
 
 import cyanogenmod.providers.CMSettings;
 
+import java.util.HashSet;
+
 public class KeyHandler implements DeviceKeyHandler {
 
     private static final String TAG = KeyHandler.class.getSimpleName();
@@ -55,26 +61,48 @@ public class KeyHandler implements DeviceKeyHandler {
 
     // Supported scancodes
     private static final int FLIP_CAMERA_SCANCODE = 249;
-    private static final int MODE_TOTAL_SILENCE = 600;
-    private static final int MODE_ALARMS_ONLY = 601;
-    private static final int MODE_PRIORITY_ONLY = 602;
-    private static final int MODE_NONE = 603;
-    private static final int MODE_VIBRATE = 604;
-    private static final int MODE_RING = 605;
+    // Keycodes from kernel found in drivers/input/misc/tri_state_key.c
+    private static final int SLIDER_TOP = 601;
+    private static final int SLIDER_MIDDLE = 602;
+    private static final int SLIDER_BOTTOM = 603;
+
+    // Supported tri-state actions
+    private static final int ACTION_TOTAL_SILENCE = 0;
+    private static final int ACTION_ALARMS_ONLY = 1;
+    private static final int ACTION_PRIORITY_ONLY = 2;
+    private static final int ACTION_NONE = 3;
+    private static final int ACTION_VIBRATE = 4;
+    private static final int ACTION_RING = 5;
+
+    // Same as in ButtonSettings
+    private static final String SETTING_NOTIF_SLIDER_UP =
+            "device_oppo_common_notification_slider_up";
+    private static final String SETTING_NOTIF_SLIDER_MIDDLE =
+            "device_oppo_common_notification_slider_middle";
+    private static final String SETTING_NOTIF_SLIDER_BOTTOM =
+            "device_oppo_common_notification_slider_bottom";
 
     private static final String PROP_IGNORE_AUTO = "persist.op.slider_ignore_auto";
 
     private static final int GESTURE_WAKELOCK_DURATION = 3000;
 
-    private static final SparseIntArray sSupportedSliderModes = new SparseIntArray();
+    private static final HashSet<Integer> sSupportedSliderModes = new HashSet<>();
     static {
-        sSupportedSliderModes.put(MODE_TOTAL_SILENCE, Settings.Global.ZEN_MODE_NO_INTERRUPTIONS);
-        sSupportedSliderModes.put(MODE_ALARMS_ONLY, Settings.Global.ZEN_MODE_ALARMS);
-        sSupportedSliderModes.put(MODE_PRIORITY_ONLY,
+        sSupportedSliderModes.add(SLIDER_TOP);
+        sSupportedSliderModes.add(SLIDER_MIDDLE);
+        sSupportedSliderModes.add(SLIDER_BOTTOM);
+    }
+
+    private static final SparseIntArray sSupportedSliderActions = new SparseIntArray();
+    static {
+        sSupportedSliderActions.put(ACTION_TOTAL_SILENCE,
+                Settings.Global.ZEN_MODE_NO_INTERRUPTIONS);
+        sSupportedSliderActions.put(ACTION_ALARMS_ONLY, Settings.Global.ZEN_MODE_ALARMS);
+        sSupportedSliderActions.put(ACTION_PRIORITY_ONLY,
                 Settings.Global.ZEN_MODE_IMPORTANT_INTERRUPTIONS);
-        sSupportedSliderModes.put(MODE_NONE, Settings.Global.ZEN_MODE_OFF);
-        sSupportedSliderModes.put(MODE_VIBRATE, AudioManager.RINGER_MODE_VIBRATE);
-        sSupportedSliderModes.put(MODE_RING, AudioManager.RINGER_MODE_NORMAL);
+        sSupportedSliderActions.put(ACTION_NONE, Settings.Global.ZEN_MODE_OFF);
+        sSupportedSliderActions.put(ACTION_VIBRATE, AudioManager.RINGER_MODE_VIBRATE);
+        sSupportedSliderActions.put(ACTION_RING, AudioManager.RINGER_MODE_NORMAL);
     }
 
     private final Context mContext;
@@ -89,6 +117,10 @@ public class KeyHandler implements DeviceKeyHandler {
     WakeLock mGestureWakeLock;
     private int mProximityTimeOut;
     private boolean mProximityWakeSupported;
+
+    private int mSliderUpAction;
+    private int mSliderMiddleAction;
+    private int mSliderBottomAction;
 
     public KeyHandler(Context context) {
         mContext = context;
@@ -117,6 +149,8 @@ public class KeyHandler implements DeviceKeyHandler {
         if (mVibrator == null || !mVibrator.hasVibrator()) {
             mVibrator = null;
         }
+
+        new SettingsObserver(new Handler()).observe();
     }
 
     private class EventHandler extends Handler {
@@ -141,7 +175,7 @@ public class KeyHandler implements DeviceKeyHandler {
     public boolean handleKeyEvent(KeyEvent event) {
         int scanCode = event.getScanCode();
         boolean isKeySupported = scanCode == FLIP_CAMERA_SCANCODE;
-        boolean isSliderModeSupported = sSupportedSliderModes.indexOfKey(scanCode) >= 0;
+        boolean isSliderModeSupported = sSupportedSliderModes.contains(scanCode);
         if (!isKeySupported && !isSliderModeSupported) {
             return false;
         }
@@ -160,6 +194,16 @@ public class KeyHandler implements DeviceKeyHandler {
         }
 
         if (isSliderModeSupported) {
+
+            int sliderAction;
+            if (scanCode == SLIDER_TOP) {
+                sliderAction = mSliderUpAction;
+            } else if (scanCode == SLIDER_MIDDLE) {
+                sliderAction = mSliderMiddleAction;
+            } else { // scanCode == SLIDER_BOTTOM
+                sliderAction = mSliderBottomAction;
+            }
+
             boolean ignoreAuto = SystemProperties.get(PROP_IGNORE_AUTO).equals("true");
             boolean isAutoModeActive = false;
 
@@ -175,10 +219,11 @@ public class KeyHandler implements DeviceKeyHandler {
             }
 
             if (!isAutoModeActive) {
-                if (scanCode <= MODE_NONE) {
-                    mNotificationManager.setZenMode(sSupportedSliderModes.get(scanCode), null, TAG);
+                if (sliderAction <= ACTION_NONE) {
+                    mNotificationManager.setZenMode(sSupportedSliderActions.get(sliderAction),
+                            null, TAG);
                 } else {
-                    mAudioManager.setRingerModeInternal(sSupportedSliderModes.get(scanCode));
+                    mAudioManager.setRingerModeInternal(sSupportedSliderActions.get(sliderAction));
                 }
 
                 doHapticFeedback();
@@ -238,5 +283,42 @@ public class KeyHandler implements DeviceKeyHandler {
         if (enabled) {
             mVibrator.vibrate(50);
         }
+    }
+
+    private class SettingsObserver extends ContentObserver {
+        SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            ContentResolver resolver = mContext.getContentResolver();
+
+            resolver.registerContentObserver(Settings.System.getUriFor(SETTING_NOTIF_SLIDER_UP),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(
+                    Settings.System.getUriFor(SETTING_NOTIF_SLIDER_MIDDLE), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(
+                    Settings.System.getUriFor(SETTING_NOTIF_SLIDER_BOTTOM), false, this,
+                    UserHandle.USER_ALL);
+
+            update();
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            update();
+        }
+
+        void update() {
+            mSliderUpAction = Settings.System.getInt(mContext.getContentResolver(),
+                        SETTING_NOTIF_SLIDER_UP, 1);
+            mSliderMiddleAction = Settings.System.getInt(mContext.getContentResolver(),
+                        SETTING_NOTIF_SLIDER_MIDDLE, 2);
+            mSliderBottomAction = Settings.System.getInt(mContext.getContentResolver(),
+                        SETTING_NOTIF_SLIDER_BOTTOM, 3);
+
+        }
+
     }
 }
