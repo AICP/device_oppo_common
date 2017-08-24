@@ -18,12 +18,14 @@
 package org.lineageos.settings.device;
 
 import android.os.Bundle;
+import android.content.ContentResolver;
 import android.support.v14.preference.PreferenceFragment;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.PreferenceGroup;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.MenuItem;
 
@@ -33,14 +35,65 @@ import org.lineageos.settings.device.utils.Constants;
 public class ButtonSettingsFragment extends PreferenceFragment
         implements OnPreferenceChangeListener {
 
+    private static final String KEY_NOTIFICATION_SLIDER_UP = "notification_slider_up";
+    private static final String KEY_NOTIFICATION_SLIDER_MIDDLE = "notification_slider_middle";
+    private static final String KEY_NOTIFICATION_SLIDER_BOTTOM = "notification_slider_bottom";
+
+    // Same as in KeyHandler
+    private static final String SETTING_NOTIF_SLIDER_UP =
+            "device_oppo_common_notification_slider_up";
+    private static final String SETTING_NOTIF_SLIDER_MIDDLE =
+            "device_oppo_common_notification_slider_middle";
+    private static final String SETTING_NOTIF_SLIDER_BOTTOM =
+            "device_oppo_common_notification_slider_bottom";
+
+    private ListPreference mNotificationSliderUp;
+    private ListPreference mNotificationSliderMiddle;
+    private ListPreference mNotificationSliderBottom;
+
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.button_panel);
         getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
+
+        mNotificationSliderUp = (ListPreference) findPreference(KEY_NOTIFICATION_SLIDER_UP);
+        mNotificationSliderMiddle =
+                (ListPreference) findPreference(KEY_NOTIFICATION_SLIDER_MIDDLE);
+        mNotificationSliderBottom = (ListPreference) findPreference(KEY_NOTIFICATION_SLIDER_BOTTOM);
+        mNotificationSliderUp.setOnPreferenceChangeListener(this);
+        mNotificationSliderMiddle.setOnPreferenceChangeListener(this);
+        mNotificationSliderBottom.setOnPreferenceChangeListener(this);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        ContentResolver cr = getActivity().getContentResolver();
+        mNotificationSliderUp.setValue(String.valueOf(Settings.System.getInt(cr,
+                SETTING_NOTIF_SLIDER_UP, 1)));
+        mNotificationSliderMiddle.setValue(String.valueOf(Settings.System.getInt(cr,
+                SETTING_NOTIF_SLIDER_MIDDLE, 2)));
+        mNotificationSliderBottom.setValue(String.valueOf(Settings.System.getInt(cr,
+                SETTING_NOTIF_SLIDER_BOTTOM, 3)));
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        final String key = preference.getKey();
+        if (KEY_NOTIFICATION_SLIDER_UP.equals(key)) {
+            Settings.System.putInt(getActivity().getContentResolver(), SETTING_NOTIF_SLIDER_UP,
+                    Integer.parseInt((String) newValue));
+            return true;
+        } else if (KEY_NOTIFICATION_SLIDER_MIDDLE.equals(key)) {
+            Settings.System.putInt(getActivity().getContentResolver(), SETTING_NOTIF_SLIDER_MIDDLE,
+                    Integer.parseInt((String) newValue));
+            return true;
+        } else if (KEY_NOTIFICATION_SLIDER_BOTTOM.equals(key)) {
+            Settings.System.putInt(getActivity().getContentResolver(), SETTING_NOTIF_SLIDER_BOTTOM,
+                    Integer.parseInt((String) newValue));
+            return true;
+        }
         String node = Constants.sBooleanNodePreferenceMap.get(preference.getKey());
         if (!TextUtils.isEmpty(node) && FileUtils.isFileWritable(node)) {
             Boolean value = (Boolean) newValue;
