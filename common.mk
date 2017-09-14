@@ -18,7 +18,7 @@
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # DevicHandler
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
 	DeviceHandler
 
 # Recovery
