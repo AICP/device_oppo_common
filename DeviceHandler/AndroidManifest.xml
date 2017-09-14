@@ -33,7 +33,7 @@
                 android:resource="@drawable/ic_settings_gestures" />
           <meta-data
                 android:name="com.android.settings.category"
-                android:value="com.android.settings.category.device" />
+                android:value="com.android.settings.category.ia.homepage" />
         </activity>
 
         <activity
@@ -48,7 +48,7 @@
                 android:resource="@drawable/ic_settings_additional_buttons" />
             <meta-data
                 android:name="com.android.settings.category"
-                android:value="com.android.settings.category.device" />
+                android:value="com.android.settings.category.ia.homepage" />
         </activity>
 
         <receiver android:name=".BootReceiver" >
