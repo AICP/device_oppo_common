@@ -52,7 +52,7 @@
   <string name="notification_slider_category_title">Schieber für Benachrichtigungen</string>
   <string name="notification_slider_selection_dialog_title">Aktion</string>
   <string name="notification_slider_ignore_auto_title">Deaktiviert bei automat. Regeln</string>
-  <string name="notification_slider_ignore_auto_summary">Scheiberposition ignorieren, wenn eine Automatik-Regel aktiv ist</string>
+  <string name="notification_slider_ignore_auto_summary">Schieberposition ignorieren, wenn eine automatische Regel aktiv ist</string>
   <string name="notification_slider_top_position">Position: oben</string>
   <string name="notification_slider_middle_position">Position: Mitte</string>
   <string name="notification_slider_bottom_position">Position: unten</string>
