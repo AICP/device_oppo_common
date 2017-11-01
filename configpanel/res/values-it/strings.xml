@@ -48,6 +48,8 @@
   <!-- Notification slider -->
   <string name="notification_slider_category_title">Slider notifiche</string>
   <string name="notification_slider_selection_dialog_title">Azione</string>
+  <string name="notification_slider_ignore_auto_title">Disattiva durante le regole automatiche</string>
+  <string name="notification_slider_ignore_auto_summary">Ignora lo slider quando una regola automatica è attiva</string>
   <string name="notification_slider_top_position">Posizione superiore</string>
   <string name="notification_slider_middle_position">Posizione centrale</string>
   <string name="notification_slider_bottom_position">Posizione inferiore</string>
@@ -55,4 +57,6 @@
   <string name="notification_slider_mode_alarms_only">Solo sveglie</string>
   <string name="notification_slider_mode_priority_only">Solo priorità</string>
   <string name="notification_slider_mode_none">Nulla</string>
+  <string name="notification_slider_mode_vibrate">Vibrazione</string>
+  <string name="notification_slider_mode_ring">Suoneria</string>
 </resources>

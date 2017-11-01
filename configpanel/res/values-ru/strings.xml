@@ -48,6 +48,8 @@
   <!-- Notification slider -->
   <string name="notification_slider_category_title">Переключатель уведомл.</string>
   <string name="notification_slider_selection_dialog_title">Действие</string>
+  <string name="notification_slider_ignore_auto_title">Отключить во время автоматических правил</string>
+  <string name="notification_slider_ignore_auto_summary">Игнорировать переключатель во время действия автоматического правила</string>
   <string name="notification_slider_top_position">Верхнее положение</string>
   <string name="notification_slider_middle_position">Среднее положение</string>
   <string name="notification_slider_bottom_position">Нижнее положение</string>
@@ -55,4 +57,6 @@
   <string name="notification_slider_mode_alarms_only">Только будильник</string>
   <string name="notification_slider_mode_priority_only">Только важные</string>
   <string name="notification_slider_mode_none">Отключено</string>
+  <string name="notification_slider_mode_vibrate">Вибрация</string>
+  <string name="notification_slider_mode_ring">Звонок</string>
 </resources>

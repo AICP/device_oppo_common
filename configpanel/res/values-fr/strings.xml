@@ -48,11 +48,15 @@
   <!-- Notification slider -->
   <string name="notification_slider_category_title">Curseur des notifications</string>
   <string name="notification_slider_selection_dialog_title">Action</string>
+  <string name="notification_slider_ignore_auto_title">Désactiver pendant règles automatiques</string>
+  <string name="notification_slider_ignore_auto_summary">Ignorer le curseur lorsqu’une règle automatique est active</string>
   <string name="notification_slider_top_position">En haut</string>
   <string name="notification_slider_middle_position">Au milieu</string>
   <string name="notification_slider_bottom_position">En bas</string>
   <string name="notification_slider_mode_total_silence">Silence total</string>
   <string name="notification_slider_mode_alarms_only">Alarmes seulement</string>
   <string name="notification_slider_mode_priority_only">Priorité uniquement</string>
-  <string name="notification_slider_mode_none">Aucun</string>
+  <string name="notification_slider_mode_none">Toutes les notifications</string>
+  <string name="notification_slider_mode_vibrate">Vibrer</string>
+  <string name="notification_slider_mode_ring">Sonnerie</string>
 </resources>

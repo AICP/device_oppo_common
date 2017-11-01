@@ -48,6 +48,8 @@
   <!-- Notification slider -->
   <string name="notification_slider_category_title">Posuvník u oznámení</string>
   <string name="notification_slider_selection_dialog_title">Akce</string>
+  <string name="notification_slider_ignore_auto_title">Zakázat během automatických pravidel</string>
+  <string name="notification_slider_ignore_auto_summary">Ignorovat posuvník, pokud je aktivní automatické pravidlo</string>
   <string name="notification_slider_top_position">Pozice nahoře</string>
   <string name="notification_slider_middle_position">Pozice uprostřed</string>
   <string name="notification_slider_bottom_position">Pozice dole</string>
@@ -55,4 +57,6 @@
   <string name="notification_slider_mode_alarms_only">Pouze budíky</string>
   <string name="notification_slider_mode_priority_only">Pouze prioritní</string>
   <string name="notification_slider_mode_none">Žádné</string>
+  <string name="notification_slider_mode_vibrate">Vibrace</string>
+  <string name="notification_slider_mode_ring">Vyzvánění</string>
 </resources>
