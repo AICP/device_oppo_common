@@ -48,6 +48,8 @@
   <!-- Notification slider -->
   <string name="notification_slider_category_title">通知滑動條</string>
   <string name="notification_slider_selection_dialog_title">動作</string>
+  <string name="notification_slider_ignore_auto_title">在自動規則期間停用</string>
+  <string name="notification_slider_ignore_auto_summary">自動規則處於活動狀態時忽略滑動條</string>
   <string name="notification_slider_top_position">頂部位置</string>
   <string name="notification_slider_middle_position">中間位置</string>
   <string name="notification_slider_bottom_position">底部位置</string>
@@ -55,4 +57,6 @@
   <string name="notification_slider_mode_alarms_only">僅限鬧鐘</string>
   <string name="notification_slider_mode_priority_only">僅限優先</string>
   <string name="notification_slider_mode_none">無</string>
+  <string name="notification_slider_mode_vibrate">震動</string>
+  <string name="notification_slider_mode_ring">鈴聲</string>
 </resources>
