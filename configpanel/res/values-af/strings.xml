@@ -54,5 +54,4 @@
   <string name="notification_slider_mode_total_silence">Totale stilte</string>
   <string name="notification_slider_mode_alarms_only">Alleenlik wekkers</string>
   <string name="notification_slider_mode_priority_only">Prioriteit alleenlik</string>
-  <string name="notification_slider_mode_none">Geen</string>
 </resources>

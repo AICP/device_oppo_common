@@ -54,5 +54,4 @@
   <string name="notification_slider_mode_total_silence">שקט מוחלט</string>
   <string name="notification_slider_mode_alarms_only">התראות בלבד</string>
   <string name="notification_slider_mode_priority_only">בעל עדיפות בלבד</string>
-  <string name="notification_slider_mode_none">כלום</string>
 </resources>
