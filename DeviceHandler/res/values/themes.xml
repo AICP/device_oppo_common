@@ -14,7 +14,6 @@
     limitations under the License.
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-    <style name="DeviceHandlerTheme" parent="android:Theme.Material.Light.DarkActionBar">
-    </style>
+    <style name="DeviceHandlerTheme" parent="@android:style/Theme.DeviceDefault.Settings" />
 </resources>
 
