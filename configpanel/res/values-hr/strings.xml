@@ -47,5 +47,4 @@
   <string name="notification_slider_mode_total_silence">Potpuna tišina</string>
   <string name="notification_slider_mode_alarms_only">Samo alarmi</string>
   <string name="notification_slider_mode_priority_only">Samo prioriteti</string>
-  <string name="notification_slider_mode_none">Ništa</string>
 </resources>

@@ -47,5 +47,5 @@
   <string name="notification_slider_mode_total_silence">Silencio total</string>
   <string name="notification_slider_mode_alarms_only">Solo alarmas</string>
   <string name="notification_slider_mode_priority_only">Solo prioridad</string>
-  <string name="notification_slider_mode_none">Ninguna</string>
+  <string name="notification_slider_mode_none">Ninguno</string>
 </resources>

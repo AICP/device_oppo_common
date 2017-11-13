@@ -47,5 +47,5 @@
   <string name="notification_slider_mode_total_silence">Полная тишина</string>
   <string name="notification_slider_mode_alarms_only">Только будильник</string>
   <string name="notification_slider_mode_priority_only">Только важные</string>
-  <string name="notification_slider_mode_none">Отключено</string>
+  <string name="notification_slider_mode_none">Нет</string>
 </resources>

@@ -47,5 +47,4 @@
   <string name="notification_slider_mode_total_silence">Потпуна тишина</string>
   <string name="notification_slider_mode_alarms_only">Само аларм</string>
   <string name="notification_slider_mode_priority_only">Само приоритетни</string>
-  <string name="notification_slider_mode_none">Ништа</string>
 </resources>
