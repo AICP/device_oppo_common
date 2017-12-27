@@ -17,6 +17,9 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- O-Click settings -->
+  <string name="oclick_connect_string">Sambungkan</string>
+  <string name="oclick_disconnect_string">Terputus</string>
   <!-- O-Click notification -->
   <!-- Notification slider -->
+  <string name="notification_slider_mode_none">Tidak ada</string>
 </resources>
