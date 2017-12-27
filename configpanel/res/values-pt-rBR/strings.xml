@@ -48,6 +48,8 @@
   <!-- Notification slider -->
   <string name="notification_slider_category_title">Controle deslizante de notificação</string>
   <string name="notification_slider_selection_dialog_title">Ação</string>
+  <string name="notification_slider_ignore_auto_title">Desabilitar durante regras automáticas</string>
+  <string name="notification_slider_ignore_auto_summary">Ignorar o controle deslizante quando uma regra automática está ativa</string>
   <string name="notification_slider_top_position">Posição superior</string>
   <string name="notification_slider_middle_position">Posição central</string>
   <string name="notification_slider_bottom_position">Posição inferior</string>
@@ -55,4 +57,6 @@
   <string name="notification_slider_mode_alarms_only">Somente alarmes</string>
   <string name="notification_slider_mode_priority_only">Somente prioridade</string>
   <string name="notification_slider_mode_none">Nenhum</string>
+  <string name="notification_slider_mode_vibrate">Vibrar</string>
+  <string name="notification_slider_mode_ring">Tocar</string>
 </resources>
