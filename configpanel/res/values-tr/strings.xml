@@ -47,5 +47,4 @@
   <string name="notification_slider_mode_total_silence">Tam sessizlik</string>
   <string name="notification_slider_mode_alarms_only">Sadece alarmlar</string>
   <string name="notification_slider_mode_priority_only">Sadece öncelik</string>
-  <string name="notification_slider_mode_none">Hiçbiri</string>
 </resources>

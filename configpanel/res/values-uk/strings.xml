@@ -47,5 +47,4 @@
   <string name="notification_slider_mode_total_silence">Повна тиша</string>
   <string name="notification_slider_mode_alarms_only">Лише будильник</string>
   <string name="notification_slider_mode_priority_only">Лише пріоритетні</string>
-  <string name="notification_slider_mode_none">Жодних</string>
 </resources>
