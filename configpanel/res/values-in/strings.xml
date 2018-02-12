@@ -19,7 +19,14 @@
   <!-- O-Click settings -->
   <string name="oclick_connect_string">Sambungkan</string>
   <string name="oclick_disconnect_string">Terputus</string>
+  <string name="oclick_find_my_phone_title">Pelacak telepon</string>
+  <string name="oclick_find_my_phone_summary">Klik dua kali untuk menemukan telepon</string>
+  <string name="action_category_title">Tindakan</string>
   <!-- O-Click notification -->
   <!-- Notification slider -->
+  <string name="notification_slider_selection_dialog_title">Tindakan</string>
+  <string name="notification_slider_middle_position">Posisi tengah</string>
+  <string name="notification_slider_bottom_position">Posisi bawah</string>
+  <string name="notification_slider_mode_total_silence">Keheningan total</string>
   <string name="notification_slider_mode_none">Tidak ada</string>
 </resources>

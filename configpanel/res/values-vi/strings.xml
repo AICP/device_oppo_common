@@ -47,4 +47,5 @@
   <string name="notification_slider_mode_total_silence">Tất cả im lặng</string>
   <string name="notification_slider_mode_alarms_only">Chỉ báo động</string>
   <string name="notification_slider_mode_priority_only">Chỉ ưu tiên</string>
+  <string name="notification_slider_mode_none">Không</string>
 </resources>
