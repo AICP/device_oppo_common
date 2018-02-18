@@ -48,6 +48,7 @@
   <!-- Notification slider -->
   <string name="notification_slider_category_title">Bildirim sürgüsü</string>
   <string name="notification_slider_selection_dialog_title">Eylem</string>
+  <string name="notification_slider_ignore_auto_title">Otomatik kurallardayken devre dışı bırak</string>
   <string name="notification_slider_ignore_auto_summary">Otomatik kural devredeyse kaydırıcıyı dikkate alma</string>
   <string name="notification_slider_top_position">Üst konum</string>
   <string name="notification_slider_middle_position">Orta konum</string>
@@ -56,4 +57,6 @@
   <string name="notification_slider_mode_alarms_only">Sadece alarmlar</string>
   <string name="notification_slider_mode_priority_only">Sadece öncelik</string>
   <string name="notification_slider_mode_none">Hiçbiri</string>
+  <string name="notification_slider_mode_vibrate">Titreş</string>
+  <string name="notification_slider_mode_ring">Çal</string>
 </resources>
