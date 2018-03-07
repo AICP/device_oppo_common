@@ -47,4 +47,7 @@
   <string name="notification_slider_mode_total_silence">Απόλυτη σίγαση</string>
   <string name="notification_slider_mode_alarms_only">Μόνο ξυπνητήρια</string>
   <string name="notification_slider_mode_priority_only">Μόνο προτεραιότητα</string>
+  <string name="notification_slider_mode_none">Καμία</string>
+  <string name="notification_slider_mode_vibrate">Δόνηση</string>
+  <string name="notification_slider_mode_ring">Κουδούνισμα</string>
 </resources>

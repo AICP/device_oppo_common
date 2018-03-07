@@ -48,4 +48,6 @@
   <string name="notification_slider_mode_alarms_only">Solo alarmas</string>
   <string name="notification_slider_mode_priority_only">Solo prioridad</string>
   <string name="notification_slider_mode_none">Ninguno</string>
+  <string name="notification_slider_mode_vibrate">Vibrar</string>
+  <string name="notification_slider_mode_ring">Sonar</string>
 </resources>

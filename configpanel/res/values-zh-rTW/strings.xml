@@ -48,4 +48,6 @@
   <string name="notification_slider_mode_alarms_only">僅限鬧鐘</string>
   <string name="notification_slider_mode_priority_only">僅限優先</string>
   <string name="notification_slider_mode_none">無</string>
+  <string name="notification_slider_mode_vibrate">震動</string>
+  <string name="notification_slider_mode_ring">鈴聲</string>
 </resources>

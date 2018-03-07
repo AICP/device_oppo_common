@@ -17,6 +17,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- O-Click settings -->
+  <string name="oclick_connect_string">Koble til</string>
+  <string name="oclick_disconnect_string">Koble fra</string>
+  <string name="alert_category_title">Varsler</string>
+  <string name="action_category_title">Handlinger</string>
   <!-- O-Click notification -->
   <!-- Notification slider -->
+  <string name="notification_slider_selection_dialog_title">Handling</string>
+  <string name="notification_slider_mode_total_silence">Total stillhet</string>
+  <string name="notification_slider_mode_alarms_only">Kun alarmer</string>
+  <string name="notification_slider_mode_priority_only">Kun prioritert</string>
+  <string name="notification_slider_mode_vibrate">Vibrer</string>
+  <string name="notification_slider_mode_ring">Ring</string>
 </resources>

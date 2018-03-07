@@ -48,4 +48,6 @@
   <string name="notification_slider_mode_alarms_only">Solo sveglie</string>
   <string name="notification_slider_mode_priority_only">Solo priorità</string>
   <string name="notification_slider_mode_none">Nulla</string>
+  <string name="notification_slider_mode_vibrate">Vibrazione</string>
+  <string name="notification_slider_mode_ring">Suoneria</string>
 </resources>

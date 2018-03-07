@@ -48,4 +48,6 @@
   <string name="notification_slider_mode_alarms_only">Somente alarmes</string>
   <string name="notification_slider_mode_priority_only">Somente prioridade</string>
   <string name="notification_slider_mode_none">Nenhum</string>
+  <string name="notification_slider_mode_vibrate">Vibrar</string>
+  <string name="notification_slider_mode_ring">Tocar</string>
 </resources>

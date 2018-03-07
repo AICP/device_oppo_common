@@ -48,4 +48,6 @@
   <string name="notification_slider_mode_alarms_only">Pouze budíky</string>
   <string name="notification_slider_mode_priority_only">Pouze prioritní</string>
   <string name="notification_slider_mode_none">Žádné</string>
+  <string name="notification_slider_mode_vibrate">Vibrace</string>
+  <string name="notification_slider_mode_ring">Vyzvánění</string>
 </resources>
