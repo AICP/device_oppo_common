@@ -25,7 +25,7 @@
   <string name="oclick_take_snapshot_title">مغلاق الكاميرا عن بعد</string>
   <string name="oclick_take_snapshot_summary">نقرة واحدة لألتقاط الصورة</string>
   <string name="oclick_find_my_phone_title">محدد الهاتف</string>
-  <string name="oclick_find_my_phone_summary">انقر نقراً مزدوجاً للبحث عن الهاتف</string>
+  <string name="oclick_find_my_phone_summary">أضغط ضغطاً مزدوجاً للبحث عن الهاتف</string>
   <string name="oclick_fence_title">تنبيه قريب</string>
   <string name="oclick_fence_summary">التنبيه عند عدم القرب من الهاتف</string>
   <string name="oclick_disconnect_alert_title">خارج نطاق التنبيه</string>
@@ -47,4 +47,5 @@
   <string name="notification_slider_mode_total_silence">صمت تام</string>
   <string name="notification_slider_mode_alarms_only">إنذارات فقط</string>
   <string name="notification_slider_mode_priority_only">الأولوية فقط</string>
+  <string name="notification_slider_mode_none">لا شيء</string>
 </resources>
