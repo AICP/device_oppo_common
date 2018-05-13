@@ -48,6 +48,8 @@
   <!-- Notification slider -->
   <string name="notification_slider_category_title">三段式通知滑钮</string>
   <string name="notification_slider_selection_dialog_title">动作</string>
+  <string name="notification_slider_ignore_auto_title">在自动规则期间禁用</string>
+  <string name="notification_slider_ignore_auto_summary">自动规则激活时忽略滑块滑动</string>
   <string name="notification_slider_top_position">顶部位置</string>
   <string name="notification_slider_middle_position">中间位置</string>
   <string name="notification_slider_bottom_position">底部位置</string>
@@ -55,4 +57,6 @@
   <string name="notification_slider_mode_alarms_only">仅限闹铃</string>
   <string name="notification_slider_mode_priority_only">仅限优先</string>
   <string name="notification_slider_mode_none">无</string>
+  <string name="notification_slider_mode_vibrate">振动</string>
+  <string name="notification_slider_mode_ring">响铃</string>
 </resources>

@@ -48,6 +48,8 @@
   <!-- Notification slider -->
   <string name="notification_slider_category_title">Ρυθμιστικό ειδοποιήσεων</string>
   <string name="notification_slider_selection_dialog_title">Ενέργεια</string>
+  <string name="notification_slider_ignore_auto_title">Απενεργοποίηση κατά τη διάρκεια αυτόματων κανόνων</string>
+  <string name="notification_slider_ignore_auto_summary">Αγνοήστε το ρυθμιστικό όταν ένας αυτόματος κανόνας είναι ενεργός</string>
   <string name="notification_slider_top_position">Πάνω θέση</string>
   <string name="notification_slider_middle_position">Μεσαία θέση</string>
   <string name="notification_slider_bottom_position">Κάτω θέση</string>
@@ -55,4 +57,6 @@
   <string name="notification_slider_mode_alarms_only">Μόνο ξυπνητήρια</string>
   <string name="notification_slider_mode_priority_only">Μόνο προτεραιότητα</string>
   <string name="notification_slider_mode_none">Καμία</string>
+  <string name="notification_slider_mode_vibrate">Δόνηση</string>
+  <string name="notification_slider_mode_ring">Κουδούνισμα</string>
 </resources>

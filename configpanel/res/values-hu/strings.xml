@@ -48,6 +48,8 @@
   <!-- Notification slider -->
   <string name="notification_slider_category_title">Értesítési csúszka</string>
   <string name="notification_slider_selection_dialog_title">Művelet</string>
+  <string name="notification_slider_ignore_auto_title">Automatikus szabályok esetén letiltva</string>
+  <string name="notification_slider_ignore_auto_summary">Csúszka figyelmen kívül hagyása, ha automatikus szabály van érvényben</string>
   <string name="notification_slider_top_position">Felső pozíció</string>
   <string name="notification_slider_middle_position">Középső pozíció</string>
   <string name="notification_slider_bottom_position">Alsó pozíció</string>
@@ -55,4 +57,6 @@
   <string name="notification_slider_mode_alarms_only">Csak riasztások</string>
   <string name="notification_slider_mode_priority_only">Csak prioritásos</string>
   <string name="notification_slider_mode_none">Egy sem</string>
+  <string name="notification_slider_mode_vibrate">Rezgés</string>
+  <string name="notification_slider_mode_ring">Csengés</string>
 </resources>

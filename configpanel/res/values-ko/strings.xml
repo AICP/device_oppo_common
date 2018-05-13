@@ -48,6 +48,8 @@
   <!-- Notification slider -->
   <string name="notification_slider_category_title">알림 슬라이더</string>
   <string name="notification_slider_selection_dialog_title">작업</string>
+  <string name="notification_slider_ignore_auto_title">자동 규칙 중 사용 안 함</string>
+  <string name="notification_slider_ignore_auto_summary">자동 규칙이 활성화 되면 슬라이더를 무시</string>
   <string name="notification_slider_top_position">위 위치</string>
   <string name="notification_slider_middle_position">중간 위치</string>
   <string name="notification_slider_bottom_position">아래 위치</string>
@@ -55,4 +57,6 @@
   <string name="notification_slider_mode_alarms_only">알람만</string>
   <string name="notification_slider_mode_priority_only">중요 알림만</string>
   <string name="notification_slider_mode_none">끔</string>
+  <string name="notification_slider_mode_vibrate">진동</string>
+  <string name="notification_slider_mode_ring">벨소리</string>
 </resources>

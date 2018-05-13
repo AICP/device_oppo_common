@@ -32,7 +32,7 @@
   <string name="oclick_take_snapshot_title">مغلاق الكاميرا عن بعد</string>
   <string name="oclick_take_snapshot_summary">نقرة واحدة لألتقاط الصورة</string>
   <string name="oclick_find_my_phone_title">محدد الهاتف</string>
-  <string name="oclick_find_my_phone_summary">انقر نقراً مزدوجاً للبحث عن الهاتف</string>
+  <string name="oclick_find_my_phone_summary">أضغط ضغطاً مزدوجاً للبحث عن الهاتف</string>
   <string name="oclick_fence_title">تنبيه قريب</string>
   <string name="oclick_fence_summary">التنبيه عند عدم القرب من الهاتف</string>
   <string name="oclick_disconnect_alert_title">خارج نطاق التنبيه</string>
@@ -48,6 +48,8 @@
   <!-- Notification slider -->
   <string name="notification_slider_category_title">أداة تمرار الإشعارات</string>
   <string name="notification_slider_selection_dialog_title">إجراء</string>
+  <string name="notification_slider_ignore_auto_title">تعطيل عندما تكون القواعد التلقائية مفعلة</string>
+  <string name="notification_slider_ignore_auto_summary">تجاهل مربع التمرير عندما تكون القواعد التلقائية مفعلة</string>
   <string name="notification_slider_top_position">الموضع العلوي</string>
   <string name="notification_slider_middle_position">الموضع الأوسط</string>
   <string name="notification_slider_bottom_position">الموضع السفلي</string>
@@ -56,4 +58,5 @@
   <string name="notification_slider_mode_priority_only">الأولوية فقط</string>
   <string name="notification_slider_mode_none">لا شيء</string>
   <string name="notification_slider_mode_vibrate">إهتزاز</string>
+  <string name="notification_slider_mode_ring">رنين</string>
 </resources>

@@ -48,6 +48,8 @@
   <!-- Notification slider -->
   <string name="notification_slider_category_title">Panel powiadomień</string>
   <string name="notification_slider_selection_dialog_title">Akcja</string>
+  <string name="notification_slider_ignore_auto_title">Wyłącz podczas używania reguł automatycznych</string>
+  <string name="notification_slider_ignore_auto_summary">Ignoruj suwak, gdy automatyczna reguła jest aktywna</string>
   <string name="notification_slider_top_position">Górna pozycja</string>
   <string name="notification_slider_middle_position">Środkowa pozycja</string>
   <string name="notification_slider_bottom_position">Dolna pozycja</string>
@@ -55,4 +57,6 @@
   <string name="notification_slider_mode_alarms_only">Tylko alarmy</string>
   <string name="notification_slider_mode_priority_only">Tylko priorytet</string>
   <string name="notification_slider_mode_none">Brak</string>
+  <string name="notification_slider_mode_vibrate">Wibracje</string>
+  <string name="notification_slider_mode_ring">Dzwonek</string>
 </resources>
