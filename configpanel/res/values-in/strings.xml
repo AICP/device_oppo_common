@@ -23,7 +23,7 @@
   <string name="oclick_summary_paired">O-Click dipasangkan, tetapi terputus</string>
   <string name="oclick_dialog_connecting_message">Menghubungkan ke O-Click\u2026\nTekan tombol O-Click untuk mempercepat penemuan.</string>
   <string name="oclick_take_snapshot_title">Rana kamera jarak jauh</string>
-  <string name="oclick_take_snapshot_summary">Klik satu kali untuk berfoto</string>
+  <string name="oclick_take_snapshot_summary">Klik satu kali untuk mengambil gambar</string>
   <string name="oclick_find_my_phone_title">Pelacak telepon</string>
   <string name="oclick_find_my_phone_summary">Klik dua kali untuk menemukan telepon</string>
   <string name="oclick_fence_title">Peringatan kedekatan</string>
@@ -34,14 +34,14 @@
   <string name="action_category_title">Tindakan</string>
   <!-- O-Click notification -->
   <string name="oclick_locator_notification_title">O-Click pelacak telepon</string>
-  <string name="oclick_locator_notification_text">Peringatan penargetan sedang diputar. Ketuk untuk memberhentikan</string>
+  <string name="oclick_locator_notification_text">Peringatan pelacak sedang diputar. Ketuk untuk mengabaikan</string>
   <string name="oclick_notification_title_connected">O-Click terhubung</string>
   <string name="oclick_notification_title_disconnected">O-Click terputus</string>
   <string name="oclick_notification_content_disconnected">Tekan tombol O-Click untuk menyambung kembali</string>
   <!-- Notification slider -->
-  <string name="notification_slider_category_title">Slider notifikasi</string>
+  <string name="notification_slider_category_title">Slider pemberitahuan</string>
   <string name="notification_slider_selection_dialog_title">Tindakan</string>
-  <string name="notification_slider_top_position">Posisi teratas</string>
+  <string name="notification_slider_top_position">Posisi atas</string>
   <string name="notification_slider_middle_position">Posisi tengah</string>
   <string name="notification_slider_bottom_position">Posisi bawah</string>
   <string name="notification_slider_mode_total_silence">Keheningan total</string>

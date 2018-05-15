@@ -47,4 +47,7 @@
   <string name="notification_slider_mode_total_silence">Całkowita cisza</string>
   <string name="notification_slider_mode_alarms_only">Tylko alarmy</string>
   <string name="notification_slider_mode_priority_only">Tylko priorytet</string>
+  <string name="notification_slider_mode_none">Brak</string>
+  <string name="notification_slider_mode_vibrate">Wibracje</string>
+  <string name="notification_slider_mode_ring">Dzwonek</string>
 </resources>

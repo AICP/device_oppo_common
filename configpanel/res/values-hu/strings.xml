@@ -48,4 +48,6 @@
   <string name="notification_slider_mode_alarms_only">Csak riasztások</string>
   <string name="notification_slider_mode_priority_only">Csak prioritásos</string>
   <string name="notification_slider_mode_none">Egyik sem</string>
+  <string name="notification_slider_mode_vibrate">Rezgés</string>
+  <string name="notification_slider_mode_ring">Csengés</string>
 </resources>

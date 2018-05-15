@@ -19,7 +19,7 @@
   <!-- O-Click settings -->
   <string name="oclick_connect_string">Připojit</string>
   <string name="oclick_disconnect_string">Odpojit</string>
-  <string name="oclick_summary_connected">Připojen k O-Click</string>
+  <string name="oclick_summary_connected">Připojeno k O-Click</string>
   <string name="oclick_summary_paired">O-Click spárován, ale odpojen</string>
   <string name="oclick_dialog_connecting_message">Připojování k O-Click\u2026\nTlačítkem O-Click urychlit vyhledávání.</string>
   <string name="oclick_take_snapshot_title">Dálková spoušť fotoaparátu</string>
@@ -39,7 +39,7 @@
   <string name="oclick_notification_title_disconnected">O-Click odpojen</string>
   <string name="oclick_notification_content_disconnected">Tlačítkem O-Click znovu připojit</string>
   <!-- Notification slider -->
-  <string name="notification_slider_category_title">Posuvník u oznámení</string>
+  <string name="notification_slider_category_title">Posuvník oznámení</string>
   <string name="notification_slider_selection_dialog_title">Akce</string>
   <string name="notification_slider_top_position">Pozice nahoře</string>
   <string name="notification_slider_middle_position">Pozice uprostřed</string>
