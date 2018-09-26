@@ -47,6 +47,7 @@
   <string name="notification_slider_mode_total_silence">Total stillhet</string>
   <string name="notification_slider_mode_alarms_only">Kun alarmer</string>
   <string name="notification_slider_mode_priority_only">Kun prioritert</string>
+  <string name="notification_slider_mode_none">Ingen</string>
   <string name="notification_slider_mode_vibrate">Vibrer</string>
   <string name="notification_slider_mode_ring">Ring</string>
 </resources>
