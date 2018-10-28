@@ -48,7 +48,7 @@
                 android:resource="@drawable/ic_settings_additional_buttons" />
             <meta-data
                 android:name="com.android.settings.category"
-                android:value="com.android.settings.category.ia.homepage" />
+                android:value="com.android.settings.category.ia.system" />
         </activity>
 
         <receiver android:name=".BootReceiver" >
