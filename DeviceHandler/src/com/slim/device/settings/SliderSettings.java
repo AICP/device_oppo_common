@@ -25,6 +25,7 @@ import android.preference.PreferenceActivity;
 import android.preference.SwitchPreference;
 import android.view.MenuItem;
 
+import com.aicp.device.preference.VibratorStrengthPreference;
 import com.slim.device.KernelControl;
 import com.slim.device.R;
 import com.slim.device.util.FileUtils;
@@ -32,10 +33,18 @@ import com.slim.device.util.FileUtils;
 public class SliderSettings extends PreferenceActivity
         implements OnPreferenceChangeListener {
 
+    public static final String KEY_VIBSTRENGTH = "vib_strength";
+    private VibratorStrengthPreference mVibratorStrength;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.slider_panel);
+
+        mVibratorStrength = (VibratorStrengthPreference) findPreference(KEY_VIBSTRENGTH);
+        if (mVibratorStrength != null) {
+            mVibratorStrength.setEnabled(VibratorStrengthPreference.isSupported());
+        }
 
         ActionBar actionBar = getActionBar();
         if (actionBar != null) {

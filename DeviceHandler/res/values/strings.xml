@@ -60,4 +60,7 @@
     <string name="button_swap_title">Swap buttons</string>
     <string name="button_swap_summary">Swap the order of recents and back buttons</string>
 
+    <string name="category_vibrator">Vibrator</string>
+    <string name="vib_strength_title_head">Strength</string>
+    <string name="vib_strength_summary_head">Define the strength of the vibrator</string>
 </resources>
