@@ -16,12 +16,9 @@
 
 BOARD_VENDOR := oppo
 
-# CM Hardware
-BOARD_USES_CYANOGEN_HARDWARE := true
-BOARD_HARDWARE_CLASS += \
-    hardware/cyanogen/cmhw
-
 # Releasetools
-TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_oppo
-TARGET_RELEASETOOLS_EXTENSIONS := device/oppo/common
-
+# Do not use for AvB devices, so we exclude this for OP6 / OP6T
+ifeq ($(filter enchilada fajita,$(TARGET_DEVICE)),)
+  TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_oppo
+  TARGET_RELEASETOOLS_EXTENSIONS := device/oppo/common
+endif
