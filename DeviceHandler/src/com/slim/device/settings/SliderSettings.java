@@ -30,23 +30,10 @@ import com.slim.device.util.FileUtils;
 public class SliderSettings extends PreferenceActivity
         implements OnPreferenceChangeListener {
 
-    private ListPreference mSliderTop;
-    private ListPreference mSliderMiddle;
-    private ListPreference mSliderBottom;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.slider_panel);
-
-        mSliderTop = (ListPreference) findPreference("keycode_top_position");
-        mSliderTop.setOnPreferenceChangeListener(this);
-
-        mSliderMiddle = (ListPreference) findPreference("keycode_middle_position");
-        mSliderMiddle.setOnPreferenceChangeListener(this);
-
-        mSliderBottom = (ListPreference) findPreference("keycode_bottom_position");
-        mSliderBottom.setOnPreferenceChangeListener(this);
     }
 
     private void setSummary(ListPreference preference, String file) {
@@ -59,6 +46,8 @@ public class SliderSettings extends PreferenceActivity
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        return false;
+        /*
         final String file;
         if (preference == mSliderTop) {
             file = KernelControl.KEYCODE_SLIDER_TOP;
@@ -74,6 +63,7 @@ public class SliderSettings extends PreferenceActivity
         setSummary((ListPreference) preference, file);
 
         return true;
+        */
     }
 
     @Override
@@ -82,9 +72,5 @@ public class SliderSettings extends PreferenceActivity
 
         // Remove padding around the listview
             getListView().setPadding(0, 0, 0, 0);
-
-        setSummary(mSliderTop, KernelControl.KEYCODE_SLIDER_TOP);
-        setSummary(mSliderMiddle, KernelControl.KEYCODE_SLIDER_MIDDLE);
-        setSummary(mSliderBottom, KernelControl.KEYCODE_SLIDER_BOTTOM);
     }
 }
