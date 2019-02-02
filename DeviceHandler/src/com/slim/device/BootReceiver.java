@@ -29,6 +29,10 @@ import com.slim.device.settings.ScreenOffGesture;
 import com.slim.device.settings.SliderSettings;
 import com.slim.device.util.FileUtils;
 
+import static com.slim.device.KeyHandler.SLIDER_TOP;
+import static com.slim.device.KeyHandler.SLIDER_MIDDLE;
+import static com.slim.device.KeyHandler.SLIDER_BOTTOM;
+
 import java.io.File;
 
 
@@ -50,9 +54,11 @@ public class BootReceiver extends BroadcastReceiver {
             } else {
                 enableComponent(context, SliderSettings.class.getName());
 
-                String sliderTop = getPreferenceString(context, "keycode_top_position", "601");
-                String sliderMiddle = getPreferenceString(context, "keycode_middle_position", "602");
-                String sliderBottom = getPreferenceString(context, "keycode_bottom_position", "603");
+                // Set keycodes as expected by our keyhandler for kernels
+                // that control keycodes using these files
+                String sliderTop = "" + SLIDER_TOP;
+                String sliderMiddle = "" + SLIDER_MIDDLE;
+                String sliderBottom = "" + SLIDER_BOTTOM;
 
                 FileUtils.writeLine(KernelControl.KEYCODE_SLIDER_TOP, sliderTop);
                 FileUtils.writeLine(KernelControl.KEYCODE_SLIDER_MIDDLE, sliderMiddle);
