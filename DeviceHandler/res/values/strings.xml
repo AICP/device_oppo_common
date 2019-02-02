@@ -50,6 +50,7 @@
     <string name="alarms_only">Alarms only</string>
     <string name="priority_only">Priority only</string>
     <string name="none">All notifications</string>
+    <string name="silent">Mute</string>
     <string name="vibrate">Vibrate</string>
     <string name="ring">Ring</string>
 
