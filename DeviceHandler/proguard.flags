@@ -3,3 +3,14 @@
 -keepclassmembers public class com.slim.device.KeyHandler {
     *;
 }
+
+# Keep classes that may be inflated from XML.
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int, int);
+}

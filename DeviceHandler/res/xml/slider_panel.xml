@@ -19,26 +19,29 @@
     <PreferenceCategory
         android:title="@string/notification_slider">
 
-        <ListPreference
-            android:key="keycode_top_position"
+        <com.aicp.device.preference.SystemSettingListPreference
+            android:key="device_oppo_common_notification_slider_up1"
             android:dialogTitle="@string/action"
             android:title="@string/top_position"
             android:entries="@array/notification_slider_action_entries"
-            android:entryValues="@array/notification_slider_action_entry_values" />
+            android:entryValues="@array/notification_slider_action_entry_values"
+            android:defaultValue="601" />
 
-        <ListPreference
-            android:key="keycode_middle_position"
+        <com.aicp.device.preference.SystemSettingListPreference
+            android:key="device_oppo_common_notification_slider_middle1"
             android:dialogTitle="@string/action"
             android:title="@string/middle_position"
             android:entries="@array/notification_slider_action_entries"
-            android:entryValues="@array/notification_slider_action_entry_values" />
+            android:entryValues="@array/notification_slider_action_entry_values"
+            android:defaultValue="602" />
 
-        <ListPreference
-            android:key="keycode_bottom_position"
+        <com.aicp.device.preference.SystemSettingListPreference
+            android:key="device_oppo_common_notification_slider_bottom1"
             android:dialogTitle="@string/action"
             android:title="@string/bottom_position"
             android:entries="@array/notification_slider_action_entries"
-            android:entryValues="@array/notification_slider_action_entry_values" />
+            android:entryValues="@array/notification_slider_action_entry_values"
+            android:defaultValue="603" />
 
     </PreferenceCategory>
 
