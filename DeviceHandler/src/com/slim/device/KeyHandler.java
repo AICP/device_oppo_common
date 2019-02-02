@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2014 Slimroms
+ * Copyright (C) 2019 Android Ice Cold Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,9 +18,11 @@ package com.slim.device;
 
 import android.app.Activity;
 import android.app.NotificationManager;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.SharedPreferences;
+import android.database.ContentObserver;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -30,9 +33,11 @@ import android.os.Message;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import android.os.SystemProperties;
+import android.os.UserHandle;
 import android.os.Vibrator;
 import android.provider.Settings;
 import android.util.Log;
+import android.util.SparseIntArray;
 import android.view.KeyEvent;
 
 import android.service.notification.ZenModeConfig;
@@ -44,10 +49,19 @@ import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.gzosp.ActionConstants;
 import com.android.internal.util.gzosp.Action;
 
+import java.util.HashSet;
+
 public class KeyHandler implements DeviceKeyHandler {
 
     private static final String TAG = KeyHandler.class.getSimpleName();
     private static final int GESTURE_REQUEST = 1;
+
+    public static final String SETTING_NOTIF_SLIDER_UP =
+            "device_oppo_common_notification_slider_up";
+    public static final String SETTING_NOTIF_SLIDER_MIDDLE =
+            "device_oppo_common_notification_slider_middle";
+    public static final String SETTING_NOTIF_SLIDER_BOTTOM =
+            "device_oppo_common_notification_slider_bottom";
 
     // Supported scancodes
     private static final int GESTURE_CIRCLE_SCANCODE = 250;
@@ -64,6 +78,20 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int MODE_VIBRATE = 604;
     private static final int MODE_RING = 605;
 
+    // Keycodes from kernel found in drivers/input/misc/tri_state_key.c
+    public static final int SLIDER_TOP = 601;
+    public static final int SLIDER_MIDDLE = 602;
+    public static final int SLIDER_BOTTOM = 603;
+
+    // Supported tri-state actions
+    private static final int ACTION_TOTAL_SILENCE = 0;
+    private static final int ACTION_ALARMS_ONLY = 1;
+    private static final int ACTION_PRIORITY_ONLY = 2;
+    private static final int ACTION_NONE = 3;
+    private static final int ACTION_SILENT = 4;
+    private static final int ACTION_VIBRATE = 5;
+    private static final int ACTION_RING = 6;
+
     private static final int[] sSupportedGestures = new int[]{
         GESTURE_CIRCLE_SCANCODE,
         GESTURE_SWIPE_DOWN_SCANCODE,
@@ -79,6 +107,26 @@ public class KeyHandler implements DeviceKeyHandler {
         MODE_RING
     };
 
+    private static final HashSet<Integer> sSupportedSliderModes = new HashSet<>();
+    static {
+        sSupportedSliderModes.add(SLIDER_TOP);
+        sSupportedSliderModes.add(SLIDER_MIDDLE);
+        sSupportedSliderModes.add(SLIDER_BOTTOM);
+    }
+
+    private static final SparseIntArray sSupportedSliderActions = new SparseIntArray();
+    static {
+        sSupportedSliderActions.put(ACTION_TOTAL_SILENCE,
+                Settings.Global.ZEN_MODE_NO_INTERRUPTIONS);
+        sSupportedSliderActions.put(ACTION_ALARMS_ONLY, Settings.Global.ZEN_MODE_ALARMS);
+        sSupportedSliderActions.put(ACTION_PRIORITY_ONLY,
+                Settings.Global.ZEN_MODE_IMPORTANT_INTERRUPTIONS);
+        sSupportedSliderActions.put(ACTION_NONE, Settings.Global.ZEN_MODE_OFF);
+        sSupportedSliderActions.put(ACTION_SILENT, AudioManager.RINGER_MODE_SILENT);
+        sSupportedSliderActions.put(ACTION_VIBRATE, AudioManager.RINGER_MODE_VIBRATE);
+        sSupportedSliderActions.put(ACTION_RING, AudioManager.RINGER_MODE_NORMAL);
+    }
+
     private final Context mContext;
     private final AudioManager mAudioManager;
     private final PowerManager mPowerManager;
@@ -89,6 +137,10 @@ public class KeyHandler implements DeviceKeyHandler {
     private Sensor mProximitySensor;
     private Vibrator mVibrator;
     WakeLock mProximityWakeLock;
+
+    private int mSliderUpAction;
+    private int mSliderMiddleAction;
+    private int mSliderBottomAction;
 
     public KeyHandler(Context context) {
         mContext = context;
@@ -112,6 +164,8 @@ public class KeyHandler implements DeviceKeyHandler {
                     "com.slim.device", Context.CONTEXT_IGNORE_SECURITY);
         } catch (NameNotFoundException e) {
         }
+
+        new SettingsObserver(new Handler()).observe();
     }
 
     private class EventHandler extends Handler {
@@ -218,6 +272,24 @@ public class KeyHandler implements DeviceKeyHandler {
 
     public KeyEvent handleKeyEvent(KeyEvent event) {
         int scanCode = event.getScanCode();
+        boolean isSliderModeSupported = sSupportedSliderModes.contains(scanCode);
+        if (isSliderModeSupported) {
+            int sliderAction;
+            if (scanCode == SLIDER_TOP) {
+                sliderAction = mSliderUpAction;
+            } else if (scanCode == SLIDER_MIDDLE) {
+                sliderAction = mSliderMiddleAction;
+            } else { // scanCode == SLIDER_BOTTOM
+                sliderAction = mSliderBottomAction;
+            }
+            if (sliderAction <= ACTION_NONE) {
+                mNotificationManager.setZenMode(sSupportedSliderActions.get(sliderAction),
+                        null, TAG);
+             } else {
+                 mAudioManager.setRingerModeInternal(sSupportedSliderActions.get(sliderAction));
+            }
+            return null;
+        }
         boolean isKeySupported = ArrayUtils.contains(sSupportedGestures, scanCode);
         if (!isKeySupported) {
             return event;
@@ -266,6 +338,41 @@ public class KeyHandler implements DeviceKeyHandler {
             public void onAccuracyChanged(Sensor sensor, int accuracy) {}
 
         }, mProximitySensor, SensorManager.SENSOR_DELAY_FASTEST);
+    }
+
+        private class SettingsObserver extends ContentObserver {
+        SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            ContentResolver resolver = mContext.getContentResolver();
+
+            resolver.registerContentObserver(Settings.System.getUriFor(SETTING_NOTIF_SLIDER_UP),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(
+                    Settings.System.getUriFor(SETTING_NOTIF_SLIDER_MIDDLE), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(
+                    Settings.System.getUriFor(SETTING_NOTIF_SLIDER_BOTTOM), false, this,
+                    UserHandle.USER_ALL);
+
+            update();
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            update();
+        }
+
+        void update() {
+            mSliderUpAction = Settings.System.getInt(mContext.getContentResolver(),
+                        SETTING_NOTIF_SLIDER_UP, 1);
+            mSliderMiddleAction = Settings.System.getInt(mContext.getContentResolver(),
+                        SETTING_NOTIF_SLIDER_MIDDLE, 2);
+            mSliderBottomAction = Settings.System.getInt(mContext.getContentResolver(),
+                        SETTING_NOTIF_SLIDER_BOTTOM, 3);
+        }
     }
 
 }
