@@ -22,6 +22,9 @@ PRODUCT_PACKAGES += \
 	DeviceHandler
 
 # Recovery
+# Do not use for AvB devices, so we exclude this for OP6 / OP6T
+ifeq ($(filter enchilada fajita,$(TARGET_DEVICE)),)
 PRODUCT_PACKAGES += \
     librecovery_updater_oppo
+endif
 
