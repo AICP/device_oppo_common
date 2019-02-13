@@ -43,6 +43,12 @@
             android:entryValues="@array/notification_slider_action_entry_values"
             android:defaultValue="603" />
 
+        <com.aicp.device.preference.SystemSettingSwitchPreference
+            android:key="device_oppo_common_notification_slider_haptic_feedback"
+            android:title="@string/notification_slider_haptic_feedback_title"
+            android:summary="@string/notification_slider_haptic_feedback_summary"
+            android:defaultValue="true" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

@@ -61,6 +61,8 @@ public class KeyHandler implements DeviceKeyHandler {
             "device_oppo_common_notification_slider_middle1";
     public static final String SETTING_NOTIF_SLIDER_BOTTOM =
             "device_oppo_common_notification_slider_bottom1";
+    public static final String SETTING_NOTIF_SLIDER_HAPTIC_FEEDBACK =
+            "device_oppo_common_notification_slider_haptic_feedback";
 
     // Supported scancodes
     private static final int GESTURE_CIRCLE_SCANCODE = 250;
@@ -133,11 +135,6 @@ public class KeyHandler implements DeviceKeyHandler {
         mProximitySensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
         mProximityWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
                 "ProximityWakeLock");
-
-        mVibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-        if (mVibrator == null || !mVibrator.hasVibrator()) {
-            mVibrator = null;
-        }
 
         try {
             mGestureContext = mContext.createPackageContext(
@@ -355,6 +352,9 @@ public class KeyHandler implements DeviceKeyHandler {
             resolver.registerContentObserver(
                     Settings.System.getUriFor(SETTING_NOTIF_SLIDER_BOTTOM), false, this,
                     UserHandle.USER_ALL);
+            resolver.registerContentObserver(
+                    Settings.System.getUriFor(SETTING_NOTIF_SLIDER_HAPTIC_FEEDBACK), false, this,
+                    UserHandle.USER_ALL);
 
             update();
         }
@@ -371,6 +371,17 @@ public class KeyHandler implements DeviceKeyHandler {
                         SETTING_NOTIF_SLIDER_MIDDLE, 602);
             mSliderBottomAction = Settings.System.getInt(mContext.getContentResolver(),
                         SETTING_NOTIF_SLIDER_BOTTOM, 603);
+
+
+            if (Settings.System.getInt(mContext.getContentResolver(),
+                        SETTING_NOTIF_SLIDER_HAPTIC_FEEDBACK, 1) != 0) {
+                mVibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
+                if (mVibrator == null || !mVibrator.hasVibrator()) {
+                    mVibrator = null;
+                }
+            } else {
+                mVibrator = null;
+            }
         }
     }
 
