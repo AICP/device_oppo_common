@@ -281,20 +281,23 @@ public class KeyHandler implements DeviceKeyHandler {
         if (event.getAction() != KeyEvent.ACTION_UP) {
             return null;
         }
-        if (isKeySupported && !mEventHandler.hasMessages(GESTURE_REQUEST)) {
-            Message msg;
-            if (scanCode != event.getScanCode()) {
-                // Overwritten action
-                msg = getMessageForScanCode(scanCode);
-            } else {
-                msg = getMessageForKeyEvent(event);
-            }
-            if (scanCode < MODE_TOTAL_SILENCE && mProximitySensor != null) {
-                mEventHandler.sendMessageDelayed(msg, 200);
-                processEvent(event);
-            } else {
-                mEventHandler.sendMessage(msg);
-            }
+
+        // In case we're too fast: possibly loose contact in hw button?
+        // -> discard previous, apply last update
+        mEventHandler.removeMessages(GESTURE_REQUEST);
+
+        Message msg;
+        if (scanCode != event.getScanCode()) {
+            // Overwritten action
+            msg = getMessageForScanCode(scanCode);
+        } else {
+            msg = getMessageForKeyEvent(event);
+        }
+        if (scanCode < MODE_TOTAL_SILENCE && mProximitySensor != null) {
+            mEventHandler.sendMessageDelayed(msg, 200);
+            processEvent(event);
+        } else {
+            mEventHandler.sendMessage(msg);
         }
         return null;
     }
