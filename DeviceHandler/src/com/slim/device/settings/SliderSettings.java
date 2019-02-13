@@ -16,12 +16,14 @@
 
 package com.slim.device.settings;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
 import android.preference.SwitchPreference;
+import android.view.MenuItem;
 
 import com.slim.device.KernelControl;
 import com.slim.device.R;
@@ -34,6 +36,11 @@ public class SliderSettings extends PreferenceActivity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.slider_panel);
+
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     private void setSummary(ListPreference preference, String file) {
@@ -72,5 +79,16 @@ public class SliderSettings extends PreferenceActivity
 
         // Remove padding around the listview
             getListView().setPadding(0, 0, 0, 0);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
