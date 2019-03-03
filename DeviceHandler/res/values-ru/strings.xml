@@ -21,6 +21,7 @@
     <string name="reset">Сбросить</string>
     <string name="reset_message">Сбросить все записи по умолчанию?</string>
     <string name="screen_off_gesture_title">Жесты при выключенном экране</string>
+    <string name="screen_off_gesture_summary">Управление различными жестами устройства</string>
     <string name="group_applications">Приложения</string>
     <string name="select_custom_app_title">Выберите пользовательское приложение</string>
     <string name="enable_gestures_title">Включить жесты</string>
@@ -35,6 +36,7 @@
     <string name="gesture_double_tap_title">Двойное нажатие</string>
     <!-- Notification slider -->
     <string name="notification_slider">Слайдер уведомлений</string>
+    <string name="notification_slider_summary">Настроить положения ползунка</string>
     <string name="action">Действие</string>
     <string name="top_position">Верхнее положение</string>
     <string name="middle_position">Среднее положение</string>

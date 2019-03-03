@@ -16,7 +16,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Shortcut actions -->
-    <string name="shortcut_action_none">Hayır</string>
+    <string name="shortcut_action_none">Yok</string>
     <string name="shortcut_action_app">Özel uygulama</string>
     <string name="shortcut_action_home">Ana ekran</string>
     <string name="shortcut_action_back">Geri</string>
