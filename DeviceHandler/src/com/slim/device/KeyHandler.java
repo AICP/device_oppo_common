@@ -275,9 +275,6 @@ public class KeyHandler implements DeviceKeyHandler {
         if (!isKeySupported) {
             return event;
         }
-        if (event.getAction() != KeyEvent.ACTION_UP) {
-            return null;
-        }
 
         // In case we're too fast: possibly loose contact in hw button?
         // -> discard previous, apply last update
