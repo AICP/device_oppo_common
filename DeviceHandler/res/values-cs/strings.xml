@@ -15,7 +15,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- General strings -->
     <string name="dlg_ok">OK</string>
     <string name="cancel">Zrušit</string>
     <string name="reset">Obnovit</string>
@@ -34,7 +33,6 @@
     <string name="gesture_circle_title">Kruh</string>
     <string name="gesture_double_swipe_title">Potáhnutí dvěma prsty dolů</string>
     <string name="gesture_double_tap_title">Dvojí poklepání</string>
-    <!-- Notification slider -->
     <string name="notification_slider">Posuvník oznámení</string>
     <string name="notification_slider_summary">Nastavení pozice posuvníku</string>
     <string name="action">Akce</string>

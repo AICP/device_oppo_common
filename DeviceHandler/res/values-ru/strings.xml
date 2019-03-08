@@ -15,7 +15,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- General strings -->
     <string name="dlg_ok">ОК</string>
     <string name="cancel">Отмена</string>
     <string name="reset">Сбросить</string>
@@ -34,7 +33,6 @@
     <string name="gesture_circle_title">Круг</string>
     <string name="gesture_double_swipe_title">Свайп двумя пальцами вниз</string>
     <string name="gesture_double_tap_title">Двойное нажатие</string>
-    <!-- Notification slider -->
     <string name="notification_slider">Слайдер уведомлений</string>
     <string name="notification_slider_summary">Настроить положения ползунка</string>
     <string name="action">Действие</string>

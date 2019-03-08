@@ -15,7 +15,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Shortcut actions -->
     <string name="shortcut_action_none">Yok</string>
     <string name="shortcut_action_app">Özel uygulama</string>
     <string name="shortcut_action_home">Ana ekran</string>
@@ -60,6 +59,5 @@
     <string name="shortcut_action_help_app">uygulama</string>
     <string name="shortcut_action_help_icon">, simgesini seçerseniz özelleştirme seçenekleri ortaya çıkar</string>
     <string name="shortcut_action_help_main">Bir %1$s eklemek için Ekle simgesini seçin. %1$s eklendikten sonra satırı seçmek hedefi değiştirecektir%2$s\n\n %1$s kaldırmak için, satırı yatay olarak sağa veya sola kaydırın. %1$s yeniden sıralamak için soldaki taşıma simgesinden tutarak dikey olarak sürükleyin.\n\nTemizlemek ya da varsayılan değerlere sıfırlamak için, Sıfırla\'yı seçin.</string>
-    <!-- Device specific settings -->
     <string name="screen_off_gesture_settings_title">Kapalı ekran hareketleri</string>
 </resources>
