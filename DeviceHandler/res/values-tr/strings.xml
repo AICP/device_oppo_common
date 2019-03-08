@@ -15,7 +15,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- General strings -->
     <string name="dlg_ok">Tamam</string>
     <string name="cancel">İptal</string>
     <string name="reset">Sıfırla</string>
@@ -34,7 +33,6 @@
     <string name="gesture_circle_title">Daire</string>
     <string name="gesture_double_swipe_title">İki parmağınızı aşağı kaydır</string>
     <string name="gesture_double_tap_title">Çift dokunma</string>
-    <!-- Notification slider -->
     <string name="notification_slider">Bildirim kaydırıcısı</string>
     <string name="notification_slider_summary">Kaydırıcı konumlarını yapılandır</string>
     <string name="action">Eylem</string>

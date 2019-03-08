@@ -15,7 +15,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Shortcut actions -->
     <string name="shortcut_action_none">無</string>
     <string name="shortcut_action_app">自訂應用程式</string>
     <string name="shortcut_action_home">主畫面</string>
@@ -60,6 +59,5 @@
     <string name="shortcut_action_help_app">應用程式</string>
     <string name="shortcut_action_help_icon">，長按圖示以顯示自訂選項</string>
     <string name="shortcut_action_help_main">若要新增一個%1$s，請輕觸「新增」圖示。一旦新增了%1$s，輕觸橫列以變更目標 %2$s\n\n若要移除一個 %1$s，向左或向右滑動橫列。若要重新排列 %1$s，請拖移左側的箭頭。\n\n若要清除或重設為預設，請輕觸「重設」按鈕。</string>
-    <!-- Device specific settings -->
     <string name="screen_off_gesture_settings_title">關閉螢幕手勢</string>
 </resources>

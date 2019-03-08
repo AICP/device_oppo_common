@@ -15,7 +15,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- General strings -->
     <string name="dlg_ok">Aceptar</string>
     <string name="cancel">Cancelar</string>
     <string name="reset">Restablecer</string>
@@ -34,7 +33,6 @@
     <string name="gesture_circle_title">Círculo</string>
     <string name="gesture_double_swipe_title">Dos dedos deslizando hacia abajo</string>
     <string name="gesture_double_tap_title">Doble toque</string>
-    <!-- Notification slider -->
     <string name="notification_slider">Panel de notificaciones</string>
     <string name="notification_slider_summary">Configurar las posiciones del interruptor</string>
     <string name="action">Acción</string>
