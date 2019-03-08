@@ -15,7 +15,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Shortcut actions -->
     <string name="shortcut_action_none">Tidak ada</string>
     <string name="shortcut_action_app">Aplikasi khusus</string>
     <string name="shortcut_action_home">Halaman utama</string>
@@ -46,5 +45,4 @@
     <string name="shortcut_action_help_button">tombol</string>
     <string name="shortcut_action_help_app">apl</string>
     <string name="shortcut_action_help_icon">, saat memilih ikon akan memunculkan pilihan kustomisasi</string>
-    <!-- Device specific settings -->
 </resources>

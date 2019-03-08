@@ -15,7 +15,5 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Shortcut actions -->
     <string name="shortcut_action_now_on_tap">Wyszukiwanie po zawartości ekranu (Now on Tap)</string>
-    <!-- Device specific settings -->
 </resources>

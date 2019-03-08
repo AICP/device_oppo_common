@@ -15,7 +15,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Shortcut actions -->
     <string name="shortcut_action_none">Geen</string>
     <string name="shortcut_action_app">Aangepaste app</string>
     <string name="shortcut_action_home">Home</string>
@@ -60,6 +59,5 @@
     <string name="shortcut_action_help_app">app</string>
     <string name="shortcut_action_help_icon">, terwijl het pictogram selecteren aanpassingsopties zal tonen</string>
     <string name="shortcut_action_help_main">Om een %1$s toe te voegen, selecteer het Toevoegen icoon. Als een %1$s eenmaal is toegevoegd, zal de rij selecteren het doel veranderen %2$s\n\nOm een %1$s te verwijderen, veeg naar links of rechts op een rij. Herplaats een %1$s in de lijst door het anker links verticaal te verslepen.\n\nOm te wissen of standaarden te herstellen, kies het Reset icoon.</string>
-    <!-- Device specific settings -->
     <string name="screen_off_gesture_settings_title">Scherm-uit gebaren</string>
 </resources>

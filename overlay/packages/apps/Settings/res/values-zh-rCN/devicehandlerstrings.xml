@@ -15,7 +15,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Shortcut actions -->
     <string name="shortcut_action_none">无</string>
     <string name="shortcut_action_app">自定义应用</string>
     <string name="shortcut_action_home">主页</string>
@@ -60,6 +59,5 @@
     <string name="shortcut_action_help_app">应用</string>
     <string name="shortcut_action_help_icon">当选择图标时将显示自定义选项</string>
     <string name="shortcut_action_help_main">点击添加图标以添加 %1$s，一旦一个 %1$s 被添加，点击该行可以改变目标。%2$s\n\n水平向左/向右划动以移除一个 %1$s。在列表中垂直拖动左侧的固定点以重新排序 %1$s 。\n\n点击重置图标以清除数据或恢复默认值。</string>
-    <!-- Device specific settings -->
     <string name="screen_off_gesture_settings_title">熄屏手势</string>
 </resources>
