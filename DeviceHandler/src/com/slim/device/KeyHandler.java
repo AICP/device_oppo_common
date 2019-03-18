@@ -202,8 +202,8 @@ public class KeyHandler implements DeviceKeyHandler {
                 setZenMode(Settings.Global.ZEN_MODE_ALARMS);
                 break;
             case MODE_PRIORITY_ONLY:
-                setZenMode(Settings.Global.ZEN_MODE_IMPORTANT_INTERRUPTIONS);
                 setRingerModeInternal(AudioManager.RINGER_MODE_NORMAL);
+                setZenMode(Settings.Global.ZEN_MODE_IMPORTANT_INTERRUPTIONS);
                 break;
             case MODE_NONE:
                 setZenMode(Settings.Global.ZEN_MODE_OFF);
