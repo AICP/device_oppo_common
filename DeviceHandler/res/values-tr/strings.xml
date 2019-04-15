@@ -43,8 +43,11 @@
     <string name="alarms_only">Sadece alarm</string>
     <string name="priority_only">Sadece öncelik</string>
     <string name="none">Tüm bildirimler</string>
+    <string name="silent">Sessiz</string>
     <string name="vibrate">Titreşim</string>
     <string name="ring">Zil sesi</string>
+    <string name="notification_slider_haptic_feedback_title">Dokunumsal geri bildirim</string>
+    <string name="notification_slider_haptic_feedback_summary">Kaydırma kullanımında titret</string>
     <string name="button_swap_title">Tuşları değiştir</string>
     <string name="button_swap_summary">Son uygulamalar ve geri tuşlarının yerini değiştir</string>
 </resources>

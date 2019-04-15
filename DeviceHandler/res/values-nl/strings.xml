@@ -43,8 +43,11 @@
     <string name="alarms_only">Alleen alarmen</string>
     <string name="priority_only">Alleen prioriteit</string>
     <string name="none">Alle notificaties</string>
+    <string name="silent">Dempen</string>
     <string name="vibrate">Trillen</string>
     <string name="ring">Beltoon</string>
+    <string name="notification_slider_haptic_feedback_title">Haptische feedback</string>
+    <string name="notification_slider_haptic_feedback_summary">Trillen bij gebruik van de slider</string>
     <string name="button_swap_title">Knoppen verwisselen</string>
     <string name="button_swap_summary">Recente apps- en Terugknop omwisselen</string>
 </resources>

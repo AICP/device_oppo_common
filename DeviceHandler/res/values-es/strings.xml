@@ -43,8 +43,11 @@
     <string name="alarms_only">Solo alarmas</string>
     <string name="priority_only">Solo prioritarias</string>
     <string name="none">Todas las notificaciones</string>
+    <string name="silent">Silencio</string>
     <string name="vibrate">Vibrar</string>
     <string name="ring">Sonar</string>
+    <string name="notification_slider_haptic_feedback_title">Respuesta háptica</string>
+    <string name="notification_slider_haptic_feedback_summary">Vibrar al usar el deslizador</string>
     <string name="button_swap_title">Intercambiar botones</string>
     <string name="button_swap_summary">Cambiar el orden de los botones «recientes» y «atrás»</string>
 </resources>

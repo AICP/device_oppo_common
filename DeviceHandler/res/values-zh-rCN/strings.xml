@@ -43,8 +43,11 @@
     <string name="alarms_only">仅限闹铃</string>
     <string name="priority_only">仅限优先</string>
     <string name="none">所有通知</string>
+    <string name="silent">静音</string>
     <string name="vibrate">振动</string>
     <string name="ring">响铃</string>
+    <string name="notification_slider_haptic_feedback_title">触觉反馈</string>
+    <string name="notification_slider_haptic_feedback_summary">滑块使用时振动</string>
     <string name="button_swap_title">交换按钮</string>
     <string name="button_swap_summary">交换最近使用与后退按钮的顺序</string>
 </resources>

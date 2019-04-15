@@ -43,8 +43,11 @@
     <string name="alarms_only">Pouze budíky</string>
     <string name="priority_only">Pouze prioritní</string>
     <string name="none">Všechna oznámení</string>
+    <string name="silent">Ztlumení</string>
     <string name="vibrate">Vibrace</string>
     <string name="ring">Vyzvánění</string>
+    <string name="notification_slider_haptic_feedback_title">Hmatová odezva</string>
+    <string name="notification_slider_haptic_feedback_summary">Vibrovat při použití posuvníku</string>
     <string name="button_swap_title">Prohodit tlačítka</string>
     <string name="button_swap_summary">Prohodit pořadí tlačítek „Nedávné“ a „Zpět“</string>
 </resources>
