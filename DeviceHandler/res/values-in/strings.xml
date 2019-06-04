@@ -26,5 +26,16 @@
     <string name="gesture_arrow_right_title">Panah ke kanan</string>
     <string name="gesture_arrow_up_title">Panah ke atas</string>
     <string name="gesture_double_tap_title">Tekan dua kali</string>
+    <string name="notification_slider">Penggeser pemberitahuan</string>
     <string name="action">Tindakan</string>
+    <string name="top_position">Posisi atas</string>
+    <string name="middle_position">Posisi tengah</string>
+    <string name="bottom_position">Posisi bawah</string>
+    <string name="total_silence">Keheningan total</string>
+    <string name="alarms_only">Hanya alarm</string>
+    <string name="priority_only">Hanya prioritas</string>
+    <string name="none">Semua pemberitahuan</string>
+    <string name="silent">Diam</string>
+    <string name="vibrate">Getar</string>
+    <string name="ring">Dering</string>
 </resources>
