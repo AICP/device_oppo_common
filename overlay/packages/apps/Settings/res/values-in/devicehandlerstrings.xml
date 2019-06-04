@@ -20,10 +20,12 @@
     <string name="shortcut_action_home">Halaman utama</string>
     <string name="shortcut_action_back">Kembali</string>
     <string name="shortcut_action_menu">Menu</string>
+    <string name="shortcut_action_ime">Buka Pengganti Metode Masukan</string>
     <string name="shortcut_action_power_menu">Menu daya</string>
     <string name="shortcut_action_recent">Recent</string>
     <string name="shortcut_action_power">Layar Mati</string>
     <string name="shortcut_action_search">Cari di aplikasi</string>
+    <string name="shortcut_action_now_on_tap">Tekan sekarang</string>
     <string name="shortcut_action_ring_vib">Dering/Getar</string>
     <string name="shortcut_action_ring_silent">Dering/Senyap</string>
     <string name="shortcut_action_ring_vib_silent">Dering/Getar/Senyap</string>
@@ -31,6 +33,10 @@
     <string name="shortcut_action_media_next">Musik - trek berikutnya</string>
     <string name="shortcut_action_media_play_pause">Musik - putar/jeda</string>
     <string name="shortcut_action_media_previous">Musik - trek sebelumnya</string>
+    <string name="shortcut_action_wake_device">Bangunkan perangkat</string>
+    <string name="shortcut_action_kill">Tutup apl</string>
+    <string name="shortcut_action_screenshot">Tangkapan layar</string>
+    <string name="shortcut_action_lastapp">Aplikasi terakhir</string>
     <string name="shortcut_action_notifications">Pemberitahuan</string>
     <string name="shortcut_action_qs">Panel setelan cepat</string>
     <string name="shortcut_action_torch">Senter</string>
@@ -40,9 +46,17 @@
     <string name="shortcut_action_select_action_newaction">Pilih tindakan baru:</string>
     <string name="shortcut_action_reset">Setel ulang</string>
     <string name="shortcut_action_add">Tambah</string>
+    <string name="shortcut_action_reset_message">Setel ulang semua entri ke standar?</string>
+    <string name="shortcut_action_max">Ukuran maksimal entri telah tercapai</string>
     <string name="shortcut_action_warning">Peringatan</string>
+    <string name="shortcut_action_warning_message">Tidak memungkinkan untuk menghapus entri terakhir</string>
+    <string name="shortcut_action_required_warning_message">Tidak memungkinkan untuk menghapus tombol yang diperlukan</string>
+    <string name="shortcut_action_disable_message">Dimatikan\nTambahkan entri untuk menghidupkan fitur ini</string>
+    <string name="shortcut_image_not_valid">Aplikasi yang dipilih tidak mengembalikan ikon yang valid atau tidak mendukung pemotongan gambar. Gunakan aplikasi lain.</string>
+    <string name="shortcut_duplicate_entry">Tindakan yang dipilih tidak dapat ditambahkan dua kali</string>
     <string name="shortcut_action_help_shortcut">pintasan</string>
     <string name="shortcut_action_help_button">tombol</string>
     <string name="shortcut_action_help_app">apl</string>
     <string name="shortcut_action_help_icon">, saat memilih ikon akan memunculkan pilihan kustomisasi</string>
+    <string name="screen_off_gesture_settings_title">Gerakan saat layar mati</string>
 </resources>
