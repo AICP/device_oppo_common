@@ -24,6 +24,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.preference.PreferenceManager;
 
+import com.aicp.device.preference.VibratorStrengthPreference;
 import com.slim.device.KernelControl;
 import com.slim.device.settings.ScreenOffGesture;
 import com.slim.device.settings.SliderSettings;
@@ -40,32 +41,33 @@ public class BootReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, final Intent intent) {
         if (intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)) {
-                enableComponent(context, ScreenOffGesture.class.getName());
-                SharedPreferences screenOffGestureSharedPreferences = context.getSharedPreferences(
-                        ScreenOffGesture.GESTURE_SETTINGS, Activity.MODE_PRIVATE);
-                KernelControl.enableGestures(
-                        screenOffGestureSharedPreferences.getBoolean(
-                        ScreenOffGesture.PREF_GESTURE_ENABLE, true));
-            }
+            enableComponent(context, ScreenOffGesture.class.getName());
+            SharedPreferences screenOffGestureSharedPreferences = context.getSharedPreferences(
+                    ScreenOffGesture.GESTURE_SETTINGS, Activity.MODE_PRIVATE);
+            KernelControl.enableGestures(
+                    screenOffGestureSharedPreferences.getBoolean(
+                    ScreenOffGesture.PREF_GESTURE_ENABLE, true));
+            VibratorStrengthPreference.restore(context);
+        }
 
-            // Disable slider settings if needed
-            if (!KernelControl.hasSlider()) {
-                disableComponent(context, SliderSettings.class.getName());
-            } else {
-                enableComponent(context, SliderSettings.class.getName());
+        // Disable slider settings if needed
+        if (!KernelControl.hasSlider()) {
+            disableComponent(context, SliderSettings.class.getName());
+        } else {
+            enableComponent(context, SliderSettings.class.getName());
 
-                // Set keycodes as expected by our keyhandler for kernels
-                // that control keycodes using these files
-                /* EDIT: don't, can lead to wrong value sent after boot
-                String sliderTop = "" + SLIDER_TOP;
-                String sliderMiddle = "" + SLIDER_MIDDLE;
-                String sliderBottom = "" + SLIDER_BOTTOM;
+            // Set keycodes as expected by our keyhandler for kernels
+            // that control keycodes using these files
+            /* EDIT: don't, can lead to wrong value sent after boot
+            String sliderTop = "" + SLIDER_TOP;
+            String sliderMiddle = "" + SLIDER_MIDDLE;
+            String sliderBottom = "" + SLIDER_BOTTOM;
 
-                FileUtils.writeLine(KernelControl.KEYCODE_SLIDER_TOP, sliderTop);
-                FileUtils.writeLine(KernelControl.KEYCODE_SLIDER_MIDDLE, sliderMiddle);
-                FileUtils.writeLine(KernelControl.KEYCODE_SLIDER_BOTTOM, sliderBottom);
-                */
-            }
+            FileUtils.writeLine(KernelControl.KEYCODE_SLIDER_TOP, sliderTop);
+            FileUtils.writeLine(KernelControl.KEYCODE_SLIDER_MIDDLE, sliderMiddle);
+            FileUtils.writeLine(KernelControl.KEYCODE_SLIDER_BOTTOM, sliderBottom);
+            */
+        }
     }
 
     private String getPreferenceString(Context context, String key, String defaultValue) {
