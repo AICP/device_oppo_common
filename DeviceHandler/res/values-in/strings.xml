@@ -38,4 +38,6 @@
     <string name="silent">Diam</string>
     <string name="vibrate">Getar</string>
     <string name="ring">Dering</string>
+    <string name="button_swap_title">Tukar tombol</string>
+    <string name="button_swap_summary">Tukar urutan tombol recent dan kembali</string>
 </resources>

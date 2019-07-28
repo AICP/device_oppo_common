@@ -20,15 +20,11 @@
     <string name="shortcut_action_home">ホーム</string>
     <string name="shortcut_action_back">戻る</string>
     <string name="shortcut_action_menu">メニュー</string>
-    <string name="shortcut_action_ime">入力方法の選択を開く</string>
     <string name="shortcut_action_power_menu">電源メニュー</string>
     <string name="shortcut_action_recent">アプリ履歴</string>
     <string name="shortcut_action_power">画面を消灯</string>
     <string name="shortcut_action_search">アプリ内検索</string>
     <string name="shortcut_action_now_on_tap">Now on Tap</string>
-    <string name="shortcut_action_ring_vib">着信音/バイブ</string>
-    <string name="shortcut_action_ring_silent">着信音/サイレント</string>
-    <string name="shortcut_action_ring_vib_silent">着信音 / バイブ / サイレント</string>
     <string name="shortcut_action_camera">カメラ</string>
     <string name="shortcut_action_media_next">音楽 - 次の曲</string>
     <string name="shortcut_action_media_play_pause">音楽 - 再生/一時停止</string>
