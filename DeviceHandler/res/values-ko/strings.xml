@@ -15,4 +15,39 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="dlg_ok">확인</string>
+    <string name="cancel">취소</string>
+    <string name="reset">재설정</string>
+    <string name="reset_message">모든 항목을 기본값으로 재설정 하겠습니까?</string>
+    <string name="screen_off_gesture_title">화면 끄기 제스쳐</string>
+    <string name="screen_off_gesture_summary">다양한 장치 별 제스처 관리</string>
+    <string name="group_applications">애플리케이션</string>
+    <string name="select_custom_app_title">사용자 지정 애플리케이션 선택</string>
+    <string name="enable_gestures_title">제스처 활성화</string>
+    <string name="enable_gestures_summary">화면 끄기 제스쳐 사용</string>
+    <string name="gestures_title">제스쳐</string>
+    <string name="gesture_arrow_down_title">Arrow down</string>
+    <string name="gesture_arrow_left_title">왼쪽 화살표</string>
+    <string name="gesture_arrow_right_title">오른쪽 화살표</string>
+    <string name="gesture_arrow_up_title">화살표를 위로 향함</string>
+    <string name="gesture_circle_title">원 아이콘</string>
+    <string name="gesture_double_swipe_title">두 손가락 쓸어내리기</string>
+    <string name="gesture_double_tap_title">더블탭</string>
+    <string name="notification_slider">알림 슬라이더</string>
+    <string name="notification_slider_summary">슬라이더 위치 구성</string>
+    <string name="action">작업</string>
+    <string name="top_position">위쪽</string>
+    <string name="middle_position">중간</string>
+    <string name="bottom_position">아래 위치</string>
+    <string name="total_silence">모두 차단</string>
+    <string name="alarms_only">알람만</string>
+    <string name="priority_only">중요 알림만</string>
+    <string name="none">모든 알림</string>
+    <string name="silent">음소거</string>
+    <string name="vibrate">진동</string>
+    <string name="ring">벨소리</string>
+    <string name="notification_slider_haptic_feedback_title">터치 시 진동</string>
+    <string name="notification_slider_haptic_feedback_summary">슬라이더 사용시에 진동</string>
+    <string name="button_swap_title">버튼 위치 바꾸기</string>
+    <string name="button_swap_summary">최근 앱 버튼과 뒤로 버튼의 위치를 바꾸기</string>
 </resources>

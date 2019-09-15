@@ -15,4 +15,39 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="dlg_ok">OK</string>
+    <string name="cancel">中止</string>
+    <string name="reset">リセット</string>
+    <string name="reset_message">全ての項目を既定にリセットしますか?</string>
+    <string name="screen_off_gesture_title">画面消灯時のジェスチャー</string>
+    <string name="screen_off_gesture_summary">端末固有の様々なジェスチャーを管理する</string>
+    <string name="group_applications">アプリ</string>
+    <string name="select_custom_app_title">カスタムアプリの選択</string>
+    <string name="enable_gestures_title">ジェスチャーを有効化</string>
+    <string name="enable_gestures_summary">画面消灯時のジェスチャーを有効にする</string>
+    <string name="gestures_title">ジェスチャー</string>
+    <string name="gesture_arrow_down_title">下矢印</string>
+    <string name="gesture_arrow_left_title">左矢印</string>
+    <string name="gesture_arrow_right_title">右矢印</string>
+    <string name="gesture_arrow_up_title">上矢印</string>
+    <string name="gesture_circle_title">円</string>
+    <string name="gesture_double_swipe_title">2本指で下にスワイプ</string>
+    <string name="gesture_double_tap_title">ダブルタップ</string>
+    <string name="notification_slider">通知スライダー</string>
+    <string name="notification_slider_summary">スライダーの位置を編集する</string>
+    <string name="action">アクション</string>
+    <string name="top_position">上部</string>
+    <string name="middle_position">中央</string>
+    <string name="bottom_position">下部</string>
+    <string name="total_silence">サイレント</string>
+    <string name="alarms_only">アラームのみ</string>
+    <string name="priority_only">優先する通知のみ</string>
+    <string name="none">全ての通知</string>
+    <string name="silent">ミュート</string>
+    <string name="vibrate">振動</string>
+    <string name="ring">通常</string>
+    <string name="notification_slider_haptic_feedback_title">振動フィードバック</string>
+    <string name="notification_slider_haptic_feedback_summary">スライダー使用時に振動する</string>
+    <string name="button_swap_title">ボタンの入れ替え</string>
+    <string name="button_swap_summary">アプリ履歴ボタンと戻るボタンの位置を入れ替える</string>
 </resources>
