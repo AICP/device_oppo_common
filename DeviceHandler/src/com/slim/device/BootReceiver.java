@@ -25,7 +25,7 @@ import android.content.pm.PackageManager;
 import android.preference.PreferenceManager;
 
 import com.slim.device.KernelControl;
-import com.slim.device.settings.ScreenOffGesture;
+//import com.slim.device.settings.ScreenOffGesture;
 import com.slim.device.settings.SliderSettings;
 import com.slim.device.util.FileUtils;
 
@@ -40,13 +40,12 @@ public class BootReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, final Intent intent) {
         if (intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)) {
-                enableComponent(context, ScreenOffGesture.class.getName());
+/*                enableComponent(context, ScreenOffGesture.class.getName());
                 SharedPreferences screenOffGestureSharedPreferences = context.getSharedPreferences(
                         ScreenOffGesture.GESTURE_SETTINGS, Activity.MODE_PRIVATE);
                 KernelControl.enableGestures(
                         screenOffGestureSharedPreferences.getBoolean(
-                        ScreenOffGesture.PREF_GESTURE_ENABLE, true));
-            }
+                        ScreenOffGesture.PREF_GESTURE_ENABLE, true));*/
 
             // Disable slider settings if needed
             if (!KernelControl.hasSlider()) {
@@ -66,6 +65,7 @@ public class BootReceiver extends BroadcastReceiver {
                 FileUtils.writeLine(KernelControl.KEYCODE_SLIDER_BOTTOM, sliderBottom);
                 */
             }
+        }
     }
 
     private String getPreferenceString(Context context, String key, String defaultValue) {

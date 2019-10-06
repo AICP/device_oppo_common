@@ -41,7 +41,7 @@ import android.view.KeyEvent;
 
 import android.service.notification.ZenModeConfig;
 
-import com.slim.device.settings.ScreenOffGesture;
+//import com.slim.device.settings.ScreenOffGesture;
 
 import com.android.internal.os.DeviceKeyHandler;
 import com.android.internal.util.ArrayUtils;
@@ -159,7 +159,7 @@ public class KeyHandler implements DeviceKeyHandler {
             }
             String action = null;
             switch(scanCode) {
-            case GESTURE_CIRCLE_SCANCODE:
+/*            case GESTURE_CIRCLE_SCANCODE:
                 action = getGestureSharedPreferences()
                         .getString(ScreenOffGesture.PREF_GESTURE_CIRCLE,
                         ActionConstants.ACTION_CAMERA);
@@ -194,7 +194,7 @@ public class KeyHandler implements DeviceKeyHandler {
                         .getString(ScreenOffGesture.PREF_GESTURE_ARROW_RIGHT,
                         ActionConstants.ACTION_MEDIA_NEXT);
                         doHapticFeedback();
-                break;
+                break;*/
             case MODE_TOTAL_SILENCE:
                 setZenMode(Settings.Global.ZEN_MODE_NO_INTERRUPTIONS);
                 break;
@@ -252,11 +252,11 @@ public class KeyHandler implements DeviceKeyHandler {
             mVibrator.vibrate(50);
     }
 
-    private SharedPreferences getGestureSharedPreferences() {
+/*    private SharedPreferences getGestureSharedPreferences() {
         return mGestureContext.getSharedPreferences(
                 ScreenOffGesture.GESTURE_SETTINGS,
                 Context.MODE_PRIVATE | Context.MODE_MULTI_PROCESS);
-    }
+    }*/
 
     public KeyEvent handleKeyEvent(KeyEvent event) {
         int scanCode = event.getScanCode();
