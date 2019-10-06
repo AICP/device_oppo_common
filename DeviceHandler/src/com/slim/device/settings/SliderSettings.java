@@ -18,10 +18,10 @@ package com.slim.device.settings;
 
 import android.app.ActionBar;
 import android.os.Bundle;
+import android.preference.PreferenceActivity;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.PreferenceActivity;
 import androidx.preference.SwitchPreference;
 import android.view.MenuItem;
 
