@@ -45,8 +45,8 @@ import com.slim.device.settings.ScreenOffGesture;
 
 import com.android.internal.os.DeviceKeyHandler;
 import com.android.internal.util.ArrayUtils;
-import com.android.internal.util.gzosp.ActionConstants;
-import com.android.internal.util.gzosp.Action;
+import com.android.internal.util.aicp.ActionConstants;
+import com.android.internal.util.aicp.Action;
 
 import java.util.HashSet;
 
