@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2014 The CyanogenMod Project
+# Copyright (C) 2014 SlimRoms Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,14 +14,18 @@
 # limitations under the License.
 #
 
-# overlays
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+LOCAL_PATH := $(call my-dir)
+include $(CLEAR_VARS)
 
-# DevicHandler
-PRODUCT_PACKAGES += \
-	DeviceHandler
+LOCAL_SRC_FILES := $(call all-java-files-under, src)
+LOCAL_CERTIFICATE := platform
+LOCAL_PACKAGE_NAME := DeviceHandler
+LOCAL_PRIVATE_PLATFORM_APIS := true
+LOCAL_PROGUARD_FLAG_FILES := proguard.flags
+LOCAL_DEX_PREOPT := false
 
-# Recovery
-PRODUCT_PACKAGES += \
-    librecovery_updater_oppo
+LOCAL_STATIC_ANDROID_LIBRARIES := \
+    androidx.core_core \
+    androidx.preference_preference
 
+include $(BUILD_PACKAGE)
