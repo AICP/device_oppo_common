@@ -18,7 +18,7 @@
     android:viewportHeight="24">
 
     <path
-        android:fillColor="@android:color/white"
+        android:fillColor="?android:attr/colorControlNormal"
         android:pathData="M6.65625,7 A5,5,0,0,0,2,12 A5,5,0,0,0,7,17 L7.34375,17 L10.0313,17 L10.2188,17
 L19.875,17 C19.9098,17,19.9344,17.0031,19.9688,17
 C21.2447,16.8867,22.25,14.6884,22.25,12 L22.25,11.8125
