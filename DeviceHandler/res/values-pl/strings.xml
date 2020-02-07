@@ -15,6 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- General strings -->
     <string name="dlg_ok">OK</string>
     <string name="cancel">Anuluj</string>
     <string name="reset">Reset</string>
@@ -33,6 +34,7 @@
     <string name="gesture_circle_title">Okrąg</string>
     <string name="gesture_double_swipe_title">Przesunięcie dwoma palcami w dół</string>
     <string name="gesture_double_tap_title">Podwójne naciśnięcie</string>
+    <!-- Notification slider -->
     <string name="notification_slider">Panel powiadomień</string>
     <string name="notification_slider_summary">Konfiguruj pozycję slidera</string>
     <string name="action">Akcja</string>

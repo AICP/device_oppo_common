@@ -15,6 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Shortcut actions -->
     <string name="shortcut_action_none">Żaden</string>
     <string name="shortcut_action_app">Niestandardowa aplikacja</string>
     <string name="shortcut_action_home">Strona główna</string>
@@ -59,5 +60,6 @@
     <string name="shortcut_action_help_app">aplikacja</string>
     <string name="shortcut_action_help_icon">, po zaznaczaniu ikony zostaną wyświetlone opcje dostosowywania</string>
     <string name="shortcut_action_help_main">Aby dodać %1$s, naciśnij przycisk Dodaj. Kiedy %1$s zostanie dodany, wybranie wiersza zmieni jego wartość%2$s\n\nAby usunąć %1$s, przesuń wiersz poziomo w lewo lub prawo. Aby zmienić kolejność %1$s na liście przeciągnij pionowo za uchwyt po lewej stronie.\n\nAby przywrócić do do ustawień domyślnych, naciśnij przycisk Przywróć.</string>
+    <!-- Device specific settings -->
     <string name="screen_off_gesture_settings_title">Gesty przy wyłączonym ekranie</string>
 </resources>

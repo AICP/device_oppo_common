@@ -15,6 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Shortcut actions -->
     <string name="shortcut_action_none">Nessuna</string>
     <string name="shortcut_action_app">App personalizzata</string>
     <string name="shortcut_action_home">Home</string>
@@ -59,5 +60,6 @@
     <string name="shortcut_action_help_app">app</string>
     <string name="shortcut_action_help_icon">, mentre selezionando l\'icona verranno visualizzate le opzioni di personalizzazione</string>
     <string name="shortcut_action_help_main">Per aggiungere un %1$s, seleziona l\'icona Aggiungi. Dopo che il %1$s è stato aggiunto, selezionando la riga potrai cambiare l\'obiettivo%2$s\n\nPer rimuovere un %1$s, trascina l\'elemento a destra o sinistra. Riordina un %1$s trascinandolo verticalmente il punto di ancoraggio a sinistra.\n\nPer ripulire o ripristinare, seleziona l\'icona Reimposta.</string>
+    <!-- Device specific settings -->
     <string name="screen_off_gesture_settings_title">Gesti a schermo spento</string>
 </resources>

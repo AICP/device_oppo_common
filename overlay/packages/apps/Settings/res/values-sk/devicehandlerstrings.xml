@@ -15,6 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Shortcut actions -->
     <string name="shortcut_action_none">Žiadne</string>
     <string name="shortcut_action_app">Vlastná aplikácia</string>
     <string name="shortcut_action_home">Domov</string>
@@ -59,5 +60,6 @@
     <string name="shortcut_action_help_app">aplikácia</string>
     <string name="shortcut_action_help_icon">, zatiaľ čo kliknutie na ikonu zobrazí možnosti jej prispôsobenia</string>
     <string name="shortcut_action_help_main">Pre pridanie%1$s, vyberte Pridať ikonu. Akonáhle%1$s pridáte, vybraním riadku zmeníte objekt%2$s\n\nPre odstránenie%1$s, prejdite riadok vodorovne doľava alebo doprava. Preusporiadať %1$s v zozname môžete pretiahnutím kotvy vertikálne na ľavej strane.\n\nAk chcete vymazať alebo obnoviť predvolené nastavenia, kliknite na možnosť Obnoviť.</string>
+    <!-- Device specific settings -->
     <string name="screen_off_gesture_settings_title">Gesta pri vypnutej obrazovke</string>
 </resources>

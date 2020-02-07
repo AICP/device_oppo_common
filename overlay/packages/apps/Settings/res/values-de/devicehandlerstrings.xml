@@ -15,6 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Shortcut actions -->
     <string name="shortcut_action_none">Keine Aktion</string>
     <string name="shortcut_action_app">Benutzerdefinierte App</string>
     <string name="shortcut_action_home">Start</string>
@@ -59,5 +60,6 @@
     <string name="shortcut_action_help_app">App</string>
     <string name="shortcut_action_help_icon">, während die Auswahl des Symbols die Anpassungsoptionen zeigt</string>
     <string name="shortcut_action_help_main">Um eine %1$s hinzufügen, bitte das \"Plus\"-Symbol anwählen. Wenn eine %1$s hinzugefügt wurde, kann die Position durch Auswahl der Zeile bestimmt werden %2$s\n\nUm eine %1$s zu entfernen, einfach die Zeile horizontal nach links oder rechts schieben. Zur Neuanordnung einer %1$s in der Liste einfach die Ankerbalken (links) drücken und vertikal verschieben.\n\nZum Zurücksetzen oder Löschen der Liste, bitte das \"Zurücksetzen\"-Symbol wählen.</string>
+    <!-- Device specific settings -->
     <string name="screen_off_gesture_settings_title">Gesten bei ausgeschaltetem Bildschirm</string>
 </resources>

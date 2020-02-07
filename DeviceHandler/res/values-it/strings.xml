@@ -15,4 +15,41 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- General strings -->
+    <string name="dlg_ok">OK</string>
+    <string name="cancel">Annulla</string>
+    <string name="reset">Ripristino</string>
+    <string name="reset_message">Ripristinare tutti i valori a quelli predefiniti?</string>
+    <string name="screen_off_gesture_title">Gesti a schermo spento</string>
+    <string name="screen_off_gesture_summary">Gestire i vari gesti specifici del dispositivo</string>
+    <string name="group_applications">Applicazioni</string>
+    <string name="select_custom_app_title">Seleziona applicazione personalizzata</string>
+    <string name="enable_gestures_title">Abilita i gesti</string>
+    <string name="enable_gestures_summary">Attiva gesti a schermo spento</string>
+    <string name="gestures_title">Gesti</string>
+    <string name="gesture_arrow_down_title">Freccia in basso</string>
+    <string name="gesture_arrow_left_title">Freccia sinistra</string>
+    <string name="gesture_arrow_right_title">Freccia destra</string>
+    <string name="gesture_arrow_up_title">Freccia su</string>
+    <string name="gesture_circle_title">Circolare</string>
+    <string name="gesture_double_swipe_title">Scorri giù con due dita</string>
+    <string name="gesture_double_tap_title">Doppio tocco</string>
+    <!-- Notification slider -->
+    <string name="notification_slider">Cursore delle notifiche</string>
+    <string name="notification_slider_summary">Configurare la posizione del cursore</string>
+    <string name="action">Azione</string>
+    <string name="top_position">Posizione superiore</string>
+    <string name="middle_position">Posizione centrale</string>
+    <string name="bottom_position">Posizione inferiore</string>
+    <string name="total_silence">Silenzio totale</string>
+    <string name="alarms_only">Solo sveglie</string>
+    <string name="priority_only">Solo con priorità</string>
+    <string name="none">Tutte le notifiche</string>
+    <string name="silent">Silenzioso</string>
+    <string name="vibrate">Vibrazione</string>
+    <string name="ring">Suoneria</string>
+    <string name="notification_slider_haptic_feedback_title">Feedback aptico</string>
+    <string name="notification_slider_haptic_feedback_summary">Vibra all\'utilizzo dello slider</string>
+    <string name="button_swap_title">Inverti pulsanti</string>
+    <string name="button_swap_summary">Inverti la posizione dei tasti indietro e recenti</string>
 </resources>

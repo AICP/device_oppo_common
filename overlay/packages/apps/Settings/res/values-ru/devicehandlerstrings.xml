@@ -15,6 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Shortcut actions -->
     <string name="shortcut_action_none">Нет</string>
     <string name="shortcut_action_app">Пользовательское приложение</string>
     <string name="shortcut_action_home">Домой</string>
@@ -59,5 +60,6 @@
     <string name="shortcut_action_help_app">приложение</string>
     <string name="shortcut_action_help_icon">, при выборе значка появятся параметры кастомизации</string>
     <string name="shortcut_action_help_main">Чтобы добавить %1$s, нажмите значок \"Добавить\". Когда %1$s добавлено, выбором ряда можно изменить цель%2$s\n\nЧтобы удалить %1$s, сдвиньте ряд по горизонтали. Изменить порядок %1$s в списке можно вертикальным перетаскиванием якоря налево.\n\nЧтобы сбросить все к значениям по умолчанию, нажмите значок \"Сбросить\".</string>
+    <!-- Device specific settings -->
     <string name="screen_off_gesture_settings_title">Жесты при выключенном экране</string>
 </resources>

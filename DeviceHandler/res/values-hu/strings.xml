@@ -15,6 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- General strings -->
     <string name="dlg_ok">OK</string>
     <string name="cancel">Mégse</string>
     <string name="reset">Visszaállítás</string>
@@ -33,6 +34,7 @@
     <string name="gesture_circle_title">Kör</string>
     <string name="gesture_double_swipe_title">Kétujjas lefelé csúsztatás</string>
     <string name="gesture_double_tap_title">Dupla érintés</string>
+    <!-- Notification slider -->
     <string name="notification_slider">Értesítési csúszka</string>
     <string name="notification_slider_summary">Állítsa be a csúszka pozícióját</string>
     <string name="action">Művelet</string>

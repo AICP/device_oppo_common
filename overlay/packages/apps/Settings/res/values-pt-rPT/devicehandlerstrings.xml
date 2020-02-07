@@ -15,6 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Shortcut actions -->
     <string name="shortcut_action_none">Nenhum</string>
     <string name="shortcut_action_app">Aplicação personalizada</string>
     <string name="shortcut_action_home">Página inicial</string>
@@ -59,5 +60,6 @@
     <string name="shortcut_action_help_app">aplicações</string>
     <string name="shortcut_action_help_icon">, enquanto que selecionar o ícone mostrará as opções de personalização</string>
     <string name="shortcut_action_help_main">Para adicionar um %1$s, selecione o ícone Adicionar. Quando adicionado um %1$s, ao selecionar a linha poderá mudar o %2$s\n\nPara eliminar um %1$s, deslize a linha na horizontal à esquerda ou à direita. Para reordenar um %1$s na lista arraste-o na vertical pressionando o ícone à sua esquerda.\n\nPara limpar e redefinir aos valores de origem, selecione o ícone de Restaurar.</string>
+    <!-- Device specific settings -->
     <string name="screen_off_gesture_settings_title">Gestos do ecrã apagado</string>
 </resources>

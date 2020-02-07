@@ -15,6 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Shortcut actions -->
     <string name="shortcut_action_none">Egyik sem</string>
     <string name="shortcut_action_app">Egyéni alkalmazás</string>
     <string name="shortcut_action_home">Főoldal</string>
@@ -59,5 +60,6 @@
     <string name="shortcut_action_help_app">alkalmazás</string>
     <string name="shortcut_action_help_icon">, miközben kiválasztja az ikont a testreszabási lehetőségek is megjelennek majd</string>
     <string name="shortcut_action_help_main">%1$s hozzáadásához válassza a \"Hozzáadás\" ikont. Miután %1$s hozzá lett adva, a sor kiválasztása változtatja a célt %2$s\n\n%1$s eltávolításához a sort csúsztassa ki jobbra vagy balra. %1$s listán belüli átrendezéséhez húzza függőlegesen a bal oldali horgonyt.\n\nTörlés vagy alaphelyzetbe állításhoz válassza a \"Visszaállítás\" opciót.</string>
+    <!-- Device specific settings -->
     <string name="screen_off_gesture_settings_title">Képernyő kikapcsolás gesztusvezérléssel</string>
 </resources>

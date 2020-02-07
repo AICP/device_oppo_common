@@ -15,6 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Shortcut actions -->
     <string name="shortcut_action_none">なし</string>
     <string name="shortcut_action_app">カスタムアプリ</string>
     <string name="shortcut_action_home">ホーム</string>
@@ -59,5 +60,6 @@
     <string name="shortcut_action_help_app">アプリ</string>
     <string name="shortcut_action_help_icon">アイコンを選択すると編集オブションが表示されます</string>
     <string name="shortcut_action_help_main">%1$sを追加するには、追加アイコンを選択します。%1$sが追加されたら、行をタップするとターゲットを%2$sに変更できます。\n\n右または左へ水平にスワイプすると%1$sを削除できます。垂直方向左側にアンカーをドラッグすると、%1$sをリストに再度追加できます。\n\nクリアまたは既定にリセットするには、リセットアイコンを選択して下さい。</string>
+    <!-- Device specific settings -->
     <string name="screen_off_gesture_settings_title">画面消灯時のジェスチャー</string>
 </resources>

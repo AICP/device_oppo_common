@@ -15,6 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- General strings -->
     <string name="dlg_ok">OKE</string>
     <string name="cancel">Batal</string>
     <string name="reset">Setel ulang</string>
@@ -26,6 +27,7 @@
     <string name="gesture_arrow_right_title">Panah ke kanan</string>
     <string name="gesture_arrow_up_title">Panah ke atas</string>
     <string name="gesture_double_tap_title">Tekan dua kali</string>
+    <!-- Notification slider -->
     <string name="notification_slider">Penggeser pemberitahuan</string>
     <string name="action">Tindakan</string>
     <string name="top_position">Posisi atas</string>

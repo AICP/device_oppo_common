@@ -15,6 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- General strings -->
     <string name="dlg_ok">确定</string>
     <string name="cancel">取消</string>
     <string name="reset">重置</string>
@@ -33,6 +34,7 @@
     <string name="gesture_circle_title">环形</string>
     <string name="gesture_double_swipe_title">双指向下滑动</string>
     <string name="gesture_double_tap_title">双击</string>
+    <!-- Notification slider -->
     <string name="notification_slider">三段式开关</string>
     <string name="notification_slider_summary">配置滑块位置</string>
     <string name="action">操作</string>

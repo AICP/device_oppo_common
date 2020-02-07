@@ -15,6 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Shortcut actions -->
     <string name="shortcut_action_none">لا شيء</string>
     <string name="shortcut_action_app">تطبيق مخصص</string>
     <string name="shortcut_action_home">الرئيسية</string>
@@ -59,5 +60,6 @@
     <string name="shortcut_action_help_app">تطبيق</string>
     <string name="shortcut_action_help_icon">، أثناء إختيار الرمز سيتم إحضار خيارات التخصيص</string>
     <string name="shortcut_action_help_main">لإضافة %1$s، اختر رمز الإضافة. بعد إضافة %1$s، اختيار الصف سيغير الهدف %2$s\n\nلإزالة %1$s، قم بسحب الصف أفقياً لليمين أو اليسار. أعد ترتيب %1$s في القائمة عن طريق سحب المرساة رأسيا على اليسار.\n\nللمسح أو إعادة ضبط الإعدادات الافتراضية، اختر خيار إعادة الضبط.</string>
+    <!-- Device specific settings -->
     <string name="screen_off_gesture_settings_title">إيماءات الشاشة المقفلة</string>
 </resources>
