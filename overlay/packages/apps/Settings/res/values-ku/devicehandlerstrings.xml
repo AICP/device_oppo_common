@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 SlimRoms Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="shortcut_action_none">هیچیان</string>
+    <string name="shortcut_action_app">ئەپی خۆکردی</string>
+    <string name="shortcut_action_home">ماڵەوە</string>
+    <string name="shortcut_action_back">گەڕانەوە</string>
+    <string name="shortcut_action_menu">پێڕست</string>
+    <string name="shortcut_action_ime">کردنەوەی گۆڕەڕی IME</string>
+    <string name="shortcut_action_power_menu">پێڕستی سەرەکی</string>
+    <string name="shortcut_action_recent">دوایینەکان</string>
+    <string name="shortcut_action_power">کوژانەوەی ڕوونما</string>
+    <string name="shortcut_action_search">گەڕان لەنێو ئەپ</string>
+    <string name="shortcut_action_ring_vib">زەنگ/لەرزین</string>
+    <string name="shortcut_action_ring_silent">زه‌نگ/کپ</string>
+    <string name="shortcut_action_ring_vib_silent">زه‌نگ/لەرزین/کپ</string>
+    <string name="shortcut_action_camera">کامێرا</string>
+    <string name="shortcut_action_media_next">میوزیک- تراکی دواتر</string>
+    <string name="shortcut_action_media_play_pause">میوزیک-لێدان/ڕاگرتن</string>
+    <string name="shortcut_action_media_previous">میوزیک - تراکی پێشوو</string>
+    <string name="shortcut_action_wake_device">هەڵکردنی ئامێر</string>
+    <string name="shortcut_action_kill">داخستنی ئەپ</string>
+    <string name="shortcut_action_screenshot">ڕوونماچرکان</string>
+    <string name="shortcut_action_lastapp">کۆتا ئەپ</string>
+    <string name="shortcut_action_notifications">ئاگانامەکان</string>
+    <string name="shortcut_action_qs">تەختەی ڕێکخستنی خێرا</string>
+    <string name="shortcut_action_torch">فلاش لایت</string>
+    <string name="shortcut_action_longpress">گرتەدرێژ:</string>
+    <string name="shortcut_action_select_action_longpress">هەڵبژاردنی کردەی گرتەدرێژ:</string>
+    <string name="shortcut_action_select_action">کردارێ هەڵبژێرە:</string>
+    <string name="shortcut_action_select_action_newaction">کرداری نوێ هەڵبژێرە:</string>
+    <string name="shortcut_action_reset">گێڕانەوە</string>
+    <string name="shortcut_action_add">زیاد</string>
+    <string name="shortcut_action_reset_message">گێڕانەوەی هەموو تۆمارەکان بۆ بنەڕەت؟</string>
+    <string name="shortcut_action_max">گەیشتووی بەبەرزترین قەبارەی تۆمارکراو</string>
+    <string name="shortcut_action_warning">ووریابە</string>
+    <string name="shortcut_action_warning_message">ناگونجێ کۆتا تۆمارکراو بسڕیتەوە</string>
+    <string name="shortcut_action_required_warning_message">ناگونجێ دوگمە داواکراوەکان بسڕدرێتەوە</string>
+    <string name="shortcut_action_disable_message">ناکاراکرا\nزیادکردنی تۆمارێک بۆ کاراکردنی ئەم تایبەتمەندییە</string>
+    <string name="shortcut_image_not_valid">ئەپی هەڵبژێردراو ئایکۆنێکی دروستی نەگەڕاندەوە یا پشتگیری بڕینی وێنە ناکات. ئەپێکیتر هەڵبژێرە.</string>
+    <string name="shortcut_duplicate_entry">کردەی هەڵبژێردراو ناتوانرێ دووجار زیادکرێ</string>
+    <string name="shortcut_action_help_shortcut">کورتەبڕ</string>
+    <string name="shortcut_action_help_button">دوگمە</string>
+    <string name="shortcut_action_help_app">ئەپ</string>
+    <string name="shortcut_action_help_icon">لەکاتی دیارکردنی ئایکۆنەکە بژاردەکانی شازدانت بۆ دەهێنێت</string>
+    <string name="screen_off_gesture_settings_title">جوڵانەکانی ڕوونماداخراو</string>
+</resources>
