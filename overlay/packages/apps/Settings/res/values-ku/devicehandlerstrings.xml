@@ -15,7 +15,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="shortcut_action_none">هیچیان</string>
-    <string name="shortcut_action_app">ئەپی خۆکردی</string>
+    <string name="shortcut_action_app">ئەپی دڵخواز</string>
     <string name="shortcut_action_home">ماڵەوە</string>
     <string name="shortcut_action_back">گەڕانەوە</string>
     <string name="shortcut_action_menu">پێڕست</string>
