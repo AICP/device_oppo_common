@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 SlimRoms Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="shortcut_action_none">Aucun</string>
+    <string name="shortcut_action_app">Application personnalisée</string>
+    <string name="shortcut_action_home">Accueil</string>
+    <string name="shortcut_action_back">Retour</string>
+    <string name="shortcut_action_menu">Menu</string>
+    <string name="shortcut_action_ime">Ouvrir le sélecteur de clavier</string>
+    <string name="shortcut_action_power_menu">Menu marche/arrêt</string>
+    <string name="shortcut_action_recent">Récents</string>
+    <string name="shortcut_action_power">Mise en veille</string>
+    <string name="shortcut_action_search">Rechercher dans l\'application</string>
+    <string name="shortcut_action_now_on_tap">Recherche Google Now à l\'écran</string>
+    <string name="shortcut_action_ring_vib">Son/Vibreur</string>
+    <string name="shortcut_action_ring_silent">Sonnerie/Silencieux</string>
+    <string name="shortcut_action_ring_vib_silent">Sonnerie/Vibr./Silence</string>
+    <string name="shortcut_action_camera">Appareil photo</string>
+    <string name="shortcut_action_media_next">Musique - piste suivante</string>
+    <string name="shortcut_action_media_play_pause">Musique - lecture/pause</string>
+    <string name="shortcut_action_media_previous">Musique - piste précédente</string>
+    <string name="shortcut_action_wake_device">Réveiller l\'appareil</string>
+    <string name="shortcut_action_kill">Arrêt forcé de l’application</string>
+    <string name="shortcut_action_screenshot">Capture d\'écran</string>
+    <string name="shortcut_action_lastapp">Dernière application</string>
+    <string name="shortcut_action_notifications">Notifications</string>
+    <string name="shortcut_action_qs">Panneau des réglages rapides</string>
+    <string name="shortcut_action_torch">Lampe torche</string>
+    <string name="shortcut_action_longpress">Appui long:</string>
+    <string name="shortcut_action_select_action_longpress">Choisir l\'action associée à un appui long :</string>
+    <string name="shortcut_action_select_action">Choisir une action:</string>
+    <string name="shortcut_action_select_action_newaction">Choisir une nouvelle action:</string>
+    <string name="shortcut_action_reset">Réinitialiser</string>
+    <string name="shortcut_action_add">Ajouter</string>
+    <string name="shortcut_action_reset_message">Réinitialiser toutes les entrées par défaut?</string>
+    <string name="shortcut_action_max">Le nombre d\'entrées maximum est atteint</string>
+    <string name="shortcut_action_warning">Attention</string>
+    <string name="shortcut_action_warning_message">Impossible de supprimer la dernière entrée</string>
+    <string name="shortcut_action_required_warning_message">Impossible de supprimer les boutons requis</string>
+    <string name="shortcut_action_disable_message">Désactivé\nAjouter une entrée pour activer cette fonctionnalité</string>
+    <string name="shortcut_image_not_valid">L\'application choisie n\'est pas associé à une icône valide ou ne supporte pas le redimensionnement d\'image. Utiliser une autre application.</string>
+    <string name="shortcut_duplicate_entry">L\'action choisie ne peut être ajoutée plus d\'une fois</string>
+    <string name="shortcut_action_help_shortcut">raccourci</string>
+    <string name="shortcut_action_help_button">bouton</string>
+    <string name="shortcut_action_help_app">application</string>
+    <string name="shortcut_action_help_icon">, en sélectionnant l\'icône, des options de personnalisation s\'afficheront</string>
+    <string name="shortcut_action_help_main">Pour ajouter un %1$s, sélectionner l\'icône \"ajouter\". Une fois le %1$s ajouté, sélectionner la ligne changera la cible%2$s\n\nPour supprimer un %1$s, glisser le doigt sur la ligne vers la gauche ou la droite. Déplacer un %1$s dans la liste en déplaçant verticalement le curseur à gauche.\n\nPour tout effacer ou revenir aux valeurs par défaut, utiliser l\'option \"réinitialiser\".</string>
+    <string name="screen_off_gesture_settings_title">Gestes d’extinction de l\'écran</string>
+</resources>

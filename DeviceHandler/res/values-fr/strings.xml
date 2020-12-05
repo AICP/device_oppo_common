@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 SlimRoms Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="dlg_ok">OK</string>
+    <string name="cancel">Annuler</string>
+    <string name="reset">Réinitialiser</string>
+    <string name="reset_message">Réinitialiser toutes les entrées par défaut?</string>
+    <string name="screen_off_gesture_title">Gestes d’extinction de l\'écran</string>
+    <string name="screen_off_gesture_summary">Gérer divers gestes spécifiques à l\'appareil</string>
+    <string name="group_applications">Applications</string>
+    <string name="select_custom_app_title">Sélectionner une application personnalisée</string>
+    <string name="enable_gestures_title">Activer les gestes</string>
+    <string name="enable_gestures_summary">Activer les gestes écran éteint</string>
+    <string name="gestures_title">Gestes</string>
+    <string name="gesture_arrow_down_title">Flèche bas</string>
+    <string name="gesture_arrow_left_title">Flèche gauche</string>
+    <string name="gesture_arrow_right_title">Flèche droite</string>
+    <string name="gesture_arrow_up_title">Flèche haut</string>
+    <string name="gesture_circle_title">Cercle</string>
+    <string name="gesture_double_swipe_title">Glisser deux doigts vers le bas</string>
+    <string name="gesture_double_tap_title">Appui double</string>
+    <string name="notification_slider">Volet de notification</string>
+    <string name="notification_slider_summary">Configurer les positions du volet</string>
+    <string name="action">Action</string>
+    <string name="top_position">En haut</string>
+    <string name="middle_position">Au milieu</string>
+    <string name="bottom_position">En bas</string>
+    <string name="total_silence">Silence total</string>
+    <string name="alarms_only">Alarmes seulement</string>
+    <string name="priority_only">Priorité uniquement</string>
+    <string name="none">Toutes les notifications</string>
+    <string name="silent">Discret</string>
+    <string name="vibrate">Vibrer</string>
+    <string name="ring">Sonnerie</string>
+    <string name="notification_slider_haptic_feedback_title">Retour haptique</string>
+    <string name="notification_slider_haptic_feedback_summary">Vibrer lors de l\'utilisation du volet</string>
+    <string name="button_swap_title">Inverser les boutons</string>
+    <string name="button_swap_summary">Inverser l\'ordre des boutons Applications récentes et Retour</string>
+</resources>

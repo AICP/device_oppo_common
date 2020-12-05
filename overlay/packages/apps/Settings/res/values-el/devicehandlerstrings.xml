@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 SlimRoms Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="shortcut_action_none">Κανένα</string>
+    <string name="shortcut_action_app">Προσαρμοσμένο app</string>
+    <string name="shortcut_action_home">Αρχική</string>
+    <string name="shortcut_action_back">Πίσω</string>
+    <string name="shortcut_action_menu">Μενού</string>
+    <string name="shortcut_action_ime">Εναλλαγή μεθόδων εισόδου</string>
+    <string name="shortcut_action_power_menu">Power menu</string>
+    <string name="shortcut_action_recent">Πρόσφατα</string>
+    <string name="shortcut_action_power">Απενεργ. οθόνης</string>
+    <string name="shortcut_action_search">Αναζήτηση σε εφαρμογή</string>
+    <string name="shortcut_action_now_on_tap">Τώρα σε Tap</string>
+    <string name="shortcut_action_ring_vib">Ήχος/Δόνηση</string>
+    <string name="shortcut_action_ring_silent">Ήχος/Αθόρυβο</string>
+    <string name="shortcut_action_ring_vib_silent">Κουδούνισμα/Δόνηση/Σίγαση</string>
+    <string name="shortcut_action_camera">Κάμερα</string>
+    <string name="shortcut_action_media_next">Μουσική - επόμενο κομμάτι</string>
+    <string name="shortcut_action_media_play_pause">Μουσική - αναπαραγωγή/παύση</string>
+    <string name="shortcut_action_media_previous">Μουσική - προηγούμενο κομμάτι</string>
+    <string name="shortcut_action_wake_device">Αφύπνιση συσκευής</string>
+    <string name="shortcut_action_kill">Τερματισμός εφαρμογής</string>
+    <string name="shortcut_action_screenshot">Στιγμιότυπο οθόνης</string>
+    <string name="shortcut_action_lastapp">Τελευταία εφαρμογή</string>
+    <string name="shortcut_action_notifications">Ειδοποιήσεις</string>
+    <string name="shortcut_action_qs">Πάνελ γρήγορων ρυθμίσεων</string>
+    <string name="shortcut_action_torch">Φακός</string>
+    <string name="shortcut_action_longpress">Παρατεταμένο πάτημα:</string>
+    <string name="shortcut_action_select_action_longpress">Επιλέξτε ενέργεια παρατεταμένου πατήματος:</string>
+    <string name="shortcut_action_select_action">Επιλέξτε ενέργεια:</string>
+    <string name="shortcut_action_select_action_newaction">Επιλέξτε τη νέα ενέργεια:</string>
+    <string name="shortcut_action_reset">Επαναφορά</string>
+    <string name="shortcut_action_add">Προσθήκη</string>
+    <string name="shortcut_action_reset_message">Επαναφορά προεπιλεγμένων ρυθμίσεων;</string>
+    <string name="shortcut_action_max">Επιτεύχθηκε το μέγιστο μέγεθος καταχωρήσεων</string>
+    <string name="shortcut_action_warning">Προειδοποίηση</string>
+    <string name="shortcut_action_warning_message">Δεν είναι δυνατόν να διαγράψετε την τελευταία καταχώρηση</string>
+    <string name="shortcut_action_required_warning_message">Δεν είναι δυνατό να διαγράψετε τα προαπαιτούμενα κουμπιά</string>
+    <string name="shortcut_action_disable_message">Απενεργοποιημένο\nΠροσθέστε μια καταχώρηση για να ενεργοποιήσετε αυτήν τη δυνατότητα</string>
+    <string name="shortcut_image_not_valid">Το επιλεγμένο app δεν υποστηρίζει το image cropping ή δεν έχει έγκυρη εικόνα. Χρησιμοποιήστε άλλο app.</string>
+    <string name="shortcut_duplicate_entry">Η επιλεγμένη ενέργεια δεν μπορεί να προστεθεί εις διπλούν</string>
+    <string name="shortcut_action_help_shortcut">συντόμευση</string>
+    <string name="shortcut_action_help_button">πλήκτρο</string>
+    <string name="shortcut_action_help_app">εφαρμογή</string>
+    <string name="shortcut_action_help_icon">, ενώ επιλέγοντας το εικονίδιο θα εμφανίσει τις επιλογές προσαρμογής</string>
+    <string name="shortcut_action_help_main">Για να προσθέσετε ένα %1$s, επιλέξτε το εικονίδιο Προσθήκη. Μόλις προστεθεί ένα %1$s, επιλέγοντας την σειρά θα αλλάξει τον στόχο%2$s\n\nΓια να αφαιρέσετε ένα %1$s, περάστε στη σειρά οριζοντίως προς τα αριστερά ή προς τα δεξιά. Αναδιάταξη μιας %1$s στη λίστα κάθετα σύροντας στα αριστερά.\n\nΓια να καταργήσετε ή να επαναφέρετε τις προεπιλεγμένες ρυθμίσεις, επιλέξτε το εικονίδιο Επαναφορά.</string>
+    <string name="screen_off_gesture_settings_title">Screen off gestures</string>
+</resources>

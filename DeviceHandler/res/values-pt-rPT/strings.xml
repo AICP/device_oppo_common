@@ -42,8 +42,11 @@
     <string name="alarms_only">Apenas alarmes</string>
     <string name="priority_only">Somente prioridade</string>
     <string name="none">Todas as notificações</string>
+    <string name="silent">Mudo</string>
     <string name="vibrate">Vibrar</string>
     <string name="ring">Toque</string>
+    <string name="notification_slider_haptic_feedback_title">Feedback tátil</string>
+    <string name="notification_slider_haptic_feedback_summary">Vibrar com o uso do controle deslizante</string>
     <string name="button_swap_title">Inverter botões</string>
     <string name="button_swap_summary">Inverter a ordem dos botões de Visão geral e Anterior</string>
 </resources>
