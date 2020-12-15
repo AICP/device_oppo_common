@@ -18,14 +18,22 @@
     <string name="cancel">Batal</string>
     <string name="reset">Setel ulang</string>
     <string name="reset_message">Setel ulang semua entri ke standar?</string>
+    <string name="screen_off_gesture_title">Gerakan saat layar mati</string>
+    <string name="screen_off_gesture_summary">Kelola berbagai gerakan spesifik perangkat</string>
     <string name="group_applications">Aplikasi</string>
     <string name="select_custom_app_title">Pilih aplikasi khusus</string>
+    <string name="enable_gestures_title">Aktifkan gerak isyarat</string>
+    <string name="enable_gestures_summary">Aktifkan gerakan saat layar mati</string>
+    <string name="gestures_title">Gerakan</string>
     <string name="gesture_arrow_down_title">Panah ke bawah</string>
     <string name="gesture_arrow_left_title">Panah ke kiri</string>
     <string name="gesture_arrow_right_title">Panah ke kanan</string>
     <string name="gesture_arrow_up_title">Panah ke atas</string>
+    <string name="gesture_circle_title">Lingkaran</string>
+    <string name="gesture_double_swipe_title">Seret dua jari ke bawah</string>
     <string name="gesture_double_tap_title">Tekan dua kali</string>
     <string name="notification_slider">Penggeser pemberitahuan</string>
+    <string name="notification_slider_summary">Konfigurasikan posisi penggeser</string>
     <string name="action">Tindakan</string>
     <string name="top_position">Posisi atas</string>
     <string name="middle_position">Posisi tengah</string>
@@ -37,6 +45,8 @@
     <string name="silent">Diam</string>
     <string name="vibrate">Getar</string>
     <string name="ring">Dering</string>
+    <string name="notification_slider_haptic_feedback_title">Umpan balik haptic</string>
+    <string name="notification_slider_haptic_feedback_summary">Getaran pada penggunaan slider</string>
     <string name="button_swap_title">Tukar tombol</string>
     <string name="button_swap_summary">Tukar urutan tombol recent dan kembali</string>
 </resources>
