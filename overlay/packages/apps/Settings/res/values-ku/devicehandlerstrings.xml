@@ -24,6 +24,7 @@
     <string name="shortcut_action_recent">دوایینەکان</string>
     <string name="shortcut_action_power">کوژانەوەی ڕوونما</string>
     <string name="shortcut_action_search">گەڕان لەنێو ئەپ</string>
+    <string name="shortcut_action_now_on_tap">ئێستا لە لوتکە</string>
     <string name="shortcut_action_ring_vib">زەنگ/لەرزین</string>
     <string name="shortcut_action_ring_silent">زه‌نگ/کپ</string>
     <string name="shortcut_action_ring_vib_silent">زه‌نگ/لەرزین/کپ</string>
@@ -56,5 +57,6 @@
     <string name="shortcut_action_help_button">دوگمە</string>
     <string name="shortcut_action_help_app">ئەپ</string>
     <string name="shortcut_action_help_icon">لەکاتی دیارکردنی ئایکۆنەکە بژاردەکانی شازدانت بۆ دەهێنێت</string>
+    <string name="shortcut_action_help_main">بۆ زیادکردنی %1$s ، وێنۆچکەی زیادکردن داگرە. کاتێ %1$s زیادکرا، دیاریکردنی ڕیزەکە ئامانجەکە ئەگۆڕێت %2$s\n\n بۆ لادانی %1$s ، بەئاسۆییانە پەنجە ڕاکێشە بۆ چەپ یان ڕاست. بۆ داواکردنەوەی %1$s لە لیستەکە ڕاگرەکە بە ئەستوونیانە ڕاکێشە بۆلای چەپ. \n\n بۆ پاککردنەوە یان گێڕانەوە بۆ بنەڕەت، ئایکۆنی گێڕانەوە داگرە.</string>
     <string name="screen_off_gesture_settings_title">جوڵانەکانی ڕوونماداخراو</string>
 </resources>
